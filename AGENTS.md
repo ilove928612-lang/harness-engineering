@@ -49,5 +49,5 @@
 执行：`bash scripts/check-consistency.sh`（仓库根目录）
 启用 pre-commit 阻断：`git config core.hooksPath .githooks`
 
-**CI 兜底**：`.github/workflows/consistency.yml` 在每次 push / PR 触及受控文件时跑同一脚本。
+**CI 兜底**：`.github/workflows/consistency.yml` 在每次 push / PR 时跑同一脚本（不做路径过滤，保证必需检查总能上报）。job 显示名固定为 `consistency / check`——分支保护按 check run 名匹配必需检查，改名会让所有 PR 重新被 "Expected" 卡住。
 本地 hook 是开发反馈，CI 是合并门——两层独立，本地未启用 hook 不会绕过检查。

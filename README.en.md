@@ -232,7 +232,7 @@ Once enabled, every commit touching the README, `AGENTS.md`, `references/article
 
 **Run manually:** `bash scripts/check-consistency.sh`
 
-**CI backstop:** even without the local hook, GitHub Actions (`.github/workflows/consistency.yml`) runs the same script on every push / PR touching the guarded files. The local hook is fast feedback during development; CI is the actual merge gate.
+**CI backstop:** even without the local hook, GitHub Actions (`.github/workflows/consistency.yml`) runs the same script on every push / PR (no path filters, so the branch-protection required check always gets reported). The local hook is fast feedback during development; CI is the actual merge gate.
 
 See the "机械化检查" section of the root `AGENTS.md` for details.
 

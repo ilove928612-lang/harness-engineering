@@ -3,40 +3,28 @@ name: consistency
 # Mirror the local pre-commit hook on the server side.
 # Local hook only fires when contributors opt in via `git config core.hooksPath .githooks`,
 # so this CI job is the actual quality gate before code lands on main.
+#
+# Two deliberate choices for branch protection compatibility:
+#
+# 1. No path filters. The branch protection rule marks this check as required, and a
+#    required check that never gets reported (because a PR didn't touch the filtered
+#    paths) blocks merging forever with "Expected — Waiting for status to be reported".
+#    The script runs in seconds, so we just run it on everything.
+#
+# 2. The job's display name is pinned to "consistency / check". Branch protection
+#    matches required checks against the *check run name*, which for Actions is the
+#    job name (the "workflow / job" text on PR pages is display-only). The protection
+#    rule on main requires the literal context "consistency / check", so the job name
+#    must be exactly that string — renaming it will re-block every PR.
 
 on:
   push:
     branches: [main]
-    paths:
-      - 'references/articles.md'
-      - 'references/AGENTS.md'
-      - 'README.md'
-      - 'README.en.md'
-      - 'AGENTS.md'
-      - 'prompts/deep-research-tracker.md'
-      - 'concepts/**.md'
-      - 'thinking/**.md'
-      - 'feedback/**.md'
-      - 'works/**.md'
-      - 'scripts/check-consistency.sh'
-      - '.github/workflows/consistency.yml'
   pull_request:
-    paths:
-      - 'references/articles.md'
-      - 'references/AGENTS.md'
-      - 'README.md'
-      - 'README.en.md'
-      - 'AGENTS.md'
-      - 'prompts/deep-research-tracker.md'
-      - 'concepts/**.md'
-      - 'thinking/**.md'
-      - 'feedback/**.md'
-      - 'works/**.md'
-      - 'scripts/check-consistency.sh'
-      - '.github/workflows/consistency.yml'
 
 jobs:
   check:
+    name: "consistency / check"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

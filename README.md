@@ -231,7 +231,7 @@ git config core.hooksPath .githooks
 
 **手动跑：** `bash scripts/check-consistency.sh`
 
-**CI 兜底：** 即使本地未启用 hook，GitHub Actions（`.github/workflows/consistency.yml`）会在每次 push / PR 触及受控文件时跑同一脚本。本地 hook 是开发期反馈，CI 才是真正的合并门。
+**CI 兜底：** 即使本地未启用 hook，GitHub Actions（`.github/workflows/consistency.yml`）会在每次 push / PR 时跑同一脚本（不做路径过滤，保证分支保护的必需检查总能得到上报）。本地 hook 是开发期反馈，CI 才是真正的合并门。
 
 详情见根 `AGENTS.md` 的"机械化检查"段。
 
