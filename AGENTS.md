@@ -50,3 +50,11 @@
 
 **CI 兜底**：`.github/workflows/consistency.yml` 在每次 push / PR 触及受控文件时跑同一脚本。
 本地 hook 是开发反馈，CI 是合并门——两层独立，本地未启用 hook 不会绕过检查。
+
+## Cursor Cloud specific instructions
+
+- 本仓库是纯 Markdown 知识档案，**没有构建/安装/依赖步骤**：没有 `package.json`、没有运行时、没有服务进程。不要去找 `npm install` / `pip install` 之类的命令，也不要尝试起 dev server。
+- 唯一的"应用"就是一致性护栏脚本，用纯 bash + GNU coreutils（`grep`/`sed`/`find`/`seq`/`sort`/`awk`），VM 里已自带。
+- lint / test / build / run 都归一为同一条命令：`bash scripts/check-consistency.sh`（仓库根目录运行，全过退出码 0，任一失败退出码 1）。改动任何受控文件后都应跑它。
+- 机械化护栏（pre-commit）已由启动脚本用 `git config core.hooksPath .githooks` 启用；提交涉及受控文件时会自动跑上面的脚本，失败即阻断提交。如需临时绕过用 `git commit --no-verify`。
+- C8 在干净 clone / CI 上会 SKIP（`translate/` 已 gitignore），属正常现象，不是错误。
