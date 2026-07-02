@@ -1,6 +1,6 @@
-# 概念 6：Harness 的精确定义与组件清单
+# Harness 的精确定义与组件清单
 
-> 本概念由 LangChain、HumanLayer、Martin Fowler 三篇文章综合提炼，是对 OpenAI 原文的扩展。
+> 延伸概念（不在六大核心概念编号内）。由 LangChain、HumanLayer、Martin Fowler 三篇文章综合提炼，是对 OpenAI 原文的扩展。
 
 ## 定义
 

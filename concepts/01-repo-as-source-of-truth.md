@@ -1,4 +1,6 @@
-# 概念 1：仓库即记录系统
+# 仓库即记录系统（Repo as System of Record）
+
+> 六大核心概念之一（概念 1，编号见 [00-overview.md](00-overview.md)）。
 
 ## 原文要点
 
@@ -45,7 +47,7 @@ docs/
 
 ### OpenAI Symphony — 任务跟踪器也是记录系统
 
-OpenAI Symphony（[references/articles.md #16](../references/articles.md)）把"记录系统"的边界**从仓库扩展到任务跟踪器**：每个打开的 Linear ticket 是一个"在飞工作"的记录单元，状态机映射到 ticket 状态字段（Backlog → In Progress → Review → Merging → Done）。
+OpenAI Symphony（[references/articles.md #16](../references/articles.md#article-16)）把"记录系统"的边界**从仓库扩展到任务跟踪器**：每个打开的 Linear ticket 是一个"在飞工作"的记录单元，状态机映射到 ticket 状态字段（Backlog → In Progress → Review → Merging → Done）。
 
 这给"仓库即记录系统"加了一条对称命题：
 

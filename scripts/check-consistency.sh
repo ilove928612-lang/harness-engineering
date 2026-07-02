@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # check-consistency.sh — guard against drift between articles.md and downstream caches.
 #
-# Eight checks:
+# Nine checks:
 #   C1 — articles.md heading numbering is contiguous 1..N
 #   C2 — that N matches every downstream count claim
 #        (README.md / README.en.md / prompts/deep-research-tracker.md / references/AGENTS.md)
@@ -18,6 +18,12 @@
 #   C8 — local translate-pipeline guard: a 01-analysis.md must not keep claiming
 #        "abstract-only / fetch full text later" once sources/<slug>/source-full.md
 #        exists. translate/ is gitignored, so this SKIPs on CI / clean clones.
+#   C9 — authored prose in concepts/ thinking/ feedback/ must not restate library
+#        counts ("N 篇文章 / N 篇翻译 / N 大概念") as live facts. Such counts rot
+#        silently (C2/C7 only watch declared claim sites). A count mention is only
+#        allowed when the line carries a dated-snapshot qualifier (写作时点 / 当时 /
+#        此前 / 首批 / 首轮 / 截至 / 快照); otherwise drop the number and link to
+#        references/articles.md instead.
 #
 # Usage:  bash scripts/check-consistency.sh        (run from repo root)
 # Exits 0 on all-pass, 1 on any failure.
@@ -255,6 +261,36 @@ else
     fi
   done
   [ "$c8_checked" -eq 0 ] && echo "  $(yellow SKIP) — no slug has a source-full.md to check against"
+fi
+
+# ─── C9 ────────────────────────────────────────────────────────────────
+# Authored analysis dirs must not restate library counts as live facts.
+# Counts belong to articles.md + the claim sites C2/C3/C4/C7 already watch;
+# anywhere else they silently rot. Historical mentions are fine when the line
+# marks itself as a dated snapshot.
+echo "[C9] no bare library-count claims in concepts/ thinking/ feedback/"
+C9_PATTERN='[0-9]+ ?篇(文章|翻译)|[0-9]+ ?大概念'
+C9_QUALIFIER='写作时点|当时|此前|首批|首轮|截至|快照'
+c9_hits=0
+c9_fails=0
+while IFS= read -r hit; do
+  [ -z "$hit" ] && continue
+  c9_hits=$((c9_hits + 1))
+  c9_file=${hit%%:*}
+  c9_rest=${hit#*:}
+  c9_line=${c9_rest%%:*}
+  c9_text=${c9_rest#*:}
+  if ! echo "$c9_text" | grep -qE "$C9_QUALIFIER"; then
+    echo "  $(red FAIL) — $c9_file:$c9_line: bare count claim without snapshot qualifier"
+    echo "    fix: drop the number (link references/articles.md) or qualify the line (写作时点/当时/此前/首批/首轮/截至/快照)"
+    FAIL=1
+    c9_fails=$((c9_fails + 1))
+  fi
+done <<EOF
+$(grep -rnE "$C9_PATTERN" concepts thinking feedback --include='*.md' 2>/dev/null || true)
+EOF
+if [ "$c9_fails" -eq 0 ]; then
+  echo "  $(green PASS) — $c9_hits count mention(s), all snapshot-qualified or none present"
 fi
 
 # ─── Summary ───────────────────────────────────────────────────────────

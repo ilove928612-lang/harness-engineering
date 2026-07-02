@@ -1,4 +1,6 @@
-# 概念 2：机械化执行
+# 机械化执行（Mechanical Enforcement）
+
+> 六大核心概念之一（概念 3，编号见 [00-overview.md](00-overview.md)；文件名编号是阅读顺序，不是概念编号）。
 
 ## 核心思想
 
@@ -47,7 +49,7 @@ Consider extracting types to <domain>/types/ and service logic to <domain>/servi
 
 ### OpenAI Symphony — 给目标，不规定状态转换
 
-OpenAI Symphony（[references/articles.md #16](../references/articles.md)）提供了**机械化执行的反向边界**。OpenAI 的工程师早期把智能体当作状态机里的刚性节点，每个状态规定智能体只能做特定动作。文章原话：
+OpenAI Symphony（[references/articles.md #16](../references/articles.md#article-16)）提供了**机械化执行的反向边界**。OpenAI 的工程师早期把智能体当作状态机里的刚性节点，每个状态规定智能体只能做特定动作。文章原话：
 
 > "把智能体当作状态机里的刚性节点并不好用。模型会变得更聪明，也能解决比我们预设框架更大的问题。"
 

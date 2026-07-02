@@ -209,11 +209,38 @@ The "Ralph Wiggum Loop" is the core implementation pattern of Harness Engineerin
 | [vibe-coding-cn](https://github.com/tukuaiai/vibe-coding-cn) | Chinese Vibe Coding community guide |
 | [Mitchell Hashimoto: Engineer the Harness](https://mitchellh.com/writing/my-ai-adoption-journey#step-5-engineer-the-harness) | Another origin of the "Harness" concept |
 
+## 🛠️ Development Notes
+
+The repo ships with a consistency checker, `scripts/check-consistency.sh`, guarding against count drift across nine layers of checks:
+
+- **C1-C2** — `references/articles.md` article count + its 4 downstream claim sites (README × 2 badges, `prompts/deep-research-tracker.md` header, `references/AGENTS.md` overview)
+- **C3** — actual `*.md` file counts in `concepts/` / `thinking/` / `feedback/` match the README "X 篇" claims
+- **C4** — `works/*-translation.md` file count matches every translation-count claim (badges, table summaries, Phase 5 mentions, AGENTS snapshot, table row counts)
+- **C5** — the README structure tree lists every single `concepts/*.md` file
+- **C6** — the "不计入 N 篇" exclusion note at the end of `references/articles.md` matches the C1 authority count
+- **C7** — per-track counts (Track 1/2/3) stay consistent across their 4 downstream claim sites (README research-library tables × 2, `references/AGENTS.md` track headings, `prompts/deep-research-tracker.md` track lines)
+- **C8** — local translation-pipeline guard: once `translate/<...>/sources/<slug>/source-full.md` is captured, the matching `01-analysis.md` may no longer claim "abstract-only / fetch full text later". `translate/` is gitignored, so this auto-SKIPs on CI and clean clones
+- **C9** — authored prose in `concepts/` / `thinking/` / `feedback/` must not restate library counts ("N articles / N translations") as live facts; historical mentions must carry a dated-snapshot qualifier, otherwise drop the number and link `references/articles.md`
+
+**Enable the pre-commit hook after first clone:**
+
+```bash
+git config core.hooksPath .githooks
+```
+
+Once enabled, every commit touching the README, `AGENTS.md`, `references/articles.md`, `references/AGENTS.md`, `prompts/deep-research-tracker.md`, or any `*.md` under `concepts/` / `thinking/` / `feedback/` / `works/` runs the checks automatically; unrelated commits are left alone.
+
+**Run manually:** `bash scripts/check-consistency.sh`
+
+**CI backstop:** even without the local hook, GitHub Actions (`.github/workflows/consistency.yml`) runs the same script on every push / PR touching the guarded files. The local hook is fast feedback during development; CI is the actual merge gate.
+
+See the "机械化检查" section of the root `AGENTS.md` for details.
+
 ## 🪞 The repo is its own harness (self-reference)
 
 > This archive now curates itself.
 >
-> Bringing in outside research no longer runs on vibes — it follows a pipeline frozen into a skill, [`curate-research`](.claude/skills/curate-research/SKILL.md): review is automated by parallel agents (the feedback loop), `scripts/check-consistency.sh` keeps counts from drifting via C1–C8 (the mechanical rail), and whether something gets in is always a human gate (humans steer, agents execute).
+> Bringing in outside research no longer runs on vibes — it follows a pipeline frozen into a skill, [`curate-research`](.claude/skills/curate-research/SKILL.md): review is automated by parallel agents (the feedback loop), `scripts/check-consistency.sh` keeps counts from drifting via C1–C9 (the mechanical rail), and whether something gets in is always a human gate (humans steer, agents execute).
 >
 > So the constraints themselves became the product — exactly what [concepts/07-spec-as-product.md](concepts/07-spec-as-product.md) argues, except this time the subject is the repo itself.
 
@@ -240,6 +267,12 @@ Contributions via Issues and PRs are welcome:
 If you find this project helpful, please consider giving it a Star ⭐!
 
 [![Star History Chart](https://api.star-history.com/svg?repos=deusyu/harness-engineering&type=Date)](https://star-history.com/#deusyu/harness-engineering&Date)
+
+## 💛 Sponsor
+
+If this learning archive has saved you time, consider [sponsoring my open-source work](https://github.com/sponsors/deusyu) — your support keeps it updated, free, and open.
+
+[![Sponsor](https://img.shields.io/github/sponsors/deusyu?label=Sponsor&logo=github)](https://github.com/sponsors/deusyu)
 
 ## 📄 License
 

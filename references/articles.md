@@ -14,6 +14,8 @@
 
 ## 脉络一：AI 时代的 Harness Engineering（大模型护栏与认知工程）
 
+<a id="article-1"></a>
+
 ### 1. OpenAI 官方 — 原点与哲学
 
 - **标题：** Harness engineering: leveraging Codex in an agent-first world
@@ -21,6 +23,8 @@
 - **作者：** Ryan Lopopolo | **日期：** 2026-02-11
 - **核心：** 3 人团队用 Codex 从空仓库到 100 万行代码，零手写代码。提出六大概念：仓库即记录系统、地图而非手册、机械化执行、智能体可读性、吞吐量改变合并理念、熵管理。
 - **关联：** 本仓库的学习起点，所有概念笔记的来源
+
+<a id="article-2"></a>
 
 ### 2. Martin Fowler / Birgitta Böckeler — 系统性认知与控制论框架
 
@@ -103,6 +107,8 @@
   - [Context Engineering for Coding Agents](https://martinfowler.com/articles/context-engineering-coding-agents.html)
   - [Humans and Agents in Software Engineering Loops](https://martinfowler.com/articles/humans-and-agents.html)
 
+<a id="article-3"></a>
+
 ### 3. LangChain / Viv Trivedy — 解剖与机制
 
 - **标题：** The Anatomy of an Agent Harness
@@ -121,6 +127,8 @@
   - **Context Rot** — 上下文填满后性能退化，需要 compaction + 工具输出卸载 + 渐进式披露
   - **Ralph Loop** — 拦截退出、重注入提示词、强制在新上下文窗口中继续
   - **Harness 与模型训练耦合** — 模型会 overfit 到特定 harness，换 harness 表现可能暴跌（Terminal Bench 2.0：纯 harness 优化可把排名从 Top 30 拉到 Top 5）
+
+<a id="article-4"></a>
 
 ### 4. Anthropic / Prithvi Rajasekaran — Harness 设计实战（长时自主编码）
 
@@ -178,6 +186,8 @@
 | Harness 瘦身原则 | Fowler 的"约束越严，自主性越强" |
 | "找最简方案，按需增加复杂度" | HumanLayer 的"简单开始，按需添加" |
 
+<a id="article-5"></a>
+
 ### 5. HumanLayer / Kyle — 实践与避坑
 
 - **标题：** Skill Issue: Harness Engineering for Coding Agents
@@ -205,6 +215,8 @@
 | 微调子智能体的工具权限 | 便宜模型做子任务，贵模型做编排 |
 
 - **金句：** "The model is probably fine. It's just a skill issue."
+
+<a id="article-6"></a>
 
 ### 6. Anthropic / Lance Martin — 三大模式与性能数据
 
@@ -265,6 +277,8 @@
 | "停止做什么" | Anthropic #4 的 Harness 瘦身原则、Fowler 的假说 |
 | 缓存优化 | 本仓库新增维度——此前文章未深入讨论 API 层成本优化 |
 
+<a id="article-7"></a>
+
 ### 7. Anthropic / Lance Martin, Gabe Cemaj, Michael Cohen — Meta-Harness 与基础设施解耦
 
 - **标题：** Scaling Managed Agents: Decoupling the brain from the hands
@@ -318,6 +332,8 @@
 | 安全边界解耦 | HumanLayer 的 MCP 信任边界 |
 | 多大脑多双手 | OpenAI 原文的并发 + 吞吐量理念 |
 
+<a id="article-8"></a>
+
 ### 8. Fowler / Rahul Garg — 编码团队标准：缩减 AI 辅助开发的摩擦
 
 - **标题：** Encoding Team Standards
@@ -331,6 +347,8 @@
   - 编码路径：口头约定 → AGENTS.md/prompts 中的自然语言描述 → 带示例的结构化指令 → lint 规则/自动化检查
   - 不是所有标准都值得完全自动化——按违反频率和影响决定投资
 - **与其他文章关联：** Fowler #2 的 Guides×Sensors 框架的实操手册；HumanLayer 的 AGENTS.md 杠杆的深化
+
+<a id="article-9"></a>
 
 ### 9. Fowler / Rahul Garg — 反馈飞轮：缩减 AI 辅助开发的摩擦
 
@@ -346,6 +364,8 @@
   - 团队级别的 harness 不是一次性设计，而是持续演进的活系统
 - **与其他文章关联：** Anthropic #4 的"每个 harness 组件编码一个假设"理念的运营化；YDD 的安灯绳验证闭环
 
+<a id="article-10"></a>
+
 ### 10. LangChain — 智能体评估就绪清单
 
 - **标题：** Agent Evaluation Readiness Checklist
@@ -359,6 +379,8 @@
   - LLM-as-judge 的校准：需要人类标注作为锚点，定期重新校准
   - 评估不是一次性的，而是随智能体演进持续更新的
 - **与其他文章关联：** Fowler #2 的 Sensors 维度的系统化实操；Anthropic #4 的 Evaluator 角色的方法论基础
+
+<a id="article-11"></a>
 
 ### 11. Meta-Harness 论文 — 自动化 Harness 优化
 
@@ -375,6 +397,8 @@
   - 核心发现：完整执行轨迹访问 > 压缩摘要 > 仅标量分数（消融实验）
 - **与其他文章关联：** Anthropic #7 的 meta-harness 概念的学术实现；Fowler #2 的 Sensors 的极致自动化——连 harness 本身的设计也变成可搜索的
 
+<a id="article-12"></a>
+
 ### 12. GitHub / Tyler McGoffin — 智能体驱动开发实战
 
 - **标题：** Agent-driven development in Copilot Applied Science
@@ -387,6 +411,8 @@
   - 关键经验：好的提示词比好的代码更重要；智能体需要明确的约束和验证循环
   - Copilot CLI 作为日常工具的实际工作流
 - **与其他文章关联：** OpenAI 原文的"工程师不再写代码"理念的一线实践验证
+
+<a id="article-13"></a>
 
 ### 13. Inside the Scaffold 论文 — 编码智能体脚手架的源代码级分类法
 
@@ -401,6 +427,8 @@
   - 工具数量从 0（Aider）到 37（Moatless Tools），但底层能力类别趋同：读取、搜索、编辑、执行
   - 上下文压缩涵盖七种策略：截断、摘要、滑动窗口、事件溯源、浓缩、选择性包含、无压缩
 - **与其他文章关联：** 为 Fowler #2 的 Guides×Sensors 框架提供了 13 个实际系统的实证数据；Meta-Harness 论文搜索空间的具体化——展示了 harness 设计选择的巨大多样性
+
+<a id="article-14"></a>
 
 ### 14. ⭐ Lalit Maganti — 渴望八年，用 AI 三个月造出来
 
@@ -417,6 +445,8 @@
   - **与我们的实践高度一致**
 - **与其他文章关联：** YDD 的"洗衣机悖论"的一手证据——省出的时间投入到了更高层的设计工作中；Anthropic #4 的"每个 harness 组件编码一个假设"的个人体验版
 
+<a id="article-15"></a>
+
 ### 15. LangChain / Harrison Chase — 智能体的持续学习
 
 - **标题：** Continual learning for AI agents
@@ -430,6 +460,8 @@
   - 上下文层学习最灵活：用户级记忆、后台整合、跨会话学习
   - Deep Agents 框架支持生产级持续学习
 - **与其他文章关联：** Meta-Harness 论文的 harness 层自动化学习的框架化阐述；Fowler #9 反馈飞轮在智能体层面的体现
+
+<a id="article-16"></a>
 
 ### 16. OpenAI 官方 — 任务跟踪器作为控制平面（Symphony）
 
@@ -446,6 +478,8 @@
   - **数据点**：部分团队前三周已落地 PR 数量 +500%；发布后 4 月 23 日仓库 15K+ stars
 - **与其他文章关联：** OpenAI 原文 #1 的"map not manual"在 SPEC.md 模式下的极致——map 不仅给智能体看，也给社区使用者作为构建模板；HumanLayer #5 的"AGENTS.md 杠杆"在工作流层面的扩展（`WORKFLOW.md` 显式化原本隐式的人类流程）；与 thinking 洞见 7 的"技术栈收敛"形成反例
 - **实施参考：** [openai/symphony](https://github.com/openai/symphony) | [SPEC.md](https://github.com/openai/symphony/blob/main/SPEC.md)
+
+<a id="article-17"></a>
 
 ### 17. Vikash Rungta — Claude Code 架构（逆向工程版）
 
@@ -475,6 +509,8 @@
 
 > 注：Chachamaru127 / claude-code-harness 早期曾占据 #16 文章位，现已迁至本文末尾的"已跟踪产品 / 项目"段落（不计入文章数）。
 
+<a id="article-18"></a>
+
 ### 18. 马东锡 NLP — Harness 系列文章之 7：关于 subagent
 
 - **标题：** Harness 系列文章之 7：关于 subagent
@@ -503,6 +539,8 @@
 
 ---
 
+<a id="article-19"></a>
+
 ### 19. Fowler / Birgitta Böckeler — 面向编码智能体的可维护性传感器
 
 - **标题：** Maintainability sensors for coding agents
@@ -529,6 +567,8 @@
 
 ---
 
+<a id="article-20"></a>
+
 ### 20. Fowler / Wei Zhang, Jessie Jie Xia — 结构化提示驱动开发（SPDD）
 
 - **标题：** Structured-Prompt-Driven Development (SPDD)
@@ -547,11 +587,13 @@
 
 | 本文概念 | 对应文章 |
 |---------|---------|
-| Prompt 即一等可版本化交付物 | #16 OpenAI Symphony 的约束即产品、概念 07 spec-as-product |
+| Prompt 即一等可版本化交付物 | #16 OpenAI Symphony 的约束即产品、延伸概念 07-spec-as-product |
 | REASONS Canvas 七维结构 | 概念 2 地图而非手册 + 渐进式披露 |
 | spdd-sync 反向同步防漂移 | 概念 3 机械化执行、#9 反馈飞轮 |
 
 ---
+
+<a id="article-21"></a>
 
 ### 21. LangChain / Harrison Chase — 智能体开发生命周期（ADLC）
 
@@ -575,6 +617,8 @@
 | Govern / 治理维度 | 概念 6 熵与垃圾回收 |
 
 ---
+
+<a id="article-22"></a>
 
 ### 22. LangChain / Hunter Lovell — Deep Agents 中的解释器
 
@@ -600,6 +644,8 @@
 
 ---
 
+<a id="article-23"></a>
+
 ### 23. Anthropic / 工程团队 — Claude Code 质量回归复盘
 
 - **标题：** An update on recent Claude Code quality reports
@@ -618,10 +664,12 @@
 | 本文概念 | 对应文章 |
 |---------|---------|
 | 机械化执行的盲区（多层审查仍漏网） | 概念 3 机械化执行、#2 Fowler Sensors |
-| system prompt 即受控产物 | 概念 07 spec-as-product、#16 Symphony |
+| system prompt 即受控产物 | 延伸概念 07-spec-as-product、#16 Symphony |
 | 反例 / 事故复盘（稀缺类型） | 仓库 works/ 多为正面理论，本篇为第一手反面教材 |
 
 ---
+
+<a id="article-24"></a>
 
 ### 24. 林家航 等 / 复旦·北大·奇绩智锋 — Agentic Harness Engineering（论文）
 
@@ -647,6 +695,8 @@
 
 ---
 
+<a id="article-25"></a>
+
 ### 25. Yubin Qu 等 — 过度积极的编码智能体（论文）
 
 - **标题：** Overeager Coding Agents: Measuring Out-of-Scope Actions on Benign Tasks
@@ -671,6 +721,8 @@
 
 ---
 
+<a id="article-26"></a>
+
 ### 26. Chris Parsons — 我是如何用 AI 写代码的
 
 - **标题：** How I Use AI to Code
@@ -690,11 +742,13 @@
 
 | 本文概念 | 对应文章 |
 |---------|---------|
-| 四要素 Harness | #2 Fowler、#5 HumanLayer 六杠杆、概念 2/3 |
+| 四要素 Harness | #2 Fowler、#5 HumanLayer 六杠杆、概念 2/3（地图而非手册 / 机械化执行） |
 | 反馈循环防腐化 | #9 Fowler 反馈飞轮、#19 Fowler Sensors |
 | 反馈瓶颈 / serial speed-up | #28 YDD 效率悖论 |
 
 ---
+
+<a id="article-27"></a>
 
 ### 27. LangChain / Palash Shah — 我们如何构建 LangSmith Engine
 
@@ -722,12 +776,16 @@
 
 ## 脉络二：云原生时代的 Harness.io（交付与平台工程）
 
+<a id="article-28"></a>
+
 ### 28. Harness.io 官方 — 全局架构
 
 - **标题：** Understanding CI/CD Platforms: The backbone of modern DevOps
 - **链接：** [harness.io](https://www.harness.io/blog/understanding-ci-cd-platforms-the-backbone-of-modern-devops)
 - **核心：** 标准 CI/CD 平台介绍。8 大组件：SCM → Build → Test → Code Quality → Security Scan → Artifact → Deploy → Monitor
 - **Harness 差异化：** 统一管线、Test Intelligence 智能测试、最少脚本、Policy-as-Code 治理
+
+<a id="article-29"></a>
 
 ### 29. Google Cloud Architecture — 前沿场景结合
 
@@ -741,6 +799,8 @@
 ---
 
 ## 脉络三：效率悖论与能力进化
+
+<a id="article-30"></a>
 
 ### 30. YDD / Miss-you — 效率悖论的系统性拆解
 
@@ -833,7 +893,7 @@ Harness Engineering（AI 护栏）     Harness.io（交付管线）
 | 「TerminalBench：仅改 Harness，排名变动 20+ 位」 | #3 LangChain Trivedy 的 TerminalBench 2.0 数据点 |
 | 「房子盖好后脚手架要拆」（协同进化） | #4 Anthropic Harness 瘦身原则、Fowler 的 harness 假设 |
 
-- **为什么不进编号正文：** 本文是综述科普，不是一手文献。21 篇编号文章分别对应 OpenAI / Fowler / Anthropic / LangChain 等团队的一手工程博客、论文、外部逆向分析或中文社区原创分析；将综述纳入会污染「21 篇一手/准一手」的语义边界与一致性脚本（C1/C2/C6）的语义。归到本段保留对照价值即可。
+- **为什么不进编号正文：** 本文是综述科普，不是一手文献。编号正文中的文章分别对应 OpenAI / Fowler / Anthropic / LangChain 等团队的一手工程博客、论文、外部逆向分析或中文社区原创分析；将综述纳入会污染「一手/准一手」的语义边界与一致性脚本（C1/C2/C6）的语义。归到本段保留对照价值即可。
 
 ---
 
@@ -873,7 +933,7 @@ Harness Engineering（AI 护栏）     Harness.io（交付管线）
 
 | 候选 | 类型 | 去向 | 角度 / 为何只做观察项 | 原文 |
 |---|---|---|---|---|
-| Caliper | 工具 | 🔵 | 把 CLAUDE.md 自然语言约定编译成确定性检查；三层 enforcement，论点反哺概念 3/6。实测后可升级 `tools/` 或 `works/` | [getcaliper.dev](https://getcaliper.dev/) |
+| Caliper | 工具 | 🔵 | 把 CLAUDE.md 自然语言约定编译成确定性检查；三层 enforcement，论点反哺概念 3/6（机械化执行 / 熵管理）。实测后可升级 `tools/` 或 `works/` | [getcaliper.dev](https://getcaliper.dev/) |
 | Context Mode | 工具 | 🔵 | "用代码思考"（让 LLM 写脚本统计而非读满上下文）+ FTS5/BM25 取回；90% 篇幅是安装矩阵 | [github](https://github.com/mksglu/context-mode) |
 | OpenSPDD | 工具 | 🔵 | SPDD 的 CLI 落地（REASONS Canvas + spdd-sync）；README 体裁，配合 #20 SPDD 看 | [github](https://github.com/gszhangwei/open-spdd) |
 | CocoIndex | 工具/基建 | ⚪ | 增量索引引擎（Rust + 声明式 Python）；与 agent 关系较远，偏通用 context 基建 | [github](https://github.com/cocoindex-io/cocoindex) |

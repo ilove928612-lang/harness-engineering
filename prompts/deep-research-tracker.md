@@ -174,7 +174,7 @@
 ### 请分析：
 
 1. **优先级排序**：哪些内容最值得我们收录？考虑因素：
-   - 对**已有约 21 篇文章 + 已收录开源产品**（完整清单见 Prompt A 的"已知内容"段落或 `references/articles.md`）的补充价值
+   - 对**已收录文章 + 已跟踪开源产品**（完整清单见 Prompt A 的"已知内容"段落或 `references/articles.md`，不在此重复计数）的补充价值
    - 对 thinking/ 中已有洞见的验证或挑战（含 cross-article-insights 的 8 个洞见 + guides-sensors-meets-claude-code-harness 的 5 个张力）
    - 对开放问题清单的回答程度
 

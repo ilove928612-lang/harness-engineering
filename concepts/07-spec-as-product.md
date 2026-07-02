@@ -1,6 +1,6 @@
-## 概念 7：约束即产品（Spec as Product）
+# 约束即产品（Spec as Product）
 
-> 来源：OpenAI Symphony（[references/articles.md #16](../references/articles.md)）。在六大原文概念之外的第七个概念。它把 04 智能体可读性从"内部"推到"对外发布"，同时把六大概念中的"地图而非手册"原则（[00-overview.md §2](00-overview.md)）推到极致——map 不再止于本仓库导航，而成为可分发给社区使用者的种子文件。
+> 延伸概念（不在六大核心概念编号内）。来源：OpenAI Symphony（[references/articles.md #16](../references/articles.md#article-16)）。它把"智能体可读性"从"内部"推到"对外发布"，同时把六大概念中的"地图而非手册"原则（[00-overview.md §2](00-overview.md#map-not-manual)）推到极致——map 不再止于本仓库导航，而成为可分发给社区使用者的种子文件。
 
 ## 核心思想
 
@@ -36,31 +36,31 @@ OpenAI 的工程师让 Codex 用 Elixir、TypeScript、Go、Rust、Java、Python
 
 ## 与既有概念的关系
 
-### 04 智能体可读性 — 从内部走向对外
+### 智能体可读性 — 从内部走向对外
 
-04 关心的是**让智能体能在本仓库工作**——AGENTS.md、skills、文档结构都是给本地智能体读的。
+[智能体可读性](04-agent-readability.md)关心的是**让智能体能在本仓库工作**——AGENTS.md、skills、文档结构都是给本地智能体读的。
 
-07 是 04 的对外发布版：**让其他团队的智能体也能基于这份规范工作**。当 04 做到极致——所有上下文都被结构化、所有约束都被显式化——那么"分发规范让别人复刻"就变成自然结果。
+约束即产品是它的对外发布版：**让其他团队的智能体也能基于这份规范工作**。当智能体可读性做到极致——所有上下文都被结构化、所有约束都被显式化——那么"分发规范让别人复刻"就变成自然结果。
 
 ### "地图而非手册"原则 — 推到跨仓库
 
-六大原文概念中的"地图而非手册"（[00-overview.md §2](00-overview.md)）主张给本地智能体的是**导航**而非全量手册：AGENTS.md ≈ 目录页（~100 行），渐进式披露指向更深层文档。
+六大原文概念中的"地图而非手册"（[00-overview.md §2](00-overview.md#map-not-manual)）主张给本地智能体的是**导航**而非全量手册：AGENTS.md ≈ 目录页（~100 行），渐进式披露指向更深层文档。
 
-07 把这个原则**推到跨仓库版本**：SPEC.md 不仅是给本仓库智能体的导航，还是分发给社区使用者的种子文件。Map 从"本仓库内部产物"升级为"指引外部智能体复刻整个系统的入口"。这与 04 不是同一件事——04 是"让智能体能在这个仓库里干活"，"地图而非手册"是"导航替代手册"作为表达形式，07 同时延伸了这两条。
+约束即产品把这个原则**推到跨仓库版本**：SPEC.md 不仅是给本仓库智能体的导航，还是分发给社区使用者的种子文件。Map 从"本仓库内部产物"升级为"指引外部智能体复刻整个系统的入口"。这与"智能体可读性"不是同一件事——后者是"让智能体能在这个仓库里干活"，"地图而非手册"是"导航替代手册"作为表达形式，约束即产品同时延伸了这两条。
 
 ## 与其他文章的关联
 
 ### Martin Fowler — 控制论的双向延伸
 
-Fowler 的 Guides×Sensors 框架（[references/articles.md #2](../references/articles.md)）提供了**前馈+反馈**的二维分类。Spec as Product 是把"前馈"维度（Guides）抽出来作为可独立分发的工件——SPEC 是给智能体的最高层 Guide，WORKFLOW 是过程性 Guide。反馈维度（Sensors，CI/lint/eval）通常仍由本地实现。
+Fowler 的 Guides×Sensors 框架（[references/articles.md #2](../references/articles.md#article-2)）提供了**前馈+反馈**的二维分类。Spec as Product 是把"前馈"维度（Guides）抽出来作为可独立分发的工件——SPEC 是给智能体的最高层 Guide，WORKFLOW 是过程性 Guide。反馈维度（Sensors，CI/lint/eval）通常仍由本地实现。
 
 ### HumanLayer — AGENTS.md 杠杆的扩展
 
-HumanLayer（[references/articles.md #5](../references/articles.md)）的"AGENTS.md 60 行规则"是**单仓库**层面的智能体引导。Spec as Product 把这套思路推到**跨仓库**：你不只是给本地智能体写一份精炼的规则文件，而是写一份"任何智能体都能拿去复刻你这套系统"的规则文件。
+HumanLayer（[references/articles.md #5](../references/articles.md#article-5)）的"AGENTS.md 60 行规则"是**单仓库**层面的智能体引导。Spec as Product 把这套思路推到**跨仓库**：你不只是给本地智能体写一份精炼的规则文件，而是写一份"任何智能体都能拿去复刻你这套系统"的规则文件。
 
 ### Meta-Harness 论文 — 从搜索到分发
 
-Meta-Harness 论文（[references/articles.md #11](../references/articles.md)）讨论"如何自动搜索最优 harness 设计"。Spec as Product 是它的**社会化版本**：你不是在算法空间里搜索，而是在不同团队、不同语言、不同环境下让人/智能体各自实现一遍，社区演化筛选出更好的规范。
+Meta-Harness 论文（[references/articles.md #11](../references/articles.md#article-11)）讨论"如何自动搜索最优 harness 设计"。Spec as Product 是它的**社会化版本**：你不是在算法空间里搜索，而是在不同团队、不同语言、不同环境下让人/智能体各自实现一遍，社区演化筛选出更好的规范。
 
 ## 关键洞察
 

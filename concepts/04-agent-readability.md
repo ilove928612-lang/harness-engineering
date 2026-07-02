@@ -1,4 +1,6 @@
-# 概念 4：智能体可读性（Agent Readability）
+# 智能体可读性（Agent Readability）
+
+> 六大核心概念之一（概念 4，编号见 [00-overview.md](00-overview.md)）。
 
 ## 原文要点
 

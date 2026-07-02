@@ -1,4 +1,6 @@
-# 概念 3：熵管理与垃圾回收
+# 熵管理与垃圾回收（Entropy & Garbage Collection）
+
+> 六大核心概念之一（概念 6，编号见 [00-overview.md](00-overview.md)；文件名编号是阅读顺序，不是概念编号）。
 
 ## 问题
 

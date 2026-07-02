@@ -1,4 +1,6 @@
-# 概念 5：吞吐量改变合并理念
+# 吞吐量改变合并理念（Throughput Changes Merge Philosophy）
+
+> 六大核心概念之一（概念 5，编号见 [00-overview.md](00-overview.md)）。
 
 ## 原文要点
 
@@ -48,7 +50,7 @@
 
 ### OpenAI Symphony — 吞吐量从 PR 级跃迁到 ticket 级
 
-Symphony（[references/articles.md #16](../references/articles.md)）把吞吐量哲学**抽象到更高一层**：从"PR 流转速度"到"ticket 流转速度"。差别在哪——
+Symphony（[references/articles.md #16](../references/articles.md#article-16)）把吞吐量哲学**抽象到更高一层**：从"PR 流转速度"到"ticket 流转速度"。差别在哪——
 
 | 层级 | 单位 | 人类介入点 |
 |------|------|----------|

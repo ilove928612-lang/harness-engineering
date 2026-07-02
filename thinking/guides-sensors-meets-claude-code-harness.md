@@ -8,7 +8,7 @@
 
 ## 为什么这个对照值得做
 
-Böckeler 在 [Harness engineering for coding agent users](https://martinfowler.com/articles/harness-engineering.html) 里给出了一个干净的 2×2 矩阵（[works/fowler-harness-engineering-full-translation.md:30-46](../works/fowler-harness-engineering-full-translation.md)），但她明确说"这是分类学，不是设计模板"。她列举的例子（AGENTS.md、ArchUnit、Skills）都是组件级的——没有一个完整产品被她拿来做端到端剖析。
+Böckeler 在 [Harness engineering for coding agent users](https://martinfowler.com/articles/harness-engineering.html) 里给出了一个干净的 2×2 矩阵（[译文](../works/fowler-harness-engineering-full-translation.md)第 30–46 行），但她明确说"这是分类学，不是设计模板"。她列举的例子（AGENTS.md、ArchUnit、Skills）都是组件级的——没有一个完整产品被她拿来做端到端剖析。
 
 claude-code-harness v4.2 恰好提供了这样一个样本：
 
@@ -69,7 +69,7 @@ Böckeler 的矩阵把控制按"何时执行"切了一刀（前/后），但 Adv
 
 ## 张力 3：行为 Harness（房间里的大象）在 v4.2 里被绕过了，没被解决
 
-**Böckeler 的诊断：** 三类调控对象里，可维护性最成熟、架构适应度中等、行为正确性"最弱、是房间里的大象"（[works/fowler-harness-engineering-full-translation.md:112-118](../works/fowler-harness-engineering-full-translation.md)）。
+**Böckeler 的诊断：** 三类调控对象里，可维护性最成熟、架构适应度中等、行为正确性"最弱、是房间里的大象"（[译文](../works/fowler-harness-engineering-full-translation.md)第 112–118 行）。
 
 **v4.2 的应对：** 看似认真——reviewer agent 的 4 视角（Security/Performance/Quality/Accessibility）、`xhigh` effort（[CLAUDE.md#L17](https://github.com/Chachamaru127/claude-code-harness/blob/v4.2.0/CLAUDE.md#L17)）、Plans.md 强制四态状态机（`pm:依頼中 → cc:WIP → cc:完了 → pm:確認済`）。
 

@@ -45,7 +45,7 @@ Claude Code 是 Anthropic 的自主 CLI 智能体。它是一个终端原生工�
 
 这篇指南把 Claude Code 当作案例，解释为什么大多数 AI 智能体会失败，以及你可以从中借走哪些架构决策，放进自己的产品里。
 
-如果你想看 `.md` 文件版本（而且更详细），可以去 [https://github.com/vkr11/ChainOfThought/blob/main/claude/_code/_architecture.md](https://github.com/vkr11/ChainOfThought/blob/main/claude_code_architecture.md)（或者把它放进你的提示词里，让模型基于它构建）。
+如果你想看 `.md` 文件版本（而且更详细），可以去 [https://github.com/vkr11/ChainOfThought/blob/main/claude_code_architecture.md](https://github.com/vkr11/ChainOfThought/blob/main/claude_code_architecture.md)（或者把它放进你的提示词里，让模型基于它构建）。
 
 我计划之后发布一套基于这些经验的“SuperAgent”架构。可以关注一下。
 

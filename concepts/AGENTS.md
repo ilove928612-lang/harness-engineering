@@ -1,11 +1,28 @@
 # concepts/ — 概念笔记
 
-原文六大核心概念的拆解与整理（01-06）+ 后续阅读引出的延伸概念（07-）。每个概念一个文件，编号排序。
+原文六大核心概念的拆解与整理 + 后续阅读引出的延伸概念。每个概念一个文件，按阅读顺序编号。
 
 ## 文件约定
 
 - 文件名：`{编号}-{英文短名}.md`，如 `01-repo-as-source-of-truth.md`
 - `00-overview.md` 是总览，先读这个
+- **文件名编号 ≠ 概念编号**：文件名编号是阅读顺序；"概念 N"的编号以 `00-overview.md` / README 的六大核心概念清单为准（两处一致）
+
+## 概念编号 ↔ 文件对照表（引用时以此为准）
+
+| 概念编号 | 概念 | 文件 |
+|---------|------|------|
+| 概念 1 | 仓库即记录系统 | [01-repo-as-source-of-truth.md](01-repo-as-source-of-truth.md) |
+| 概念 2 | 地图而非手册 | [00-overview.md §2](00-overview.md#map-not-manual)（无独立文件） |
+| 概念 3 | 机械化执行 | [02-mechanical-enforcement.md](02-mechanical-enforcement.md) |
+| 概念 4 | 智能体可读性 | [04-agent-readability.md](04-agent-readability.md) |
+| 概念 5 | 吞吐量改变合并理念 | [05-throughput-changes-merge.md](05-throughput-changes-merge.md) |
+| 概念 6 | 熵管理 = 垃圾回收 | [03-entropy-and-garbage-collection.md](03-entropy-and-garbage-collection.md) |
+| 总纲 | 人类掌舵，智能体执行 | [00-overview.md 总纲节](00-overview.md)（不占概念编号） |
+| 延伸 | Harness 的精确定义 | [06-harness-definition.md](06-harness-definition.md)（不占概念编号） |
+| 延伸 | 约束即产品（Spec as Product） | [07-spec-as-product.md](07-spec-as-product.md)（不占概念编号） |
+
+**引用约定**：跨文件引用概念时，写概念名并链接到具体文件（如 `[机械化执行](../concepts/02-mechanical-enforcement.md)`）；如需带编号，编号必须取自本表，不要裸写"概念 N"让读者猜编号体系。
 
 ### 结构（建议，非强制）
 

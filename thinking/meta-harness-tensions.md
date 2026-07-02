@@ -1,10 +1,10 @@
 # Meta-Harness 与现有 Harness Engineering 体系的五个张力
 
-> 读完 Anthropic "Scaling Managed Agents" 后，对比 references/ 中 7 篇文章的质疑与思考。
+> 读完 Anthropic "Scaling Managed Agents" 后，对比当时 references/ 中已收录 7 篇文章的质疑与思考（写作时点快照，未随后续文库扩容重写；文库现况见 [references/articles.md](../references/articles.md)）。
 
 ## 背景
 
-Managed Agents 引入了一个新的抽象层次：不再讨论"如何设计好的 harness"，而是追问"如何让 harness 本身成为可替换的基础设施"。这与已有 6 篇文章建立的框架存在多处张力。
+Managed Agents 引入了一个新的抽象层次：不再讨论"如何设计好的 harness"，而是追问"如何让 harness 本身成为可替换的基础设施"。这与此前 6 篇文章建立的框架存在多处张力。
 
 ---
 
