@@ -1,11 +1,14 @@
-# 反馈飞轮
-
-> 原文：[Feedback Flywheel](https://martinfowler.com/articles/reduce-friction-ai/feedback-flywheel.html)
-> 作者：Rahul Garg (Thoughtworks)
-> 日期：2026-04-08
-> 翻译方式：baoyu-translate skill (refined mode)
-
 ---
+title: "反馈飞轮"
+sourceTitle: "Feedback Flywheel"
+sourceUrl: "https://martinfowler.com/articles/reduce-friction-ai/feedback-flywheel.html"
+sourceAuthor: "Rahul Garg (Thoughtworks)"
+sourcePublishedAt: "2026-04-08"
+translationMethod: "baoyu-translate skill (refined mode)"
+language: "zh-CN"
+---
+
+# 反馈飞轮
 
 团队一直都有集体学习的机制：回顾会议、事故复盘、午间分享。这些机制中最有效的，都有一个共同特征：它们能把个人经验转化为团队共有的实践。一个人在调试过程中或生产事故中遇到的问题，会变成整个团队的知识。这些知识从个人头脑中释放出来，进入团队的基础设施——Wiki、运维手册（Runbook）、代码评审检查清单。
 

@@ -11,6 +11,7 @@ sourceCapturedAt: "2026-04-14T05:34:08.431Z"
 title: "Copilot 应用科学团队的智能体驱动开发"
 summary: "我用编码智能体构建了能自动完成部分工作的智能体。以下是我在与编码智能体协作过程中学到的经验。"
 language: "zh-CN"
+translationMethod: "baoyu-translate skill"
 translatedAt: "2026-04-14"
 ---
 

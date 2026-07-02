@@ -1,11 +1,14 @@
-# 深入脚手架内部：编码智能体架构的源代码级分类法
-
-> 原文：[Inside the Scaffold: A Source-Code Taxonomy of Coding Agent Architectures](https://arxiv.org/html/2604.03515v1)
-> 作者：Benjamin Rombaut (Centre for Software Excellence, Huawei Canada)
-> 日期：2026-04-04
-> 翻译方式：baoyu-translate skill (refined mode)
-
 ---
+title: "深入脚手架内部：编码智能体架构的源代码级分类法"
+sourceTitle: "Inside the Scaffold: A Source-Code Taxonomy of Coding Agent Architectures"
+sourceUrl: "https://arxiv.org/html/2604.03515v1"
+sourceAuthor: "Benjamin Rombaut (Centre for Software Excellence, Huawei Canada)"
+sourcePublishedAt: "2026-04-04"
+translationMethod: "baoyu-translate skill (refined mode)"
+language: "zh-CN"
+---
+
+# 深入脚手架内部：编码智能体架构的源代码级分类法
 
 Benjamin Rombaut
 华为加拿大软件卓越中心

@@ -1,4 +1,5 @@
 ---
+title: "Claude Code 架构（逆向工程版）"
 sourceTitle: "Claude Code Architecture (Reverse Engineered)"
 sourceUrl: "https://vrungta.substack.com/p/claude-code-architecture-reverse"
 sourceRequestedUrl: "https://vrungta.substack.com/p/claude-code-architecture-reverse?__readwiseLocation="
@@ -14,7 +15,7 @@ sourceKind: "generic/article"
 sourceLanguage: "en"
 summary: "我们正在进入 LLM 应用的第三个时代：从无状态问答的聊天机器人，到 n8n、LangChain 这类代码驱动的刚性工作流，再到由模型驱动循环的自主智能体。Claude Code 是这种新架构第一个走向大众市场的样板。作者称它们为“超级智能体”。"
 language: "zh-CN"
-translationMode: "refined"
+translationMethod: "baoyu-translate skill (refined mode)"
 translatorAudience: "technical"
 translatorStyle: "storytelling"
 ---

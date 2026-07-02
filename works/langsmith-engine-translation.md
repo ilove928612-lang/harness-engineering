@@ -5,9 +5,10 @@ sourceUrl: "https://www.langchain.com/blog/how-we-built-langsmith-engine-our-age
 sourceAuthor: "Palash Shah"
 sourcePublishedAt: "2026-05-19T16:00:00.000Z"
 summary: "拆解 LangSmith Engine 的实现方式：它如何从智能体 trace 中发现重复问题，生成 issue、评测器和回归样本，并把修复交接给独立智能体。"
-coverImage: "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/6a0c7cab710767bbc0f61dc9_Screenshot%202026-05-19%20at%208.05.40%E2%80%AFAM.png"
+sourceCoverImage: "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/6a0c7cab710767bbc0f61dc9_Screenshot%202026-05-19%20at%208.05.40%E2%80%AFAM.png"
 sourceLanguage: "en"
 language: "zh-CN"
+translationMethod: "baoyu-translate skill"
 ---
 
 # 我们如何构建 LangSmith Engine：一个用于改进智能体的智能体

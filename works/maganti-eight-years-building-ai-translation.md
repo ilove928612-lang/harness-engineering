@@ -20,11 +20,11 @@ sourceConversionMethod: "defuddle"
 sourceKind: "generic/article"
 sourceLanguage: "en"
 title: "渴望了八年，用 AI 三个月造出来"
-author: "Lalit Maganti"
 summary: |-
   八年来，我一直想要一套高质量的 SQLite 开发工具。考虑到 SQLite 在业界的重要性，我始终困惑为什么没人愿意在上面投入，打造真正优秀的开发体验。
   几周前，经过三个月里约 250 小时的业余投入，我终于发布了 syntaqlite，实现了这个多年的心愿。我认为这件事能成，主要归功于 AI 编码智能体。
 language: "zh-CN"
+translationMethod: "baoyu-translate skill"
 ---
 
 # 渴望了八年，用 AI 三个月造出来

@@ -4,10 +4,11 @@ sourceTitle: "Interpreters in Deep Agents: Code Between Tool Calls and Sandboxes
 sourceUrl: "https://www.langchain.com/blog/give-your-agents-an-interpreter"
 sourceAuthor: "Hunter Lovell"
 sourcePublishedAt: "2026-05-20T18:00:00.000Z"
-coverImage: "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/6a0e02b3e38f745763e01969_7.png"
+sourceCoverImage: "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/6a0e02b3e38f745763e01969_7.png"
 summary: "Deep Agents 现在支持解释器：一种小型嵌入式运行时，让智能体可以写代码来协调工具、保存工作状态，并决定什么进入模型上下文。"
 sourceLanguage: "en"
 language: "zh-CN"
+translationMethod: "baoyu-translate skill"
 ---
 
 # Deep Agents 中的解释器：工具调用和沙箱之间的代码层

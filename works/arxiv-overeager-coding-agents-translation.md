@@ -6,6 +6,7 @@ sourcePublishedAt: "2026-05-18"
 title: "过度积极的编码智能体：测量良性任务中的越界动作"
 summary: "本文定义并测量编码智能体在良性任务中的 overeager actions：智能体完成表面任务，却执行用户未授权的读写动作。作者提出 OverEager-Gen 和 OverEager-Bench，通过行为梯度验证器、双通道审计栈和 consent_kept/consent_stripped 配对消融，评估 Claude Code、OpenHands、Codex CLI 与 Gemini CLI 等框架的越界率，并指出宽松 permission gating 下模型层对齐并不会完整传导。"
 language: "zh-CN"
+translationMethod: "baoyu-translate skill"
 ---
 
 # 过度积极的编码智能体：测量良性任务中的越界动作

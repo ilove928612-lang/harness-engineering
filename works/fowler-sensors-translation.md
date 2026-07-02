@@ -6,6 +6,7 @@ sourcePublishedAt: "2026-05-20T00:00:00+00:00"
 title: "面向编码智能体的可维护性传感器"
 summary: "一篇关于生产路径上计算性传感器的实践复盘，并深入讨论 ESLint 与静态分析如何为编码智能体提供反馈。"
 language: "zh-CN"
+translationMethod: "baoyu-translate skill"
 ---
 
 # 面向编码智能体的可维护性传感器

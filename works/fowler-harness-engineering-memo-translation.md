@@ -1,11 +1,16 @@
+---
+title: "Harness Engineering —— 初步思考"
+sourceTitle: "Harness Engineering - first thoughts"
+sourceUrl: "https://martinfowler.com/articles/exploring-gen-ai/harness-engineering-memo.html"
+sourceAuthor: "Birgitta Böckeler (Thoughtworks)"
+sourcePublishedAt: "2026-02-17"
+translationMethod: "baoyu-translate skill"
+language: "zh-CN"
+---
+
 # Harness Engineering —— 初步思考
 
-> 原文：[Harness Engineering - first thoughts](https://martinfowler.com/articles/exploring-gen-ai/harness-engineering-memo.html)
-> 作者：Birgitta Böckeler (Thoughtworks)
-> 日期：2026-02-17
-> 备注：这是一篇早期备忘录，作者后来写了一篇[更成熟的分析文章](https://martinfowler.com/articles/exploring-gen-ai/harness-engineering.html)
-
----
+> 译注：这是一篇早期备忘录，作者后来写了一篇[更成熟的分析文章](https://martinfowler.com/articles/exploring-gen-ai/harness-engineering.html)。
 
 *写完这篇备忘录后，我有时间做了更深入的分析，写了一篇更成熟的文章来描述 Harness Engineering。那篇文章将 harness 的组成元素框定为引导器（guides）和传感器（sensors），它们可以是计算性的，也可以是推理性的。Harness 模板让我们能够在更大的软件组织中共享通用的引导器和传感器。Harness 试图将人类开发者经验所带来的价值外部化并显式化，但它只能做到一定程度。一个好的 harness 不应以完全消除人类输入为目标，而应将人类输入引导到我们的参与最重要的地方。*
 

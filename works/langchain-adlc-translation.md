@@ -5,9 +5,10 @@ sourceUrl: "https://www.langchain.com/blog/the-agent-development-lifecycle"
 sourceAuthor: "Harrison Chase"
 sourcePublishedAt: "2026-05-09T17:15:00.000Z"
 summary: "介绍一套面向智能体的开发生命周期：从构建、测试、部署、监控到迭代和治理，帮助团队把一次性 demo 变成可重复、可评测、可运营的工程实践。"
-coverImage: "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/6a0572387d90e67612454cde_pic1.avif"
+sourceCoverImage: "https://cdn.prod.website-files.com/65c81e88c254bb0f97633a71/6a0572387d90e67612454cde_pic1.avif"
 sourceLanguage: "en"
 language: "zh-CN"
+translationMethod: "baoyu-translate skill"
 ---
 
 # 智能体开发生命周期（ADLC）

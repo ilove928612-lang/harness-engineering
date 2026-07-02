@@ -1,11 +1,14 @@
-# 智能体评测就绪清单
-
-> 原文：[Agent Evaluation Readiness Checklist](https://blog.langchain.com/agent-evaluation-readiness-checklist/)
-> 作者：Victor Moreira (LangChain)
-> 日期：2026-03-27
-> 翻译方式：baoyu-translate skill (refined mode)
-
 ---
+title: "智能体评测就绪清单"
+sourceTitle: "Agent Evaluation Readiness Checklist"
+sourceUrl: "https://blog.langchain.com/agent-evaluation-readiness-checklist/"
+sourceAuthor: "Victor Moreira (LangChain)"
+sourcePublishedAt: "2026-03-27"
+translationMethod: "baoyu-translate skill (refined mode)"
+language: "zh-CN"
+---
+
+# 智能体评测就绪清单
 
 *作者：Victor Moreira，LangChain 驻场工程师*
 

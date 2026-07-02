@@ -1,11 +1,14 @@
-# 编码团队标准
-
-> 原文：[Encoding Team Standards](https://martinfowler.com/articles/reduce-friction-ai/encoding-team-standards.html)
-> 作者：Rahul Garg (Thoughtworks)
-> 日期：2026-03-31
-> 翻译方式：baoyu-translate skill (refined mode)
-
 ---
+title: "编码团队标准"
+sourceTitle: "Encoding Team Standards"
+sourceUrl: "https://martinfowler.com/articles/reduce-friction-ai/encoding-team-standards.html"
+sourceAuthor: "Rahul Garg (Thoughtworks)"
+sourcePublishedAt: "2026-03-31"
+translationMethod: "baoyu-translate skill (refined mode)"
+language: "zh-CN"
+---
+
+# 编码团队标准
 
 一个团队合作得够久之后，某些实践就变得无形。资深工程师打回一个 Pull Request 时不会去翻清单——她几乎瞬间就能看出：错误处理不完整，抽象过早了，命名不符合团队规范。同样的直觉也渗透到她与 AI 协作的方方面面：如何引导 AI 生成代码，如何组织重构请求，在认定一项工作完成之前让 AI 检查什么。如果你让她解释，她当然说得出来，但在那个当下，靠的是多年代码评审、生产事故和架构讨论积淀出的模式识别能力。这种隐性知识（Tacit Knowledge）——生成什么、检查什么、标记什么、拒绝什么——是团队最有价值，也最脆弱的资产。它住在人的脑袋里，只能通过结对编程和代码评审缓慢传递，而一旦有人离职，它就跟着人走出公司大门。
 

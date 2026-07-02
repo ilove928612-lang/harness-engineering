@@ -6,6 +6,7 @@ sourcePublishedAt: "2026-05-18"
 title: "Agentic Harness Engineering：可观测性驱动的编码智能体 Harness 自动演化"
 summary: "本文提出 Agentic Harness Engineering（AHE）：一种让编码智能体在固定基础模型下，通过组件、经验和决策三类可观测性来自动演化 Harness 的闭环。AHE 将可编辑组件文件化，把轨迹压缩为可下钻证据，并让每次编辑附带可证伪预测；在 Terminal-Bench 2 上将 pass@1 从 69.7% 提升到 77.0%，并在 SWE-bench-verified 与跨模型迁移中保持收益。"
 language: "zh-CN"
+translationMethod: "baoyu-translate skill"
 ---
 
 # Agentic Harness Engineering：可观测性驱动的编码智能体 Harness 自动演化

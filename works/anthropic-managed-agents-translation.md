@@ -1,11 +1,15 @@
-# 规模化托管智能体：将大脑与双手解耦
-
-> 原文：[Scaling Managed Agents: Decoupling the brain from the hands](https://www.anthropic.com/engineering/managed-agents)
-> 作者：Lance Martin, Gabe Cemaj, Michael Cohen
-> 日期：2026-02-04
-> 分类：Anthropic 工程博客 · 架构
-
 ---
+title: "规模化托管智能体：将大脑与双手解耦"
+sourceTitle: "Scaling Managed Agents: Decoupling the brain from the hands"
+sourceUrl: "https://www.anthropic.com/engineering/managed-agents"
+sourceAuthor: "Lance Martin, Gabe Cemaj, Michael Cohen"
+sourcePublishedAt: "2026-02-04"
+category: "Anthropic 工程博客 · 架构"
+translationMethod: "baoyu-translate skill"
+language: "zh-CN"
+---
+
+# 规模化托管智能体：将大脑与双手解耦
 
 **Harness 编码的假设会随着模型进步而过时。Managed Agents——我们面向长时间智能体工作的托管服务——围绕一组在 harness 变化时仍保持稳定的接口来构建。**
 

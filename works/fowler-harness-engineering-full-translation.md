@@ -1,11 +1,14 @@
-# 编码智能体用户的 Harness Engineering
-
-> 原文：[Harness engineering for coding agent users](https://martinfowler.com/articles/harness-engineering.html)
-> 作者：Birgitta Böckeler (Thoughtworks)
-> 日期：2026-04-02
-> 翻译方式：baoyu-translate skill (refined mode)
-
 ---
+title: "编码智能体用户的 Harness Engineering"
+sourceTitle: "Harness engineering for coding agent users"
+sourceUrl: "https://martinfowler.com/articles/harness-engineering.html"
+sourceAuthor: "Birgitta Böckeler (Thoughtworks)"
+sourcePublishedAt: "2026-04-02"
+translationMethod: "baoyu-translate skill (refined mode)"
+language: "zh-CN"
+---
+
+# 编码智能体用户的 Harness Engineering
 
 *要让编码智能体（Coding Agent）以更少的监督工作，我们需要有办法增强对其结果的信心。作为软件工程师，我们对 AI 生成的代码天然存在信任屏障——LLM 是非确定性的，它们不了解我们的上下文，也并不真正理解代码，它们以 token 为单位思考。本文探索一种心智模型，将上下文工程（Context Engineering）和 Harness Engineering（驾驭工程）中正在涌现的概念整合在一起，以建立这种信任。*
 

@@ -12,6 +12,20 @@
 
 ### 翻译
 
+**元信息头约定**：每篇 `*-translation.md` 以 YAML frontmatter 开头（不再使用早期的引用块头），必备字段：
+
+```yaml
+title:             # 中文标题
+sourceTitle:       # 原文标题
+sourceUrl:         # 原文链接
+sourceAuthor:      # 原作者（可含所属机构）
+sourcePublishedAt: # 原文日期（未知可为 null）
+translationMethod: # 翻译方式，如 "baoyu-translate skill (refined mode)"
+language: "zh-CN"
+```
+
+可选字段（抓取流水线的溯源元数据）：`sourceCoverImage`、`sourceSiteName`、`sourceSummary`、`summary`、`sourceLanguage`、`sourceAdapter`、`sourceCapturedAt`、`sourceConversionMethod`、`sourceKind`、`sourceRequestedUrl`、`translatedAt`、`translatorAudience`、`translatorStyle` 等。封面图字段统一用 `sourceCoverImage`（不用 `coverImage`）。
+
 | 文件 | 原文 | 来源 |
 |------|------|------|
 | [fowler-harness-engineering-full-translation.md](fowler-harness-engineering-full-translation.md) | Harness Engineering for Coding Agent Users | Martin Fowler / Böckeler |

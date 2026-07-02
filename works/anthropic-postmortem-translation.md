@@ -2,7 +2,7 @@
 sourceTitle: "An update on recent Claude Code quality reports"
 sourceUrl: "https://www.anthropic.com/engineering/april-23-postmortem"
 sourceRequestedUrl: "https://www.anthropic.com/engineering/april-23-postmortem"
-sourceAuthor: "@AnthropicAI"
+sourceAuthor: "Anthropic 工程团队 (@AnthropicAI)"
 sourcePublishedAt: "2026-04-23"
 sourceCoverImage: "https://cdn.sanity.io/images/4zrzovbb/website/3f522820d47355885631ebda60e5d1f3e5c0fbc2-2000x1050.heif"
 title: "关于近期 Claude Code 质量报告的更新"
@@ -14,6 +14,7 @@ sourceConversionMethod: "defuddle"
 sourceKind: "generic/article"
 language: "zh-CN"
 sourceLanguage: "en"
+translationMethod: "baoyu-translate skill"
 ---
 
 # 关于近期 Claude Code 质量报告的更新

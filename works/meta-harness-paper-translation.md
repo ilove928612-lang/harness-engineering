@@ -1,11 +1,14 @@
-# Meta-Harness：模型 Harness 的端到端优化
-
-> 原文：[Meta-Harness: End-to-End Optimization of Model Harnesses](https://arxiv.org/abs/2603.28052)
-> 作者：Yoonho Lee, Roshen Nair, Qizheng Zhang, Kangwook Lee, Omar Khattab, Chelsea Finn (Stanford, KRAFTON, MIT)
-> 日期：2026-03-30
-> 翻译方式：baoyu-translate skill (refined mode)
-
 ---
+title: "Meta-Harness：模型 Harness 的端到端优化"
+sourceTitle: "Meta-Harness: End-to-End Optimization of Model Harnesses"
+sourceUrl: "https://arxiv.org/abs/2603.28052"
+sourceAuthor: "Yoonho Lee, Roshen Nair, Qizheng Zhang, Kangwook Lee, Omar Khattab, Chelsea Finn (Stanford, KRAFTON, MIT)"
+sourcePublishedAt: "2026-03-30"
+translationMethod: "baoyu-translate skill (refined mode)"
+language: "zh-CN"
+---
+
+# Meta-Harness：模型 Harness 的端到端优化
 
 ###### 摘要
 
