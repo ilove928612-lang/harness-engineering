@@ -26,7 +26,7 @@
 | 3   | 探索收敛   | [待补：AGENTS.md / 项目地图 / sitemap] | [待补] |
 | 4   | 状态纠缠   | [待补：模块边界检查 / 依赖图 / ArchUnit 类]  | [待补] |
 | 5   | 暗知识    | [待补：ADR / 决策记录 / 注释规范]          | [待补] |
-| 6   | 验证成本   | [待补：测试框架 / CI / 类型检查 / linter]  | [待补] |
+| 6   | 验证成本   | [ralph-orchestrator](harnesses/ralph-orchestrator.md)（背压门控，主战场）；另待补：测试框架 / CI / 类型检查 / linter | ✅ [practice/01](../practice/01-ralph-demo/) 实测：Builder 测试全绿才交棒 + Critic 独立重验 |
 
 ### 分母：胶囊化能力（越高越好）
 
@@ -46,9 +46,10 @@
 
 ### Harness 框架
 
-> 作者使用为主，已在 `[practice/](../practice/)` 中跑过的优先标注 ✅
+> 作者使用为主，已在 [practice/](../practice/) 中跑过的优先标注 ✅
 
-- Claude Code
+- ✅ [ralph-orchestrator](harnesses/ralph-orchestrator.md) — 已在 [practice/01-ralph-demo/](../practice/01-ralph-demo/) 实测（v2.8.1，4 轮迭代 / 321s / $0.31）
+- Claude Code（practice/01 中作为 Ralph 的执行后端使用过；独立工具页待写）
 - Codex CLI/ Codex App
 - Cursor
 - [其他待补]

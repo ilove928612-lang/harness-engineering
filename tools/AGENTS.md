@@ -6,8 +6,8 @@
 ## 文件约定
 
 - `00-overview.md` — 工具地图：维度 × 工具矩阵（先读）
-- `harnesses/` — Agent harness 框架（Claude Code、Codex、Cursor 等）
-- `auxiliary/` — 辅助工具（linter、CI、文档、测试、依赖分析等）
+- `harnesses/` — Agent harness 框架（首篇：[ralph-orchestrator.md](harnesses/ralph-orchestrator.md)；Claude Code、Codex、Cursor 等待写）
+- `auxiliary/` — 辅助工具（linter、CI、文档、测试、依赖分析等）；**规划中**，首篇辅助工具页落地时再建目录
 
 每个工具页结构（建议，非强制）：
 

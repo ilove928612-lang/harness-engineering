@@ -181,3 +181,7 @@ Plan: 2 steps. Step 1 covers both implementation and tests. Step 2 is manual ver
 | scratchpad.md 跨迭代传递上下文 | **持久记忆** — 磁盘是状态，Git 是记忆 |
 | `LOOP_COMPLETE` 触发循环终止 | **完成信号** — 明确的退出条件，不靠猜测 |
 | Builder 在第 2 轮自己发现并修了 char count bug | **迭代自愈** — 测试失败 → 自动修复 → 重新验证 |
+
+## 归档文件
+
+实验原始运行在 `/tmp/ralph-demo`（ephemeral 路径）。为践行"仓库即记录系统"，产物已落盘到本目录：[PROMPT.md](PROMPT.md)、[ralph.yml](ralph.yml)、[wc.py](wc.py)、[test_wc.py](test_wc.py)（复原件）。各文件来源与复验方式见 [AGENTS.md](AGENTS.md)；工具本身的主张与失效场景见 [tools/harnesses/ralph-orchestrator.md](../../tools/harnesses/ralph-orchestrator.md)。
