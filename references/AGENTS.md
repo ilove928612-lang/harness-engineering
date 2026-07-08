@@ -9,10 +9,10 @@
 
 ## 文章
 
-详见 [articles.md](articles.md) — 完整的文章索引，含三条脉络 **30 篇文章 + 1 项已跟踪产品** 的深度摘要。
+详见 [articles.md](articles.md) — 完整的文章索引，含三条脉络 **42 篇文章 + 1 项已跟踪产品** 的深度摘要。
 权威计数与编号规则以 `articles.md` 头部为准；本表是它的概览缓存。
 
-### 脉络一：AI 时代的 Harness Engineering（27 篇）
+### 脉络一：AI 时代的 Harness Engineering（38 篇）
 
 | # | 文章 | 作者 | 核心贡献 |
 |---|------|------|---------|
@@ -43,19 +43,31 @@
 | 25 | [Overeager Coding Agents 论文](https://arxiv.org/html/2605.18583v1) | Yubin Qu 等 | 越界动作测量 + 提示声明授权反而降低边界推断 |
 | 26 | [How I Use AI to Code](https://chrismdp.com/coding-with-ai/) | Chris Parsons | 四要素 Harness + 从批准者到训练者 + 反馈是新瓶颈 |
 | 27 | [How we built LangSmith Engine](https://www.langchain.com/blog/how-we-built-langsmith-engine-our-agent-for-improving-agents) | Palash Shah | 用智能体改进智能体 + trace→轨迹骨架 + screener/investigator 两阶段闭环 |
+| 28 | [Ralph 原始文章 + 续篇](https://ghuntley.com/ralph/) | Geoffrey Huntley | Ralph = bash 循环 + 每轮干净上下文 + 背压；单体反多智能体论（还上 practice/ Ralph Demo 的理论债） |
+| 29 | [My AI Adoption Journey](https://mitchellh.com/writing/my-ai-adoption-journey) | Mitchell Hashimoto | 六步采纳路线 + "harness engineering" 命名出处（由延伸阅读升格） |
+| 30 | [Claude Code 源码泄漏事件](https://github.com/pankaj28843/understanding-claude-code) | Chaofan Shou 发现 / 社区聚合分析 | 512K 行 harness 实锤解剖：QueryEngine/60+ 门控工具/KAIROS/AutoDream，#17 推测的对照组 |
+| 31 | [Agent Harness Engineering](https://addyosmani.com/blog/agent-harness-engineering/) | Addy Osmani | 学科汇流综合 + 约束加减法纪律 + hooks 分界论 + HaaS（综述破例进编号正文） |
+| 32 | [Exploring AI coding sensors](https://www.thoughtworks.com/en-au/insights/blog/generative-ai/harness-engineering-agent-feedback-exploring-ai-coding-sensors) | Böckeler & Ford | 有/无传感器对照实验 + 态势感知论 + harness 模板展望 |
+| 33 | [HarnessAudit 论文](https://arxiv.org/abs/2605.14271) | Chengzhi Liu 等 | harness 安全审计：中途轨迹违规是输出级评估的盲区 + 210 任务基准 |
+| 34 | [Harness-Bench 论文](https://arxiv.org/abs/2605.27922) | Yilun Yao 等 | 配置级 harness 效应测量（106 任务/5194 轨迹）+ 执行对齐失败分类 |
+| 35 | [How good is your harness? 论文](https://openreview.net/pdf/99eabc2ce65fd2871a253a0a57954c934ea9e6b0.pdf) | Jiwoo Han, Yuekai Sun | Terminal-Bench 2.0 榜单方差统计归因：harness 效应 ≈ 模型效应，且效应异质 |
+| 36 | [Dynamic workflows in Claude Code](https://claude.com/blog/a-harness-for-every-task-dynamic-workflows-in-claude-code) | Anthropic / Claude | 模型现场写自己的编排 harness + 对抗验证 + workflow 沉淀为 Skill |
+| 37 | [Harness 才是产品](https://sotasync.com/reader/2026-06-09-dongxi-nlp-harness-is-the-product/) | 马东锡 NLP | "Model 在 loop 里，harness 拥有 loop" + 六组件 + 症状→组件 debug 对照表 |
+| 38 | [Position: 基准错位论文](https://arxiv.org/abs/2606.17799) | Maria I. Gorinova 等 | 基准把 model/harness/环境折叠进一个分数的三症状诊断 |
 
 ### 脉络二：云原生 Harness.io（2 篇）
 
 | # | 文章 | 核心贡献 |
 |---|------|---------|
-| 28 | [Harness.io 官方](https://www.harness.io/blog/understanding-ci-cd-platforms-the-backbone-of-modern-devops) | CI/CD 平台全局架构 |
-| 29 | [Google Cloud Architecture](https://docs.cloud.google.com/architecture/partners/harness-cicd-pipeline-for-rag-app) | Harness + GCP 部署 RAG |
+| 39 | [Harness.io 官方](https://www.harness.io/blog/understanding-ci-cd-platforms-the-backbone-of-modern-devops) | CI/CD 平台全局架构 |
+| 40 | [Google Cloud Architecture](https://docs.cloud.google.com/architecture/partners/harness-cicd-pipeline-for-rag-app) | Harness + GCP 部署 RAG |
 
-### 脉络三：效率悖论与能力进化（1 篇）
+### 脉络三：效率悖论与能力进化（2 篇）
 
 | # | 文章 | 核心贡献 |
 |---|------|---------|
-| 30 | [YDD / Miss-you](https://yousali.com/posts/20260303-ai-coding-efficiency-to-evolution/) | 效率悖论的系统性拆解：约束理论 + Spec/Rule/Skill + 验证闭环 + 并发 |
+| 41 | [YDD / Miss-you](https://yousali.com/posts/20260303-ai-coding-efficiency-to-evolution/) | 效率悖论的系统性拆解：约束理论 + Spec/Rule/Skill + 验证闭环 + 并发 |
+| 42 | [METR 实验后续 + 自报调查](https://metr.org/blog/2026-02-24-uplift-update/) | METR | "慢 19%" 的官方后续：弱证据转向加速 + AI 渗透破坏 RCT 可行性本身 |
 
 ### 已跟踪产品 / 项目（不计入文章数）
 
@@ -83,16 +95,18 @@
 
 | 资源 | 说明 |
 |------|------|
-| [Mitchell Hashimoto: Engineer the Harness](https://mitchellh.com/writing/my-ai-adoption-journey#step-5-engineer-the-harness) | "Harness" 概念的另一个起源 |
 | [Martin Fowler: Context Engineering for Coding Agents](https://martinfowler.com/articles/context-engineering-coding-agents.html) | Context Engineering 专题 |
 | [Martin Fowler: Humans and Agents in SE Loops](https://martinfowler.com/articles/humans-and-agents.html) | 人类与智能体的协作模式 |
+
+> Mitchell Hashimoto 的 My AI Adoption Journey 原在此表，2026-07 已升格为编号条目 #29。
 
 ## 待补充
 
 > 占位条目统一收在这里，**不进 `articles.md` 的编号正文**，避免污染文章计数。
 
-- [ ] Geoffrey Huntley 的 Ralph 原始文章
-- [ ] OpenAI 相关文章：Codex App Server、Responses API
+- [x] Geoffrey Huntley 的 Ralph 原始文章 → 已收录为 #28（2026-07）
+- [ ] OpenAI 相关文章：Codex App Server（已定位：[Unlocking the Codex harness](https://openai.com/index/unlocking-the-codex-harness/)，2026-02-04，待评审收录）、Responses API
+- [ ] 马东锡 Harness 系列其余篇目（仓库已收 #18 之 7、#37 才是产品；X 原帖需本地工具抓取）
 - [ ] Medium 实战专栏 — "Beyond Migration: How We Engineered a Secure & Intelligent Delivery Platform with Harness CICD"（标题可能已变更或文章已下架）
 
 ## 下一步

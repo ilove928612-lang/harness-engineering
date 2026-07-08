@@ -1,7 +1,7 @@
 [中文](README.md) | English
 
 ![License: MIT](https://img.shields.io/badge/license-MIT-blue)
-![Articles](https://img.shields.io/badge/articles-30-green)
+![Articles](https://img.shields.io/badge/articles-42-green)
 ![Translations](https://img.shields.io/badge/translations-22-orange)
 
 # Harness Engineering Study Guide
@@ -115,7 +115,7 @@ harness-engineering/
 ├── works/                 # Phase 5: Shareable outputs (22 translations + 1 original + 2 external Chinese captures)
 ├── tools/                 # Tools that reduce the 6 complexity dimensions
 ├── prompts/               # Validated prompts collection
-└── references/            # External resource index (30 articles with deep summaries)
+└── references/            # External resource index (42 articles with deep summaries)
 ```
 
 Each subdirectory has its own `AGENTS.md` explaining its purpose and conventions — a direct practice of the "progressive disclosure" principle from the original article.
@@ -130,14 +130,14 @@ Each subdirectory has its own `AGENTS.md` explaining its purpose and conventions
 
 ## 📚 Research Library
 
-30 articles across three knowledge tracks + 3 extended readings:
+42 articles across three knowledge tracks + 2 extended readings:
 
 | Track | Coverage | Perspectives |
 |-------|----------|-------------|
-| AI-Era Harness Engineering | 27 articles | OpenAI → Fowler → Anthropic → LangChain → Stanford → Claude Code reverse engineering → Subagent runtime → Sensors/SPDD/ADLC → Out-of-scope & quality postmortem → Practice recap & Engine |
+| AI-Era Harness Engineering | 38 articles | OpenAI → Fowler → Anthropic → LangChain → Stanford → Claude Code reverse engineering & source leak → Subagent runtime → Sensors/SPDD/ADLC → Out-of-scope, safety auditing & quality postmortems → Evaluation trilogy → Dynamic workflows → Origins (Ralph / Hashimoto) & discipline synthesis |
 | Cloud-Native Harness.io | 2 articles | CI/CD platform architecture (same name, different meaning) |
-| Efficiency Paradox & Capability Evolution | 1 article | YDD systematic teardown: TOC + Spec/Rule/Skill |
-| Extended Reading | 3 articles | Mitchell Hashimoto, Context Engineering, Human-Agent collaboration |
+| Efficiency Paradox & Capability Evolution | 2 articles | YDD systematic teardown + METR follow-up (measurement-methodology crisis) |
+| Extended Reading | 2 articles | Context Engineering, Human-Agent collaboration |
 
 See [references/articles.md](references/articles.md) — each article includes core thesis, key data, and cross-article connections.
 
@@ -207,7 +207,7 @@ The "Ralph Wiggum Loop" is the core implementation pattern of Harness Engineerin
 | Resource | Description |
 |----------|-------------|
 | [vibe-coding-cn](https://github.com/tukuaiai/vibe-coding-cn) | Chinese Vibe Coding community guide |
-| [Mitchell Hashimoto: Engineer the Harness](https://mitchellh.com/writing/my-ai-adoption-journey#step-5-engineer-the-harness) | Another origin of the "Harness" concept |
+| [Mitchell Hashimoto: Engineer the Harness](https://mitchellh.com/writing/my-ai-adoption-journey#step-5-engineer-the-harness) | Where "harness engineering" got its name (now indexed as article #29 in references/articles.md) |
 
 ## 🛠️ Development Notes
 

@@ -61,11 +61,11 @@
 > 它必须自包含，因为搜索器无法访问 `references/articles.md`。
 >
 > **维护纪律：** 当 `references/articles.md` 新增/删除条目时，**同一次提交中**必须同步更新本节。两份内容的口径（脉络划分、篇数、产品/项目清单）应保持完全一致。
-> 本节最近一次同步：2026-06-25（与 `articles.md` 当前内容对齐：30 篇文章 + 1 项已跟踪产品）。
+> 本节最近一次同步：2026-07-08（与 `articles.md` 当前内容对齐：42 篇文章 + 1 项已跟踪产品）。
 
-**核心文章 30 篇，分布于三条脉络：**
+**核心文章 42 篇，分布于三条脉络：**
 
-- **脉络一 — AI 时代 Harness Engineering（27 篇）：**
+- **脉络一 — AI 时代 Harness Engineering（38 篇）：**
   - OpenAI "Harness engineering"（原点，2026-02-11）/ "An open-source spec for Codex orchestration: Symphony"（2026-04-27，任务跟踪器作为控制平面）
   - Fowler/Böckeler "Harness engineering for coding agent users"（2026-04-02）+ 前传备忘录（2026-02-17）
   - LangChain "The Anatomy of an Agent Harness"（2026-03）/ "Continual Learning for AI Agents"（2026-04-05）/ "Agent Evaluation Readiness Checklist"
@@ -89,8 +89,19 @@
   - Overeager Coding Agents 论文（arXiv 2605.18583，越界动作测量 + 提示声明授权反而降低边界推断）
   - Chris Parsons "How I Use AI to Code"（2026-05，四要素 Harness + 从批准者到训练者 + 反馈是新瓶颈；含译者注，2026 数据未独立核实）
   - LangChain / Palash Shah "How we built LangSmith Engine"（2026-05-19，用智能体改进智能体，trace→轨迹骨架 + screener/investigator 两阶段闭环）
+  - Geoffrey Huntley "Ralph Wiggum as a software engineer"（2025-07）+ "everything is a ralph loop"（2026-01-17，bash 循环 + 干净上下文 + 背压 + 单体反多智能体论）
+  - Mitchell Hashimoto "My AI Adoption Journey"（2026-02-05，六步采纳路线 + "harness engineering" 命名出处）
+  - Claude Code 源码泄漏事件（2026-03-31，v2.1.88 npm source map 泄 512K 行 TypeScript；聚合分析 pankaj28843/understanding-claude-code：QueryEngine ~46K 行、60+ 门控工具、KAIROS/AutoDream/Undercover Mode）
+  - Addy Osmani "Agent Harness Engineering"（2026-04-19，O'Reilly 转载；学科汇流综合 + 约束加减法纪律 + hooks 分界论 + HaaS）
+  - Thoughtworks / Böckeler & Ford "Exploring AI coding sensors"（2026-05-13，有/无传感器对照实验 + harness 模板展望）
+  - HarnessAudit 论文（arXiv 2605.14271，harness 安全审计：中途轨迹违规是输出级评估盲区，210 任务基准）
+  - Harness-Bench 论文（arXiv 2605.27922，配置级 harness 效应：106 任务 / 5194 轨迹 + 执行对齐失败）
+  - "How good is your harness?"（CTB@ICML 2026，Terminal-Bench 2.0 榜单方差统计归因：harness 效应 ≈ 模型效应且异质）
+  - Anthropic/Claude "A harness for every task: dynamic workflows in Claude Code"（2026-06-02，模型现场写自己的编排 harness + 对抗验证 + ultracode 触发）
+  - 马东锡 NLP "Harness 才是产品"（2026-06，Model 在 loop 里 harness 拥有 loop + 六组件 + 症状→组件 debug 表）
+  - Position 论文 "Coding Benchmarks Are Misaligned with Agentic SE"（arXiv 2606.17799，基准折叠 model/harness/环境的三症状）
 - **脉络二 — 云原生 Harness.io（2 篇）：** Harness.io 官方全局架构 / Google Cloud 集成场景
-- **脉络三 — 效率悖论（1 篇）：** YDD/Miss-you "效率悖论的系统性拆解"（2026-03-03）
+- **脉络三 — 效率悖论（2 篇）：** YDD/Miss-you "效率悖论的系统性拆解"（2026-03-03）/ METR 实验后续 + 自报调查（2026-02-24 + 2026-05-11，"慢 19%"的官方后续：弱证据转向加速 + RCT 方法论危机）
 
 **已跟踪的开源项目/产品：**
 - Ralph Loop 实验链：snarktank/ralph、ralph-orchestrator、bmad-ralph
@@ -181,12 +192,14 @@
 2. **缺口分析**：这批内容覆盖了我们的哪些知识缺口？还有哪些缺口未被触及？
    当前已知缺口：
    - 行为 Harness（功能正确性验证）
-   - Harness 覆盖率评估方法
-   - 跨模型可移植性
+   - Harness 覆盖率评估方法（#34/#35/#38 评测三部曲已部分回应，组件级信号供给仍开放）
+   - 跨模型可移植性（#35 给出首个定量异质性证据，迁移指南仍缺）
    - 成本数据
    - 中小团队实践案例
    - Harness 接口维护成本（追宿主升级在总维护中的占比）
-   - 控制的"激活策略"（always-on / per-commit / conditional / human-summoned 的分类与适用场景）
+   - 控制的"激活策略"（always-on / per-commit / conditional / human-summoned 的分类与适用场景；#36 的 workflow/ultracode 触发是一个数据点）
+   - Harness 安全审计（#33 开辟：中途轨迹违规、多智能体信息流、harness 决定安全上限——后续跟踪该方向的评测与工具）
+   - 评测方法论（基准如何拆分 model/harness/环境的组件级归因——跟踪 #34/#35/#38 的后续工作）
 
 3. **趋势信号**：这批内容中是否有新的趋势或方向？与我们已有的四个学派（约束派、控制论派、架构派、怀疑派）是否一致？
 
@@ -214,6 +227,9 @@
 5. https://github.com/trending?since=weekly — AI/agent 相关项目
 6. https://simonwillison.net/ — 新文章
 7. https://mitchellh.com/writing — 新文章
+8. https://claude.com/blog — 新文章（Anthropic 产品侧博客；2026-06 的 dynamic workflows / Managed Agents 两篇重磅均发于此，工程博客不覆盖）
+9. https://addyosmani.com/blog/ — 新文章
+10. https://ghuntley.com/ — 新文章（Ralph 方法论源头）
 
 匹配关键词：harness, agent, coding agent, context engineering, 
             AGENTS.md, compaction, multi-agent, sandbox
