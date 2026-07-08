@@ -1000,7 +1000,8 @@
 
 - **标题：** A harness for every task: dynamic workflows in Claude Code
 - **链接：** [claude.com/blog](https://claude.com/blog/a-harness-for-every-task-dynamic-workflows-in-claude-code)
-- **作者：** Anthropic / Claude 团队 | **日期：** 2026-06-02（功能随 Claude Code 2.1.154 + Opus 4.8 于 2026-05-28 发布）
+- **翻译：** [works/anthropic-dynamic-workflows-translation.md](../works/anthropic-dynamic-workflows-translation.md)
+- **作者：** Thariq Shihipar, Sid Bidasaria（Anthropic Claude Code 团队） | **日期：** 2026-06-02（功能随 Claude Code 2.1.154 + Opus 4.8 于 2026-05-28 发布）
 - **核心：** harness 本体论的转折点——Claude 现在**为任务现场编写自己的 JavaScript 编排脚本**，即一次性定制 harness。默认 Claude Code harness 要在同一个上下文窗口里既规划又执行，在长时运行、大规模并行、高度结构化、对抗性任务上会崩；dynamic workflows 把编排逻辑放进代码（在 token 上近乎免费），单会话扇出数十到数百个并行 subagent，各自在隔离上下文窗口内执行聚焦目标。
 
 - **关键洞察：**
@@ -1156,6 +1157,7 @@
 
 - **标题：** We are Changing our Developer Productivity Experiment Design（2026-02-24）+ Measuring the Self-Reported Impact of Early-2026 AI on Technical Worker Productivity（2026-05-11）
 - **链接：** [metr.org 实验设计更新](https://metr.org/blog/2026-02-24-uplift-update/) | [metr.org 自报调查](https://metr.org/blog/2026-05-11-ai-usage-survey/) | [后续研究数据集](https://github.com/METR/Measuring-Late-2025-AI-on-OSS-Devs)
+- **翻译：** [works/metr-uplift-update-translation.md](../works/metr-uplift-update-translation.md)（实验设计更新篇）
 - **作者：** Joel Becker, Nate Rush, Tom Cunningham, David Rein, Khalid Mahamud (METR) | **日期：** 2026-02-24 / 2026-05-11
 - **核心：** #41 YDD 的论证基石（METR RCT "AI 辅助反而慢 19%"）的官方后续。late-2025 复现实验（57 名开发者、143 仓库、800+ 任务）的原始结果转向加速——原班开发者估计 **-18% 加速**（CI -38%~+9%）、新开发者 -4%（CI -15%~+9%）——但 METR 自己判定这只是**很弱的证据**，并宣布改实验设计。真正的信息量在于：**AI 渗透已经破坏了任务级随机对照实验本身的可行性**。
 
@@ -1296,6 +1298,6 @@ Harness Engineering（AI 护栏）     Harness.io（交付管线）
 | Microsoft Agent Framework `HarnessAgent` | 产品/文档 | ⚪ | 微软入场：batteries-included harness 作为一等 API（`AsHarnessAgent`）；微软视角此前仓库空白，暂只有文档无深度工程文 | [learn.microsoft.com](https://learn.microsoft.com/en-us/agent-framework/agents/harness) |
 | OpenAI Core dump 流行病学 | 工程复盘 | ⚪ | "群体级诊断 > 逐例分析"修复 18 年 libunwind 老 bug，ChatGPT 参与写分析管线；可观测性方法论好文但与 harness 关系间接，2026-06-30 | [openai](https://openai.com/index/core-dump-epidemiology-data-infrastructure-bug/) |
 | thedeepfeed：学科史梳理 | 编年 | ⚪ | "七个声音九个月汇流成一个学科"的传播史（含 Osmani 文收藏/点赞比 2:1 等传播数据）；二手史料，配 #31 看 | [thedeepfeed.ai](https://www.thedeepfeed.ai/posts/2026-05-09-agent-harness-engineering-the-discipline/) |
-| Boris Cherny 工作流 | 实践 | ⚪ | Claude Code 作者本人"出奇原味"的用法（~100 行 CLAUDE.md、plan mode 纪律、跑偏就回 plan 重规划）；一手但体量小，二手转述多 | [howborisusesclaudecode.com](https://howborisusesclaudecode.com) |
+| Boris Cherny 工作流 | 实践 | ⚪ | Claude Code 作者本人"出奇原味"的用法（~100 行 CLAUDE.md、plan mode 纪律、跑偏就回 plan 重规划）；源头是其 X 帖，链接为社区维护的档案站（非 Anthropic 官方） | [howborisusesclaudecode.com](https://howborisusesclaudecode.com) |
 
 > 三篇短 bliki / 随笔（Vibe Coding、Interrogatory LLM、Genie Tarpit）若日后要收，建议合并成一个「概念定义 / 上下文工程 pattern」小专题，别各开条目稀释精品信号。

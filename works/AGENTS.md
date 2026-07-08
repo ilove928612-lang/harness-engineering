@@ -50,6 +50,8 @@ language: "zh-CN"
 | [arxiv-overeager-coding-agents-translation.md](arxiv-overeager-coding-agents-translation.md) | Overeager Coding Agents (论文) | Yubin Qu 等 / arXiv |
 | [chris-ai-code-translation.md](chris-ai-code-translation.md) | How I Use AI to Code | Chris Parsons / 个人博客 |
 | [langsmith-engine-translation.md](langsmith-engine-translation.md) | How we built LangSmith Engine | LangChain / Palash Shah |
+| [anthropic-dynamic-workflows-translation.md](anthropic-dynamic-workflows-translation.md) | A harness for every task: dynamic workflows in Claude Code | Anthropic / Claude · Thariq Shihipar, Sid Bidasaria |
+| [metr-uplift-update-translation.md](metr-uplift-update-translation.md) | We are Changing our Developer Productivity Experiment Design | METR / Joel Becker 等 |
 
 ### 中文转译 / 二手资料
 
