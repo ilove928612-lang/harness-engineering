@@ -52,6 +52,9 @@ language: "zh-CN"
 | [langsmith-engine-translation.md](langsmith-engine-translation.md) | How we built LangSmith Engine | LangChain / Palash Shah |
 | [anthropic-dynamic-workflows-translation.md](anthropic-dynamic-workflows-translation.md) | A harness for every task: dynamic workflows in Claude Code | Anthropic / Claude · Thariq Shihipar, Sid Bidasaria |
 | [metr-uplift-update-translation.md](metr-uplift-update-translation.md) | We are Changing our Developer Productivity Experiment Design | METR / Joel Becker 等 |
+| [weng-harness-self-improvement-translation.md](weng-harness-self-improvement-translation.md) | Harness Engineering for Self-Improvement | Lil'Log / Lilian Weng |
+| [osmani-loop-engineering-translation.md](osmani-loop-engineering-translation.md) | Loop Engineering | Addy Osmani / 个人博客 |
+| [ronacher-coming-loop-translation.md](ronacher-coming-loop-translation.md) | The Coming Loop | Armin Ronacher / 个人博客 |
 
 ### 中文转译 / 二手资料
 
