@@ -61,11 +61,11 @@
 > 它必须自包含，因为搜索器无法访问 `references/articles.md`。
 >
 > **维护纪律：** 当 `references/articles.md` 新增/删除条目时，**同一次提交中**必须同步更新本节。两份内容的口径（脉络划分、篇数、产品/项目清单）应保持完全一致。
-> 本节最近一次同步：2026-07-15（与 `articles.md` 当前内容对齐：50 篇文章 + 1 项已跟踪产品）。
+> 本节最近一次同步：2026-07-21（与 `articles.md` 当前内容对齐：59 篇文章 + 1 项已跟踪产品）。
 
-**核心文章 50 篇，分布于三条脉络：**
+**核心文章 59 篇，分布于三条脉络：**
 
-- **脉络一 — AI 时代 Harness Engineering（46 篇）：**
+- **脉络一 — AI 时代 Harness Engineering（55 篇）：**
   - OpenAI "Harness engineering"（原点，2026-02-11）/ "An open-source spec for Codex orchestration: Symphony"（2026-04-27，任务跟踪器作为控制平面）
   - Fowler/Böckeler "Harness engineering for coding agent users"（2026-04-02）+ 前传备忘录（2026-02-17）
   - LangChain "The Anatomy of an Agent Harness"（2026-03）/ "Continual Learning for AI Agents"（2026-04-05）/ "Agent Evaluation Readiness Checklist"
@@ -108,6 +108,15 @@
   - Self-Harness 论文（arXiv 2606.09498，智能体自改 harness：弱点挖掘→提议→回归验证，三模型 held-out +14~21pp）
   - Lilian Weng "Harness Engineering for Self-Improvement"（2026-07-04，RSI 综述：三设计模式 + 优化对象递进链 + 七项未来挑战）
   - Aria 论文 "Harnessing Code Agents for Automatic Software Verification"（arXiv 2607.06341，声明式 HHL 包裹通用智能体做 Coq 证明，行为 harness 极限形态）
+  - Anthropic "Demystifying evals for AI agents"（2026-01-09，智能体评测官方方法论：outcome≠transcript、pass@k/pass^k、CORE-Bench 42%→95% 基准病理）
+  - Cursor / Wilson Lin "Scaling long-running autonomous coding"（2026-01-14，数百并发智能体 × 数周：planner/worker/judge + FastRender 百万行浏览器）
+  - Anthropic / Nicholas Carlini "Building a C compiler with a team of parallel Claudes"（2026-02-05，16 agent 无编排者 + GCC oracle + $20k 成本账本）
+  - Anthropic "How we contain Claude across products"（2026-05-25，三隔离模式 + 五起漏掉的风险：白名单是能力授予、先环境层遏制）
+  - LangChain "Introducing Dynamic Subagents in Deep Agents"（2026-06-29）+ "How to Use RLMs in Deep Agents"（2026-07-01，模型写编排脚本 + RLM 递归上下文）
+  - Fowler/Böckeler 本地模型双备忘录（2026-07 上旬，Qwen3.6 35B MoE 甜点 + 工具调用是智能体化分水岭）
+  - Harness Handbook 论文（arXiv 2607.13285，2026-07-14，行为定位是 harness 演化瓶颈：行为中心表示 + BGPD）
+  - Fowler / Unmesh Joshi "DSLs Enable Reliable Use of LLMs"（2026-07-14，DSL 工具集即 harness：语言层约束 + 确定性验证器）
+  - Addy Osmani "Own the Outer Loop"（2026-07-15，AIE 闭幕演讲：智能体跑内环、工程师拥有外环问责 + back-pressure 调速）
 - **脉络二 — 云原生 Harness.io（2 篇）：** Harness.io 官方全局架构 / Google Cloud 集成场景
 - **脉络三 — 效率悖论（2 篇）：** YDD/Miss-you "效率悖论的系统性拆解"（2026-03-03）/ METR 实验后续 + 自报调查（2026-02-24 + 2026-05-11，"慢 19%"的官方后续：弱证据转向加速 + RCT 方法论危机）
 
@@ -277,3 +286,20 @@
 │  你决定：收录 / 翻译 / 写分析 / 跳过               │
 └─────────────────────────────────────────────────┘
 ```
+
+## 核心信源存量回扫（每批必做一步）
+
+> 教训来自 2026-07-21 批次：只按"最近 2 周"时间窗扫描，导致 4 篇 1–5 月的重量级官方件
+> （Cursor scaling-agents、Anthropic C compiler / how-we-contain / demystifying-evals）漏网数月。
+> 时间窗抓增量，回扫补存量——两者缺一不可。
+
+每轮调研除时间窗扫描外，**轮换抽取 1–2 个 Tier 1 信源，翻其全年归档目录**（archive / blog 列表页），
+对照 `references/articles.md`（含观察项表）逐条核对是否已收录或已甄别。优先轮换顺序：
+
+1. anthropic.com/engineering（工程博客，全量列表）
+2. cursor.com/blog（research 分类）
+3. openai.com/index（Engineering 分类）
+4. martinfowler.com/tags（GenAI 标签 + exploring-gen-ai 系列）
+5. langchain.com/blog、claude.com/blog、addyosmani.com/blog、simonwillison.net 月归档
+
+发现漏网存量时，与本批增量一起进「候选 × 定性 × 去向」评审表，注明"存量补课"。

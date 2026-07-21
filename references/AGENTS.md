@@ -9,10 +9,10 @@
 
 ## 文章
 
-详见 [articles.md](articles.md) — 完整的文章索引，含三条脉络 **50 篇文章 + 1 项已跟踪产品** 的深度摘要。
+详见 [articles.md](articles.md) — 完整的文章索引，含三条脉络 **59 篇文章 + 1 项已跟踪产品** 的深度摘要。
 权威计数与编号规则以 `articles.md` 头部为准；本表是它的概览缓存。
 
-### 脉络一：AI 时代的 Harness Engineering（46 篇）
+### 脉络一：AI 时代的 Harness Engineering（55 篇）
 
 | # | 文章 | 作者 | 核心贡献 |
 |---|------|------|---------|
@@ -62,20 +62,29 @@
 | 44 | [Self-Harness 论文](https://arxiv.org/abs/2606.09498) | Hangfan Zhang 等 | 智能体自改 harness：弱点挖掘→提议→回归验证；三模型 held-out +14~21pp |
 | 45 | [Harness Engineering for Self-Improvement](https://lilianweng.github.io/posts/2026-07-04-harness/) | Lilian Weng | RSI 综述：三设计模式 + 优化对象递进链 + 七项未来挑战 + "harness 终将内化"预测 |
 | 46 | [Aria：自动软件验证论文](https://arxiv.org/abs/2607.06341) | Shuangxiang Kan 等 | 行为 harness 极限形态：声明式 HHL 包裹通用智能体做 Coq 证明，全引理零人工通过 |
+| 47 | [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) | Mikaela Grace 等 (Anthropic) | 智能体评测官方方法论：outcome≠transcript、pass@k/pass^k、评结果不评路径、CORE-Bench 42%→95% 基准病理 |
+| 48 | [Scaling long-running autonomous coding](https://cursor.com/blog/scaling-agents) | Wilson Lin (Cursor) | 数百并发智能体 × 数周：扁平自协调失败史 → planner/worker/judge；FastRender 百万行浏览器 |
+| 49 | [Building a C compiler with parallel Claudes](https://www.anthropic.com/engineering/building-c-compiler) | Nicholas Carlini (Anthropic) | 16 agent 无编排者造 10 万行 C 编译器（$20k/两周）：近乎完美验证器 + GCC oracle + 为 Claude 写测试 |
+| 50 | [How we contain Claude across products](https://www.anthropic.com/engineering/how-we-contain-claude) | Max McGuinness 等 (Anthropic) | 三隔离模式 × 五起漏掉的风险：白名单是能力授予；先环境层遏制再模型层引导 |
+| 51 | [Deep Agents 动态子智能体 + RLM](https://www.langchain.com/blog/introducing-dynamic-subagents-in-deep-agents) | LangChain 团队 | 模型写编排脚本驱动 subagent（QuickJS + `task()`）；RLM 处理超上下文两个数量级的输入 |
+| 52 | [Böckeler 本地模型双备忘录](https://martinfowler.com/articles/exploring-gen-ai/local-models-for-coding-factors.html) | Birgitta Böckeler | 高端开发机跑本地小模型做智能体编码实测：Qwen3.6 35B MoE 甜点、工具调用是分水岭 |
+| 53 | [Harness Handbook 论文](https://arxiv.org/abs/2607.13285) | Ruhan Wang 等（腾讯等） | 行为定位是 harness 演化瓶颈：行为中心表示 + BGPD，win rate +10.0/+18.9pp 且省 12.7%/8.6% token |
+| 54 | [DSLs Enable Reliable Use of LLMs](https://martinfowler.com/articles/llm-and-dsls.html) | Unmesh Joshi | "DSL 工具集本身就是出色的 harness"：语言层约束 + 确定性验证器 + 领域级错误反馈 |
+| 55 | [Own the Outer Loop](https://addyosmani.com/blog/own-the-outer-loop/) | Addy Osmani | 智能体跑内环、工程师拥有外环问责；back-pressure 调节循环速率与作用域来授予自主权 |
 
 ### 脉络二：云原生 Harness.io（2 篇）
 
 | # | 文章 | 核心贡献 |
 |---|------|---------|
-| 47 | [Harness.io 官方](https://www.harness.io/blog/understanding-ci-cd-platforms-the-backbone-of-modern-devops) | CI/CD 平台全局架构 |
-| 48 | [Google Cloud Architecture](https://docs.cloud.google.com/architecture/partners/harness-cicd-pipeline-for-rag-app) | Harness + GCP 部署 RAG |
+| 56 | [Harness.io 官方](https://www.harness.io/blog/understanding-ci-cd-platforms-the-backbone-of-modern-devops) | CI/CD 平台全局架构 |
+| 57 | [Google Cloud Architecture](https://docs.cloud.google.com/architecture/partners/harness-cicd-pipeline-for-rag-app) | Harness + GCP 部署 RAG |
 
 ### 脉络三：效率悖论与能力进化（2 篇）
 
 | # | 文章 | 核心贡献 |
 |---|------|---------|
-| 49 | [YDD / Miss-you](https://yousali.com/posts/20260303-ai-coding-efficiency-to-evolution/) | 效率悖论的系统性拆解：约束理论 + Spec/Rule/Skill + 验证闭环 + 并发 |
-| 50 | [METR 实验后续 + 自报调查](https://metr.org/blog/2026-02-24-uplift-update/) | "慢 19%" 的官方后续：弱证据转向加速 + AI 渗透破坏 RCT 可行性本身 |
+| 58 | [YDD / Miss-you](https://yousali.com/posts/20260303-ai-coding-efficiency-to-evolution/) | 效率悖论的系统性拆解：约束理论 + Spec/Rule/Skill + 验证闭环 + 并发 |
+| 59 | [METR 实验后续 + 自报调查](https://metr.org/blog/2026-02-24-uplift-update/) | "慢 19%" 的官方后续：弱证据转向加速 + AI 渗透破坏 RCT 可行性本身 |
 
 ### 已跟踪产品 / 项目（不计入文章数）
 
@@ -114,7 +123,7 @@
 
 - [x] Geoffrey Huntley 的 Ralph 原始文章 → 已收录为 #28（2026-07）
 - [x] OpenAI Codex harness 解剖二部曲 → 已收录为 #39（Unrolling the Codex agent loop）+ #40（Unlocking the Codex harness / App Server）（2026-07-15）
-- [ ] 马东锡 Harness 系列其余篇目（仓库已收 #18 之 7、#37 才是产品；X 原帖需本地工具抓取）
+- [ ] 马东锡 Harness 系列其余篇目（仓库已收 #18 之 7、#37 才是产品；2026-07 系列新帖包括"Model 可以请求，Harness 负责裁决——这就是契约""模型记住的是 transcript，Harness 必须记住 truth（File State 是合格 harness 的基本功）"；X 原帖需本地工具抓取）
 - [ ] Medium 实战专栏 — "Beyond Migration: How We Engineered a Secure & Intelligent Delivery Platform with Harness CICD"（标题可能已变更或文章已下架）
 
 ## 下一步
