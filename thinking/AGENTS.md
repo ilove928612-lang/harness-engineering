@@ -23,6 +23,7 @@
 | [subagent-is-child-runtime.md](subagent-is-child-runtime.md) | Subagent 是 child runtime | 与 Claude Code 架构逆向互证：subagent = tool-call-triggered child session + context projection + evidence-return contract |
 | [why-this-project-exists.md](why-this-project-exists.md) | 为什么有这个项目 | 项目宗旨：把 Harness Engineering 从"概念集合"变成"可复刻的产品构建方法论"——借用《诡秘之主》"学徒途径"隐喻 |
 | [fix-the-process-not-the-code.md](fix-the-process-not-the-code.md) | 修流程，不修代码 | Bun 重写案例对照 #36/#49/#55：工程师的交付物是生成过程本身；测试套件与实现语言正交是 Harnessability 新维度；验证器完备度决定成本曲线 |
+| [se-to-agent-engineering-mapping.md](se-to-agent-engineering-mapping.md) | 传统 SE ↔ Agent 工程对照表 | 15 行同构映射的三处修正：右列主语混三层（①人对 agent ②agent 自身 ③人对系统）、补熵管理/并发合并/持久会话三行、版本钉选风险倒置与评估地位跃迁；每个模型代际重审一遍，纹丝不动的子集才是学科骨架 |
 
 ## 写作方向参考
 
