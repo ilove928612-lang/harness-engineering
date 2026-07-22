@@ -1,8 +1,8 @@
 中文 | [English](README.en.md)
 
 ![License: MIT](https://img.shields.io/badge/license-MIT-blue)
-![Articles](https://img.shields.io/badge/articles-59-green)
-![Translations](https://img.shields.io/badge/translations-30-orange)
+![Articles](https://img.shields.io/badge/articles-61-green)
+![Translations](https://img.shields.io/badge/translations-31-orange)
 
 # Harness Engineering 学习指南
 
@@ -108,13 +108,13 @@ harness-engineering/
 │   ├── 06-harness-...     #   Harness 精确定义（Fowler 控制论扩展）
 │   └── 07-spec-as-product.md #   约束即产品（Symphony 延伸）
 │
-├── thinking/              # Phase 2：独立思考与质疑（9 篇）
+├── thinking/              # Phase 2：独立思考与质疑（10 篇）
 ├── practice/              # Phase 3：小项目实验（1 个 Ralph Demo）
 ├── feedback/              # Phase 4：踩坑与迭代心得（1 篇）
-├── works/                 # Phase 5：可展示的作品（30 篇翻译 + 1 篇原创 + 2 篇外部中文收录）
+├── works/                 # Phase 5：可展示的作品（31 篇翻译 + 1 篇原创 + 2 篇外部中文收录）
 ├── tools/                 # 工具具像化：降低 6 维复杂度的杠杆库
 ├── prompts/               # 验证有效的提示词积累
-└── references/            # 外部资源索引（59 篇文章深度摘要）
+└── references/            # 外部资源索引（61 篇文章深度摘要）
 ```
 
 每个子目录都有自己的 `AGENTS.md`，说明该目录的用途和写作约定。这本身就是原文「渐进式披露」的实践。
@@ -122,18 +122,18 @@ harness-engineering/
 ## 🚀 学习路线
 
 - [x] **Phase 1：理解核心概念** — 8 篇概念笔记，覆盖 OpenAI 六大概念 + Fowler 控制论扩展 + Symphony 约束即产品
-- [x] **Phase 2：形成自己的观点** — 9 篇独立思考（持续中）
+- [x] **Phase 2：形成自己的观点** — 10 篇独立思考（持续中）
 - [x] **Phase 3：选一个小项目实践** — Ralph Demo 完成（321 秒，$0.31）
 - [x] **Phase 4：记录反馈迭代** — 1 篇（持续中）
-- [x] **Phase 5：输出可展示的作品** — 30 篇专业翻译 + 1 篇原创综合分析 + 2 篇外部中文收录
+- [x] **Phase 5：输出可展示的作品** — 31 篇专业翻译 + 1 篇原创综合分析 + 2 篇外部中文收录
 
 ## 📚 研究资料库
 
-跨三条知识脉络 59 篇文章 + 2 篇延伸阅读：
+跨三条知识脉络 61 篇文章 + 2 篇延伸阅读：
 
 | 脉络 | 覆盖 | 核心视角 |
 |------|------|---------|
-| AI 时代的 Harness Engineering | 55 篇 | OpenAI → Fowler → Anthropic → LangChain → Stanford → Claude Code 逆向与源码实锤 → Subagent runtime → 传感器/SPDD/ADLC → 越界·安全审计·质量复盘 → 评测三部曲 → 动态工作流 → 起源考据（Ralph / Hashimoto）与学科汇流 → Codex harness 解剖 → Loop Engineering 三部曲 → 自演化 harness 与 RSI → 形式化验证 → 多智能体并行规模化（Cursor / C compiler）→ 遏制与评测官方方法论 → 行为地图 / DSL / 本地模型 / 外环问责 |
+| AI 时代的 Harness Engineering | 57 篇 | OpenAI → Fowler → Anthropic → LangChain → Stanford → Claude Code 逆向与源码实锤 → Subagent runtime → 传感器/SPDD/ADLC → 越界·安全审计·质量复盘 → 评测三部曲 → 动态工作流 → 起源考据（Ralph / Hashimoto）与学科汇流 → Codex harness 解剖 → Loop Engineering 三部曲 → 自演化 harness 与 RSI → 形式化验证 → 多智能体并行规模化（Cursor / C compiler）→ 遏制与评测官方方法论 → 行为地图 / DSL / 本地模型 / 外环问责 → 工业级机械移植（Bun）与 harness-模型共演化（HarnessX） |
 | 云原生 Harness.io | 2 篇 | CI/CD 平台架构（同名不同义的参照） |
 | 效率悖论与能力进化 | 2 篇 | YDD 系统性拆解 + METR 实验后续（测量方法论危机） |
 | 延伸阅读 | 2 篇 | Context Engineering、人机协作 |
@@ -143,11 +143,12 @@ harness-engineering/
 ## 📖 翻译作品
 
 <details>
-<summary><b>30 篇核心文章的中文翻译</b>（点击展开）</summary>
+<summary><b>31 篇核心文章的中文翻译</b>（点击展开）</summary>
 
 | 作品 | 原作者 | 来源 |
 |------|--------|------|
 | ⭐ [渴望了八年，用 AI 三个月造出来](works/maganti-eight-years-building-ai-translation.md) | Lalit Maganti | 个人博客 |
+| [用 Rust 重写 Bun](works/bun-in-rust-translation.md) | Jarred Sumner | Bun Blog |
 | [用一支并行 Claude 团队构建 C 编译器](works/anthropic-c-compiler-translation.md) | Nicholas Carlini | Anthropic |
 | [规模化长时自主编码](works/cursor-scaling-agents-translation.md) | Wilson Lin | Cursor |
 | [我们如何在各产品中遏制 Claude](works/anthropic-how-we-contain-translation.md) | Max McGuinness 等 | Anthropic |

@@ -10,7 +10,7 @@
 > **下游引用都是本文的冗余缓存：** 根 `README.md` / `README.en.md` 的 badge、`prompts/deep-research-tracker.md` 的去重清单、`references/AGENTS.md` 的概览表。
 > 新增/删除文章时，必须**同一次提交**更新本文 + 所有下游缓存。
 >
-> 当前规模：**59 篇文章**（脉络一 55 + 脉络二 2 + 脉络三 2）+ **1 项已跟踪产品**（不计入文章数）。最近一次同步：2026-07-21。
+> 当前规模：**61 篇文章**（脉络一 57 + 脉络二 2 + 脉络三 2）+ **1 项已跟踪产品**（不计入文章数）。最近一次同步：2026-07-22。
 
 ## 脉络一：AI 时代的 Harness Engineering（大模型护栏与认知工程）
 
@@ -745,7 +745,7 @@
 |---------|---------|
 | 四要素 Harness | #2 Fowler、#5 HumanLayer 六杠杆、概念 2/3（地图而非手册 / 机械化执行） |
 | 反馈循环防腐化 | #9 Fowler 反馈飞轮、#19 Fowler Sensors |
-| 反馈瓶颈 / serial speed-up | #58 YDD 效率悖论 |
+| 反馈瓶颈 / serial speed-up | #60 YDD 效率悖论 |
 
 ---
 
@@ -1176,7 +1176,7 @@
 | agent loop vs harness loop | #41 Osmani 的 loop 定调、#37 "harness 拥有 loop" |
 | 防御式编码的放大 | #19 Fowler 传感器的失败案例、概念 6 熵与垃圾回收 |
 | 理解与参与 | #26 Chris Parsons 从批准者到训练者、#14 Maganti 的"必须理解每一行" |
-| 无法退出的压力 | #58 YDD 效率悖论、#31 学科汇流的产业动力 |
+| 无法退出的压力 | #60 YDD 效率悖论、#31 学科汇流的产业动力 |
 
 ---
 
@@ -1520,11 +1520,61 @@
 
 ---
 
-## 脉络二：云原生时代的 Harness.io（交付与平台工程）
-
 <a id="article-56"></a>
 
-### 56. Harness.io 官方 — 全局架构
+### 56. Jarred Sumner — 用 Rust 重写 Bun（"修流程不修代码"的工业级实录）
+
+- **标题：** Rewriting Bun in Rust
+- **链接：** [bun.sh](https://bun.sh/blog/bun-in-rust)
+- **翻译：** [works/bun-in-rust-translation.md](../works/bun-in-rust-translation.md)
+- **作者：** Jarred Sumner（Bun 创始人；2025-12 随 Bun 被收购加入 Anthropic） | **日期：** 2026-07-08（重写本身发生于 2026-05-03 → 05-14 合并）
+- **核心：** 用约 50 个 Claude Code dynamic workflows、峰值 64 个并发 Claude、11 天 6,778 次提交，把 535,496 行 Zig **机械移植**为 Rust（产出约 78 万行），随后进入 Claude Code 自身的生产运行时（v2.1.181 起）。方法论收束成一句话：**"语言无关的百万断言测试套件 + 对抗式代码评审 + 出问题时修复生成代码的流程，而不是手改代码。"** 本仓库分析见 [thinking/fix-the-process-not-the-code.md](../thinking/fix-the-process-not-the-code.md)。
+- **流程架构（每行代码 4 次智能体过手）：**
+  - **准备：** 3 小时人机对谈沉淀 `PORTING.md`（Zig→Rust 模式映射）；一个 workflow 逐结构体字段追踪控制流产出 `LIFETIMES.tsv`；两份文档本身也过对抗评审 + 人工通读
+  - **试运行先于放量：** 先移植 3 个文件验证流水线，再放量全部 1,448 个 .zig 文件；峰值每分钟约 1,300 行
+  - **角色分离：** 1 名实现者 + 2 名对抗评审者（独立上下文窗口，唯一职责是找出代码不能工作的理由）+ 1 名修复者；"实现者不评审，评审者不实现"
+  - **假启动与流程级修复：** Claude 互跑 `git stash`/`git reset` 踩踏 → 改 workflow 禁则；把编译错误打桩 + 写辩护性长注释 → 给评审者加否决规则"需要一整段注释辩护的 workaround 就是错的"——一次提示词编辑，几小时后症状绝迹
+  - **合并闸门：** 三平台 CI 100% 通过、0 测试被跳过或删除（合并前**人工核实测试确实在跑**）
+- **成本与产出账本：** 59 亿未缓存输入 + 6.9 亿输出 + 720 亿缓存读 token，按 API 定价约 $165,000；对照人工估算"3 名全上下文工程师一年"。v1.4.0 修复 128 个 v1.3.14 可复现 bug；2000 次构建内存 6,745MB→609MB；二进制缩约 20%；快 2–5%；引入 19 个回归（全部修复，多数源于"语法相同、语义不同"：Zig `assert` 函数 vs Rust `debug_assert!` 宏、`ReleaseFast` 去边界检查 vs Rust release 保留）
+- **与其他文章的关联：**
+
+| 本文概念 | 对应文章 |
+|---------|---------|
+| 修流程不修代码 | #55 外环问责的工业级实证、#26 从批准者到训练者、#9 反馈飞轮（单项目内最小闭环） |
+| 对抗式评审默认化 | #36 dynamic workflows（同一机制的能力宣告 → 本文是承重验证）、#49 为 Claude 写测试 |
+| 语言无关测试套件作 oracle | #49 GCC oracle、#2 Harnessability（新维度：测试与实现语言正交是战略资产） |
+| 多 worktree 并行 + 协调失败史 | #48 Cursor 扁平自协调失败、#28 Ralph 背压 |
+
+<a id="article-57"></a>
+
+### 57. HarnessX 论文 — 可组合 harness 铸造厂与 harness-模型共演化
+
+- **标题：** HarnessX: A Composable, Adaptive, and Evolvable Agent Harness Foundry
+- **链接：** [arxiv.org/abs/2606.14249](https://arxiv.org/abs/2606.14249) | [代码仓库 Darwin-Agent/HarnessX](https://github.com/Darwin-Agent/HarnessX)
+- **作者：** Darwin Agent Team（小米） | **日期：** 2026-06（arXiv 2606.14249）
+- **核心：** 第一个正面回答 model-harness 循环依赖（[thinking/cross-article-insights.md](../thinking/cross-article-insights.md) 洞见 3）的系统工作：不再只演化 harness 或只训练模型，而是**共用一个 replay buffer 让两者同轮共演化**。5 基准（ALFWorld/GAIA/WebShop/τ³-Bench/SWE-bench Verified）× 3 模型族（Claude Sonnet 4.6 / GPT-5.4 / Qwen3.5-9B）：harness 演化平均 **+14.5%**（最高 +44.0%），共演化在此之上再 **+4.7%**。
+- **三层贡献：**
+  - **组合层：** harness = 一等类型化对象——processor（`process(event) → events`）挂接 8 个生命周期 hook 点，行为空间按九维分类（模型选择/上下文装配/记忆/工具生态/执行环境/评估奖励/控制安全/可观测性/训练桥），substitution algebra 保证类型安全的插入/替换/移除
+  - **演化层（AEGIS）：** 操作镜像把 harness 演化形式化为符号空间上的 MDP——RL 病理（reward hacking / 灾难性遗忘 / 欠探索）被预测为设计风险，分别由 Critic、确定性闸门（含"跷跷板约束"：不得回归已通过任务）、Planner 防御；四阶段 Digester→Planner→Evolver→Critic，**LLM 子智能体负责探索与提议，只有确定性检查决定是否发布**
+  - **共演化层：** cross-harness GRPO——同一任务在不同 harness 版本下的轨迹按任务分组、只按验证器奖励比较，模型学会利用连续演化的 harness 策略；打破"只演化 harness 的脚手架天花板"与"只训模型的训练信号天花板"
+- **逆缩放发现：** 最弱模型受益最大（ALFWorld 上 Qwen3.5-9B +44.0% vs Sonnet 4.6 +11.2%）——演化出的 harness 填补的是弱模型无法自我纠正的行为缺口；"小模型 + 强 harness"由此获得机制级证据
+- **与其他文章的关联：**
+
+| 本文概念 | 对应文章 |
+|---------|---------|
+| harness-模型共演化 | 洞见 3 循环依赖的正面解、#15 三层学习（模型/harness/上下文首次被接进同一优化循环） |
+| 相比既有自演化工作 | #11 Meta-Harness、#24 AHE（可观测性三支柱）、#44 Self-Harness——均只演化 harness 侧 |
+| 与动态工作流的分界 | #36（论文明确对照：单会话现场编排，无跨会话轨迹优化与共训练） |
+| 确定性闸门防 reward hacking | #47 评结果不评路径、#24 每次编辑即可证伪契约 |
+| 弱模型受益最大 | 观察项"Harness Updating ≠ Harness Benefit"论文（中档模型受益最多）的互证与张力 |
+
+---
+
+## 脉络二：云原生时代的 Harness.io（交付与平台工程）
+
+<a id="article-58"></a>
+
+### 58. Harness.io 官方 — 全局架构
 
 - **标题：** Understanding CI/CD Platforms: The backbone of modern DevOps
 - **链接：** [harness.io](https://www.harness.io/blog/understanding-ci-cd-platforms-the-backbone-of-modern-devops)
@@ -1532,9 +1582,9 @@
 - **核心：** 标准 CI/CD 平台介绍。8 大组件：SCM → Build → Test → Code Quality → Security Scan → Artifact → Deploy → Monitor
 - **Harness 差异化：** 统一管线、Test Intelligence 智能测试、最少脚本、Policy-as-Code 治理
 
-<a id="article-57"></a>
+<a id="article-59"></a>
 
-### 57. Google Cloud Architecture — 前沿场景结合
+### 59. Google Cloud Architecture — 前沿场景结合
 
 - **标题：** Harness CI/CD pipeline for RAG applications
 - **链接：** [docs.cloud.google.com](https://docs.cloud.google.com/architecture/partners/harness-cicd-pipeline-for-rag-app)
@@ -1547,9 +1597,9 @@
 
 ## 脉络三：效率悖论与能力进化
 
-<a id="article-58"></a>
+<a id="article-60"></a>
 
-### 58. YDD / Miss-you — 效率悖论的系统性拆解
+### 60. YDD / Miss-you — 效率悖论的系统性拆解
 
 - **标题：** 为什么 AI 写代码更快但交付没变，以及我怎么把它扳回来的
 - **链接：** [yousali.com](https://yousali.com/posts/20260303-ai-coding-efficiency-to-evolution/)
@@ -1595,15 +1645,15 @@
 
 ---
 
-<a id="article-59"></a>
+<a id="article-61"></a>
 
-### 59. METR — 生产力实验的后续：结论松动与方法论危机
+### 61. METR — 生产力实验的后续：结论松动与方法论危机
 
 - **标题：** We are Changing our Developer Productivity Experiment Design（2026-02-24）+ Measuring the Self-Reported Impact of Early-2026 AI on Technical Worker Productivity（2026-05-11）
 - **链接：** [metr.org 实验设计更新](https://metr.org/blog/2026-02-24-uplift-update/) | [metr.org 自报调查](https://metr.org/blog/2026-05-11-ai-usage-survey/) | [后续研究数据集](https://github.com/METR/Measuring-Late-2025-AI-on-OSS-Devs)
 - **翻译：** [works/metr-uplift-update-translation.md](../works/metr-uplift-update-translation.md)（实验设计更新篇）
 - **作者：** Joel Becker, Nate Rush, Tom Cunningham, David Rein, Khalid Mahamud (METR) | **日期：** 2026-02-24 / 2026-05-11
-- **核心：** #58 YDD 的论证基石（METR RCT "AI 辅助反而慢 19%"）的官方后续。late-2025 复现实验（57 名开发者、143 仓库、800+ 任务）的原始结果转向加速——原班开发者估计 **-18% 加速**（CI -38%~+9%）、新开发者 -4%（CI -15%~+9%）——但 METR 自己判定这只是**很弱的证据**，并宣布改实验设计。真正的信息量在于：**AI 渗透已经破坏了任务级随机对照实验本身的可行性**。
+- **核心：** #60 YDD 的论证基石（METR RCT "AI 辅助反而慢 19%"）的官方后续。late-2025 复现实验（57 名开发者、143 仓库、800+ 任务）的原始结果转向加速——原班开发者估计 **-18% 加速**（CI -38%~+9%）、新开发者 -4%（CI -15%~+9%）——但 METR 自己判定这只是**很弱的证据**，并宣布改实验设计。真正的信息量在于：**AI 渗透已经破坏了任务级随机对照实验本身的可行性**。
 
 - **选择效应的三重来源（实验设计为何失效）：**
   - 开发者拒绝参与——越来越多人不愿在无 AI 条件下工作（时薪 $50 也不愿），最乐观的采纳者系统性缺席
@@ -1617,9 +1667,9 @@
 
 | 本文概念 | 对应文章 |
 |---------|---------|
-| 19% 减速数据的后续 | #58 YDD 第一章效率悖论（引用了原实验） |
-| 感知与现实的偏差 | #58 的 39 个百分点偏差、自报高估 40+ 个百分点 |
-| 并发智能体使计时失效 | #58 第五章并发策略（并发正是 YDD 开出的药方） |
+| 19% 减速数据的后续 | #60 YDD 第一章效率悖论（引用了原实验） |
+| 感知与现实的偏差 | #60 的 39 个百分点偏差、自报高估 40+ 个百分点 |
+| 并发智能体使计时失效 | #60 第五章并发策略（并发正是 YDD 开出的药方） |
 | 测量方法的时代错位 | #38 Position 论文（基准侧的同构诊断：测量工具追不上被测对象） |
 
 ---
@@ -1646,7 +1696,7 @@ Harness Engineering（AI 护栏）     Harness.io（交付管线）
 ## 中文转译 / 二手资料（不计入文章数）
 
 > 这里收录的是**他人已发布的中文译介或二手综述**——本仓库做了归档但**不视为一手文献**。
-> 本段不参与 `### N. ...` 的全局编号，不计入 59 篇文章总数；与上方编号正文严格区分，避免污染脉络计数。
+> 本段不参与 `### N. ...` 的全局编号，不计入 61 篇文章总数；与上方编号正文严格区分，避免污染脉络计数。
 > 收录标准：内容与 Harness Engineering 直接相关、来源可追溯到具名作者 / 译者、且对本仓库已有一手文献有补充或对照价值。
 
 ### Akshay Pachaar — The Anatomy of an Agent Harness（中译版）
@@ -1699,7 +1749,7 @@ Harness Engineering（AI 护栏）     Harness.io（交付管线）
 
 ## 已跟踪产品 / 项目（不计入文章数）
 
-> 这里收录的是**开源产品 / 框架 / 工具**，不是文章。本段不参与"### N. ..." 的全局编号，不计入 59 篇的文章总数。
+> 这里收录的是**开源产品 / 框架 / 工具**，不是文章。本段不参与"### N. ..." 的全局编号，不计入 61 篇的文章总数。
 > 触发"产品级实现案例"的判定通常是：有可运行代码、有版本号、被本仓库 thinking/ 或 works/ 单独分析。
 
 ### ⭐ Chachamaru127 — claude-code-harness v4.2 "Hokage"（产品级实现案例）
@@ -1727,7 +1777,7 @@ Harness Engineering（AI 护栏）     Harness.io（交付管线）
 
 ## 观察项 / 候选材料（不计入文章数）
 
-> 2026-05 起各轮调研中已甄别、但**暂不值得做成正式文章**的产品页 / README / 短 bliki / 发布稿 / 工程随笔。本段不参与 `### N.` 编号，不计入 59 篇文章总数。
+> 2026-05 起各轮调研中已甄别、但**暂不值得做成正式文章**的产品页 / README / 短 bliki / 发布稿 / 工程随笔。本段不参与 `### N.` 编号，不计入 61 篇文章总数。
 > 中文译文留在本地 `translate/`（gitignored）作阅读辅助；下表只记上游链接与定性，方便下次快速复看。
 > **去向标记：** 🔵 待实测后入 `tools/`（遵守 tools/「只收用过的工具」标准，未实测前不正式收录） ｜ ⚪ 长期观察 ｜ ⏭️ 暂存不收。
 
@@ -1757,7 +1807,7 @@ Harness Engineering（AI 护栏）     Harness.io（交付管线）
 | OpenAI Core dump 流行病学 | 工程复盘 | ⚪ | "群体级诊断 > 逐例分析"修复 18 年 libunwind 老 bug，ChatGPT 参与写分析管线；可观测性方法论好文但与 harness 关系间接，2026-06-30 | [openai](https://openai.com/index/core-dump-epidemiology-data-infrastructure-bug/) |
 | thedeepfeed：学科史梳理 | 编年 | ⚪ | "七个声音九个月汇流成一个学科"的传播史（含 Osmani 文收藏/点赞比 2:1 等传播数据）；二手史料，配 #31 看 | [thedeepfeed.ai](https://www.thedeepfeed.ai/posts/2026-05-09-agent-harness-engineering-the-discipline/) |
 | Boris Cherny 工作流 | 实践 | ⚪ | Claude Code 作者本人"出奇原味"的用法（~100 行 CLAUDE.md、早期以 plan mode 纪律著称；站内 Part 15 已记录其 4.6+ 后放弃 plan mode 起手、改 auto mode 直跑——"新模型不再需要显式规划步骤"）；源头是其 X 帖，链接为社区维护的档案站（非 Anthropic 官方） | [howborisusesclaudecode.com](https://howborisusesclaudecode.com) |
-| Steering Claude Code 官方指南 | 产品文档 | ⚪ | 七种转向机制（CLAUDE.md/rules/skills/subagents/hooks/output styles/system prompt append）按"加载时机 × compaction 行为 × token 成本"三轴对照——#58 YDD"区别在加载机制"论的官方版说明书；参考手册体裁，2026-06-18 | [claude.com](https://claude.com/blog/steering-claude-code-skills-hooks-rules-subagents-and-more) |
+| Steering Claude Code 官方指南 | 产品文档 | ⚪ | 七种转向机制（CLAUDE.md/rules/skills/subagents/hooks/output styles/system prompt append）按"加载时机 × compaction 行为 × token 成本"三轴对照——#60 YDD"区别在加载机制"论的官方版说明书；参考手册体裁，2026-06-18 | [claude.com](https://claude.com/blog/steering-claude-code-skills-hooks-rules-subagents-and-more) |
 | The Harness Effect 论文 | 论文/厂商评测 | ⚪ | "成本数据"缺口的首个系统数据：同 22 任务 × 6 模型只换编排层，成本 -41%、时延 -44%、token -38%；提出 token maxing 与 harness leverage（质量增益与基线能力 r=0.99）。注意 Writer Inc. 自评自家 harness，利益相关，方法论（frozen baseline + locked tasks）可取 | [arxiv 2607.06906](https://arxiv.org/abs/2607.06906) |
 | Harness Updating ≠ Harness Benefit 论文 | 论文 | ⚪ | 拆开两条能力轴：写 harness 编辑的能力各模型持平（9B 能写出与 Opus 同构的 skill），利用 harness 的能力非单调（中档模型受益最多）——跨模型可移植性缺口的机制侧证据；被 #45 Weng 综述引用 | [arxiv 2605.30621](https://arxiv.org/abs/2605.30621) |
 | ToFu 白盒研究 harness | 工具 | 🔵 | MIT 协议、面向研究者的白盒 harness：三层上下文压缩 + 多语言 + MCP 集成，可作为 research object 检查/修改编排逻辑；待实测后再定去向 | [arxiv 2607.11423](https://arxiv.org/abs/2607.11423) |
@@ -1772,5 +1822,9 @@ Harness Engineering（AI 护栏）     Harness.io（交付管线）
 | Fowler 站：The Archaeologist's Copilot | 实践文 | ⚪ | Java 1.5 遗留系统现代化：早期 LLM 给出"在代码库里站不住的貌似合理答案"，转机是把过程锚定在证据上——AI 辅助分析 + 稳定 Docker 环境验证 + 测试保护下渐进重构；"AI 被证据、清晰角色与分步策略约束时最有用"，2026-07-16 | [martinfowler](https://martinfowler.com/articles/archaeologist-copilot.html) |
 | Simon Willison：llm-coding-agent 0.1a0 | 实验 | ⚪ | 给 Fable 一份 spec.md 就造出 Claude Code 风格最小 harness（读/写/搜文件 + 执行命令 + `--allow` 权限模式 + Python API）——"最小 harness 有多小"的又一实证，配 #17 的 300 行工作坊说法看，2026-07-02 | [simonwillison.net](https://simonwillison.net/2026/jul/2/llm-coding-agent/) |
 | donggeking/harness_engineering_guide | 中文教材/仓库 | 🔵 | 中文社区的体系化 Harness 教程书（GitBook + 从零实现的 MiniHarness：运行时→工具层→记忆→输出治理→编排→MCP→生产化加固→安全层），剖析 Codex/Claude Code/OpenClaw 真实实现；基于 2026-04 技术现状；待实测其 MiniHarness 后再定去向 | [github](https://github.com/donggeking/harness_engineering_guide) |
+| Osmani：Long-running Agents | 综述/定调 | ⚪ | 长时智能体三义拆分（长时推理 / 长时执行 / 持久代理）+ 三堵墙（有限上下文 / 无持久状态 / 无独立自验）；论据已被 #4/#7/#28/#48 覆盖，价值在地图与词汇；#41 曾反向引用本文，2026-07 | [addyosmani.com](https://addyosmani.com/blog/long-running-agents/) |
+| Iusztin：What's Harness Engineering | 科普 | ⚪ | "模型商品化 → harness 是你该拥有的那层" + build/buy/customize 三分与开源中间地带（Pydantic AI Harness / Pi / Deep Agents）；面向非工程读者的定调文，论点已被 #1/#3/#31 覆盖，2026-07-21 | [read.technically.dev](https://read.technically.dev/p/whats-harness-engineering) |
+| Sparsh Agarwal：Control Surface | 工程随笔 | ⚪ | Scaffolding（首条消息前装配）vs Harness（会话中运行）二分 + "allowed claim / proof" 治理词汇 + 开工前六问清单；术语有用、无一手数据，2026-07-09 | [medium](https://medium.com/recohut-ai-labs/harness-engineering-the-control-surface-around-coding-agents-a907bc310eee) |
+| OpenAI Agents SDK 演进 | 产品文 | ⚪ | 官方 SDK 侧的"harness 与 compute 分离"定式：凭据不进模型代码执行环境 + snapshot/rehydration 断点续跑 + Manifest 工作区契约；与 #7 brain/hands、#40 HaaS、#50 遏制互证；发布稿体裁，2026-04-15（存量回扫补录），配套 [Claude→OpenAI SDK 迁移指南](https://developers.openai.com/cookbook/examples/agents_sdk/migrate-from-claude-agent-sdk/readme) 的两套架构对照表最清晰 | [openai](https://openai.com/index/the-next-evolution-of-the-agents-sdk/) |
 
 > 三篇短 bliki / 随笔（Vibe Coding、Interrogatory LLM、Genie Tarpit）若日后要收，建议合并成一个「概念定义 / 上下文工程 pattern」小专题，别各开条目稀释精品信号。

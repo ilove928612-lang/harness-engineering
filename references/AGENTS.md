@@ -9,10 +9,10 @@
 
 ## 文章
 
-详见 [articles.md](articles.md) — 完整的文章索引，含三条脉络 **59 篇文章 + 1 项已跟踪产品** 的深度摘要。
+详见 [articles.md](articles.md) — 完整的文章索引，含三条脉络 **61 篇文章 + 1 项已跟踪产品** 的深度摘要。
 权威计数与编号规则以 `articles.md` 头部为准；本表是它的概览缓存。
 
-### 脉络一：AI 时代的 Harness Engineering（55 篇）
+### 脉络一：AI 时代的 Harness Engineering（57 篇）
 
 | # | 文章 | 作者 | 核心贡献 |
 |---|------|------|---------|
@@ -71,20 +71,22 @@
 | 53 | [Harness Handbook 论文](https://arxiv.org/abs/2607.13285) | Ruhan Wang 等（腾讯等） | 行为定位是 harness 演化瓶颈：行为中心表示 + BGPD，win rate +10.0/+18.9pp 且省 12.7%/8.6% token |
 | 54 | [DSLs Enable Reliable Use of LLMs](https://martinfowler.com/articles/llm-and-dsls.html) | Unmesh Joshi | "DSL 工具集本身就是出色的 harness"：语言层约束 + 确定性验证器 + 领域级错误反馈 |
 | 55 | [Own the Outer Loop](https://addyosmani.com/blog/own-the-outer-loop/) | Addy Osmani | 智能体跑内环、工程师拥有外环问责；back-pressure 调节循环速率与作用域来授予自主权 |
+| 56 | [Rewriting Bun in Rust](https://bun.sh/blog/bun-in-rust) | Jarred Sumner | "修流程不修代码"工业级实录：50 dynamic workflows × 64 Claude × 11 天移植 53.5 万行 Zig；语言无关测试套件作 oracle + 对抗评审默认化 |
+| 57 | [HarnessX 论文](https://arxiv.org/abs/2606.14249) | Darwin Agent Team（小米） | harness 一等类型化对象 + AEGIS 轨迹演化 + cross-harness GRPO 共演化：+14.5%（共演化再 +4.7%），弱模型受益最大 |
 
 ### 脉络二：云原生 Harness.io（2 篇）
 
 | # | 文章 | 核心贡献 |
 |---|------|---------|
-| 56 | [Harness.io 官方](https://www.harness.io/blog/understanding-ci-cd-platforms-the-backbone-of-modern-devops) | CI/CD 平台全局架构 |
-| 57 | [Google Cloud Architecture](https://docs.cloud.google.com/architecture/partners/harness-cicd-pipeline-for-rag-app) | Harness + GCP 部署 RAG |
+| 58 | [Harness.io 官方](https://www.harness.io/blog/understanding-ci-cd-platforms-the-backbone-of-modern-devops) | CI/CD 平台全局架构 |
+| 59 | [Google Cloud Architecture](https://docs.cloud.google.com/architecture/partners/harness-cicd-pipeline-for-rag-app) | Harness + GCP 部署 RAG |
 
 ### 脉络三：效率悖论与能力进化（2 篇）
 
 | # | 文章 | 核心贡献 |
 |---|------|---------|
-| 58 | [YDD / Miss-you](https://yousali.com/posts/20260303-ai-coding-efficiency-to-evolution/) | 效率悖论的系统性拆解：约束理论 + Spec/Rule/Skill + 验证闭环 + 并发 |
-| 59 | [METR 实验后续 + 自报调查](https://metr.org/blog/2026-02-24-uplift-update/) | "慢 19%" 的官方后续：弱证据转向加速 + AI 渗透破坏 RCT 可行性本身 |
+| 60 | [YDD / Miss-you](https://yousali.com/posts/20260303-ai-coding-efficiency-to-evolution/) | 效率悖论的系统性拆解：约束理论 + Spec/Rule/Skill + 验证闭环 + 并发 |
+| 61 | [METR 实验后续 + 自报调查](https://metr.org/blog/2026-02-24-uplift-update/) | "慢 19%" 的官方后续：弱证据转向加速 + AI 渗透破坏 RCT 可行性本身 |
 
 ### 已跟踪产品 / 项目（不计入文章数）
 
