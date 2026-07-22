@@ -61,11 +61,11 @@
 > 它必须自包含，因为搜索器无法访问 `references/articles.md`。
 >
 > **维护纪律：** 当 `references/articles.md` 新增/删除条目时，**同一次提交中**必须同步更新本节。两份内容的口径（脉络划分、篇数、产品/项目清单）应保持完全一致。
-> 本节最近一次同步：2026-07-21（与 `articles.md` 当前内容对齐：59 篇文章 + 1 项已跟踪产品）。
+> 本节最近一次同步：2026-07-22（与 `articles.md` 当前内容对齐：62 篇文章 + 1 项已跟踪产品）。
 
-**核心文章 59 篇，分布于三条脉络：**
+**核心文章 62 篇，分布于三条脉络：**
 
-- **脉络一 — AI 时代 Harness Engineering（55 篇）：**
+- **脉络一 — AI 时代 Harness Engineering（58 篇）：**
   - OpenAI "Harness engineering"（原点，2026-02-11）/ "An open-source spec for Codex orchestration: Symphony"（2026-04-27，任务跟踪器作为控制平面）
   - Fowler/Böckeler "Harness engineering for coding agent users"（2026-04-02）+ 前传备忘录（2026-02-17）
   - LangChain "The Anatomy of an Agent Harness"（2026-03）/ "Continual Learning for AI Agents"（2026-04-05）/ "Agent Evaluation Readiness Checklist"
@@ -117,6 +117,9 @@
   - Harness Handbook 论文（arXiv 2607.13285，2026-07-14，行为定位是 harness 演化瓶颈：行为中心表示 + BGPD）
   - Fowler / Unmesh Joshi "DSLs Enable Reliable Use of LLMs"（2026-07-14，DSL 工具集即 harness：语言层约束 + 确定性验证器）
   - Addy Osmani "Own the Outer Loop"（2026-07-15，AIE 闭幕演讲：智能体跑内环、工程师拥有外环问责 + back-pressure 调速）
+  - swyx "Loopcraft: The Art of Stacking Loops"（2026-06-12，loop 命名第二源：堆叠循环、往下走保可靠往上走拿杠杆 + Salty Lesson；AIEWF 2026 开幕 keynote）
+  - LangChain / Sydney Runkle "The Art of Loop Engineering"（2026-06-16，loop 命名第三源：四层循环栈 agent/verification/event/hill-climbing，爬山循环改写 harness、验证是其前提）
+  - Andrew Ng "Loop Engineering: Three Key Loops"（The Batch，2026-06-30，三个时钟不同的循环：编码/开发者反馈/外部反馈 + "context advantage" 取代 taste）
 - **脉络二 — 云原生 Harness.io（2 篇）：** Harness.io 官方全局架构 / Google Cloud 集成场景
 - **脉络三 — 效率悖论（2 篇）：** YDD/Miss-you "效率悖论的系统性拆解"（2026-03-03）/ METR 实验后续 + 自报调查（2026-02-24 + 2026-05-11，"慢 19%"的官方后续：弱证据转向加速 + RCT 方法论危机）
 
