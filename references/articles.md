@@ -1708,7 +1708,7 @@
 
 - **标题：** Why Software Factories Fail — or: harness engineering is not enough
 - **链接：** [wsff.md（HumanLayer 仓库全文）](https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/wsff.md) | [AI Engineer World's Fair 2026 主题演讲](https://www.youtube.com/watch?v=Ib5GBkD555M)
-- **作者：** Dex Horthy（HumanLayer 创始人兼 CEO，"context engineering"一词提出者，本仓库 #5《Skill Issue》的同一组织） | **日期：** 2026-07
+- **作者：** Dex Horthy（HumanLayer 创始人兼 CEO；Pragmatic Engineer 称其为"context engineering"一词的提出者。本仓库 #5《Skill Issue》出自同一组织） | **日期：** 2026-07
 - **核心：** 迄今为止**对 harness engineering 最正面、也最有分量的一次反驳**——而且来自这个学派内部。论点一句话：**"再多的 harness engineering 或 loopsmaxxing，都解决不了一个本质上属于模型训练的问题。"** 注意作者的免责声明：他自己卖的正是人机协作工具，立场有偏。
 - **他自己踩的坑（第一手反例）：** 2025 年 7 月 HumanLayer 全面转"熄灯"——只读 spec 和工单，中小任务全交后台智能体，没人读代码。结局是遇到一个智能体怎么都修不好的问题，只能回头去啃三个月没读过的代码库；期间**站点宕机、用户不满**。第一次他说服自己"这点风险换速度值得"；到 11 月第三次时，团队判定重写更划算，联合创始人**花两周在 VS Code 里手工把模式重新梳一遍**。
 - **为什么模型做不了可维护性（本文的核心论证）：**
@@ -1717,7 +1717,7 @@
   - **"如果一个模型能可靠区分好代码和坏代码，它一开始就会写出好的那版。"** RL 需要又快又可靠的 oracle，而可维护性没有快 oracle
   - 更多评审智能体和更多 token 确实有用，但**它们抬的是地板不是天花板**——天花板是 RL 里教会的东西
 - **为什么 Claude Code 赢：** 在它之前已有 aider、cline、codebuff，工具集几乎一样，但工具调用会时不时地失败。被广泛接受的解释是 **Anthropic 在 harness 内部对模型做了 RL**——第一次有实验室针对自己要发布的那套工具训练模型。作者引 OpenAI 团队的说法收尾：**你造了 harness 但不拥有权重、不能在里面做 RL，就永远处于劣势**（这条与 #62 Ronacher 的发现互为镜像）
-- **他认为方向对的三个前沿尝试：** SWE-Marathon（Abundant AI，约 400 小时的巨型任务 + 复合奖励通道而非单个通过位）、DeepSWE（Datacurve，用现实中从未真正实现过的大任务规避污染）、Frontier Code（Cognition，多 PR 任务，且**用变异测试式的确定性手段惩罚"写在打补丁前也不会失败的测试"**，另跑一个判官模型按代码质量规则读 diff）
+- **他认为方向对的三个前沿尝试：** SWE-Marathon（Abundant AI，约 400 小时的巨型任务 + 复合奖励通道而非单个通过位）、DeepSWE（Datacurve，用现实中从未真正实现过的大任务规避污染）、Frontier Code（Cognition，多 PR 任务，且**用变异测试式的确定性手段做惩罚——如果模型写的测试在打补丁之前也不会失败，就扣分**，另跑一个判官模型按代码质量规则读 diff）
 - **他给出的替代方案——把人的判断前移到四个阶段：** 产品评审（用户痛点 + 成功标准，且**用 HTML mockup 代替三段描述**）→ 系统架构（时序图、接口契约、数据模型）→ **程序设计**（他认为最被低估的一环：在写实现前先定类型、方法签名、程序布局与**调用栈树**，用 diff 语法标出变化，配文件树 diff）→ 垂直切片（tracer bullet；模型天然爱"横向计划"按 DB→服务→API→前端分层推进，中途没法真正上手摸）。任务分布大致是**约 40% 一把过或加一两轮轻反馈**，中型任务合成一份计划文档，大型任务走全流程。
 - **两句可以直接引用的话：** "你不是 PR 太多，你是**烂 PR** 太多"（他估计 AI 一把过的 PR 返工率接近 50%）；"你可能太忙着追 10–100x，忙到没空接受约束、稳稳地快 2–3 倍"
 - **他引的行业数据（Faros AI《AI acceleration whiplash》报告，相关性信号而非因果铁证）：** 评审评论数 +25%、评论长度 +22.7%、**+31.3% 的 PR 完全跳过评审**；每 PR 事故数 +242.7%、月度事故 +57.9%、人均 bug 数 +54%
