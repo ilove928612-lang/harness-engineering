@@ -7,6 +7,7 @@ sourcePublishedAt: "2026-02-17"
 translationMethod: "baoyu-translate skill"
 language: "zh-CN"
 sourceFigureCount: 0
+sourceFigureAudit: "2026-07-27 抓原文 HTML 核对：正文无插图；donkey-card.png 出现两次，分别在文章头部卡片与页脚系列导航，属站点 chrome"
 ---
 
 # Harness Engineering —— 初步思考

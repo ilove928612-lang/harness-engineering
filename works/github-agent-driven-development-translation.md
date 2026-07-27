@@ -14,6 +14,7 @@ language: "zh-CN"
 translationMethod: "baoyu-translate skill"
 translatedAt: "2026-04-14"
 sourceFigureCount: 0
+sourceFigureAudit: "2026-07-27 抓原文 HTML 核对：全页 16 张图片均为推荐位缩略图 / 封面 / 作者头像 / 页脚图标，<figure> 与 wp-block-image 计数均为 0"
 ---
 
 # Copilot 应用科学团队的智能体驱动开发

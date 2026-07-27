@@ -10,6 +10,7 @@ sourceLanguage: "en"
 language: "zh-CN"
 translationMethod: "人工整理逐段翻译（cloud agent，对照原文全文）"
 sourceFigureCount: 0
+sourceFigureAudit: "2026-07-27 对照原文 Markdown 源（同 URL 的 .md 版）逐段核对：全文只有代码块，无任何图片"
 ---
 
 # 更好的模型：更差的工具

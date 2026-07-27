@@ -10,6 +10,7 @@ sourceLanguage: "en"
 language: "zh-CN"
 translationMethod: "人工整理逐段翻译（cloud agent，对照原文全文；原文无正文插图，代码块保留）"
 sourceFigureCount: 0
+sourceFigureAudit: "2026-07-27 抓原文 HTML 并对照渲染正文核对：正文无静态插图；页面唯一的 <figure> 是客户端渲染的 demo 视频嵌入，不计入插图数"
 ---
 
 # 用一支并行 Claude 团队构建 C 编译器

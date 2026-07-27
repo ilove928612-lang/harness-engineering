@@ -7,6 +7,7 @@ sourcePublishedAt: "2026-03-31"
 translationMethod: "baoyu-translate skill (refined mode)"
 language: "zh-CN"
 sourceFigureCount: 0
+sourceFigureAudit: "2026-07-27 抓原文 HTML 核对：正文无插图，全页图片仅站点 logo、作者头像、Thoughtworks 页脚标"
 ---
 
 # 编码团队标准
