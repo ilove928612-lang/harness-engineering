@@ -5,11 +5,11 @@ sourceUrl: "https://claude.com/blog/the-new-rules-of-context-engineering-for-cla
 sourceAuthor: "Thariq Shihipar（Anthropic 技术团队成员）"
 sourcePublishedAt: "2026-07-24"
 sourceSiteName: "Claude by Anthropic"
-summary: "Anthropic 为 Claude Opus 5 / Fable 5 这一代模型删掉了 Claude Code 系统提示词的 80% 以上，编码评测上没有可测量的损失。文章给出七组 then/now 对照：从给规则到让模型用判断力、从给示例到设计接口、从全部前置到渐进式披露、从重复自己到简单工具描述、从 CLAUDE.md 记忆到自动记忆、从简单 spec 到丰富引用（测试套件、别的代码库里的函数、rubric 都算 spec）。这是'harness 瘦身'主张第一次有官方的量化落地。"
+summary: "Anthropic 为 Claude Opus 5 / Fable 5 这一代模型删掉了 Claude Code 系统提示词的 80% 以上，编码评测上没有可测量的损失。文章给出六组 then/now 对照：从给规则到让模型用判断力、从给示例到设计接口、从全部前置到渐进式披露、从重复自己到简单工具描述、从 CLAUDE.md 记忆到自动记忆、从简单 spec 到丰富引用（测试套件、别的代码库里的函数、rubric 都算 spec）。这是'harness 瘦身'主张第一次有官方的量化落地。"
 sourceLanguage: "en"
 language: "zh-CN"
 translationMethod: "人工整理逐段翻译（cloud agent，对照原文全文）"
-sourceFigureCount: 0
+sourceFigureCount: 4
 ---
 
 # Claude 5 世代模型的上下文工程新规则
@@ -34,6 +34,12 @@ sourceFigureCount: 0
 
 一般来说 Claude 能读懂用户意图并给出正确答案，但**Claude 必须先更仔细地想清楚这些重叠且矛盾的消息，才能决定做什么**。
 
+![组装好的上下文：系统提示词里写着"适当留下文档"，skill 里写着"不要添加注释"，用户请求又说"就照旧的那个做"——Claude 读到的是同一份上下文，必须自己把这些调和掉](imgs/anthropic-context-engineering-claude5/fig-1.png)
+
+> 一份上下文；Claude 会读完全部内容，并且必须自己把它们调和起来。
+>
+> \* 图中为示意性例子，并非任何真实提示词、skill 或用户请求的逐字引用。
+
 而且，这些约束当初是为了避免最坏情况才需要的；此后我们发现，其中很多可以删掉，**让模型改用周围的上下文与自己的判断力**。
 
 另外，Claude Code 现在有多得多的工具。Claude 过去依赖 CLAUDE.md 作为记忆、信息与指引的来源；现在我们有了记忆（memory）、artifacts 和 skills，Claude 可以用它们创造出新的方式来跨会话加载与共享上下文。
@@ -41,6 +47,10 @@ sourceFigureCount: 0
 ## 过去与现在
 
 有一批过去的上下文工程最佳实践，如今已经变成了迷思，包括：
+
+![六组对照：Give Claude Rules → Give Claude Judgement；Give Claude Examples → Design Interfaces；Put it all upfront → Use Progressive Disclosure；Repeat Yourself → Simple Tool Descriptions；Memory in Claude.MDs → Auto-memory；Simple Specs → Rich References](imgs/anthropic-context-engineering-claude5/fig-2.png)
+
+> 文中各小节标题，按出现顺序排列。
 
 ### 过去：给 Claude 规则 → 现在：让 Claude 用判断力
 
@@ -61,6 +71,10 @@ sourceFigureCount: 0
 与其用示例，不如更多地思考你的工具、脚本与文件的**设计**——Claude 有哪些参数可用，这些参数怎样才能更有表达力？
 
 比如在 Todo 工具的例子里，光是把 status 列成 pending、in_progress、completed 三者之间的枚举，就已经在向 Claude 暗示该怎么用它；而"保持只有一项处于 in_progress"这条指令，则界定了我们期待的行为。
+
+![左侧"Before"是约 9,100 字符的旧版描述，塞满何时使用的清单与示范例子；右侧"TodoWrite"是取代它的短接口：一句话说明 + status 枚举 pending/in_progress/completed + 一条"同一时间只允许一项 in_progress"](imgs/anthropic-context-engineering-claude5/fig-3.png)
+
+> 旧版 TodoWrite 描述，与取代它的那个短接口的对比。
 
 ### 过去：全部前置 → 现在：渐进式披露
 
@@ -117,6 +131,10 @@ sourceFigureCount: 0
 ### 引用
 
 你可以用 `@` 提及文件，把它们作为引用带进来。引用让 Claude 能参考关于当前计划的深入信息。
+
+![上下文窗口的分层：Your prompt 只是其中一片，其余依次是 References（@ 提及的文件、spec、mockup、代码库、artifacts）、System prompt、Claude.MDs、Skills、Memory](imgs/anthropic-context-engineering-claude5/fig-4.png)
+
+> 上下文窗口：你的提示词只是其中一片（图中各块大小仅为示意）。
 
 这可能是 spec 文件、mockup，甚至整个代码库。**一般来说你应该优先选择以代码形式存在的文件**，因为它用一种 Claude 非常熟悉的语言，提供了清晰、高保真的指令。举例来说，**一份设计的 HTML mockup，通常会比对这个设计的一段描述或一张截图产生更好的结果。**
 

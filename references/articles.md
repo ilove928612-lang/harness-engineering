@@ -1684,7 +1684,7 @@
 - **翻译：** [works/ronacher-better-models-worse-tools-translation.md](../works/ronacher-better-models-worse-tools-translation.md)
 - **作者：** Armin Ronacher（Flask / Jinja 作者、Sentry 创始人，现做编码智能体 Pi） | **日期：** 2026-07-04
 - **核心：** 仓库长期挂着"跨模型可移植性"缺口，本文给了它**第一个机制级的坏消息**：Anthropic 的新模型（Opus 4.8、Sonnet 5）在**非 Claude Code 形状**的编辑工具上比它们的老版本更差。这不是模型变笨，是**后训练把一个特定 harness 的习惯烙进了先验**。
-- **症状：** Pi 的编辑工具用嵌套的 `edits[]` 数组。模型产出的 `oldText` / `newText` **字节正确**，然后在对象末尾追加凭空发明的键——`type`、`id`、`kind`、`unique`、`requireUnique`、`matchCase`、`in_file`、`forceMatchCount`、`children`、`notes`、`cost`、`oldText2`、`newText2`，甚至 `event.0.additionalProperties`。Sonnet 4.6 与 Opus 4 不这样。
+- **症状：** Pi 的编辑工具用嵌套的 `edits[]` 数组。模型产出的 `oldText` / `newText` **字节正确**，然后在对象末尾追加凭空发明的键——`type`、`id`、`kind`、`unique`、`requireUnique`、`matchCase`、`in_file`、`forceMatchCount`、`children`、`notes`、`cost`、`oldText2`、`newText2`，甚至 `event.0.additionalProperties`。原文只说**更老的模型一个都没有这个毛病**，并未点名具体版本（有二手报道给出 Sonnet 4.6 / Opus 4 的对照，但那不出自原文）。
 - **复现条件很挑：** 单轮"编辑这个文件"完全不复现；要有"读过文件、诊断过问题、然后组装多行编辑"的智能体历史才出得来。某条会话里 Opus 4.8 失败率约 **20%**；**剥掉历史中的 thinking block 让失败率减半**；**打开 strict 模式则清零**。
 - **作者的假说链（本文最有价值的部分）：**
   1. 现代 Anthropic 模型的后训练很可能就在 Claude Code（或其仿真）里做
@@ -1707,7 +1707,7 @@
 ### 63. Dex Horthy / HumanLayer — 为什么软件工厂会失败（harness engineering 还不够）
 
 - **标题：** Why Software Factories Fail — or: harness engineering is not enough
-- **链接：** [wsff.md（HumanLayer 仓库全文）](https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/wsff.md) | [AI Engineer World's Fair 2026 主题演讲](https://www.youtube.com/watch?v=Ib5GBkD555M)
+- **链接：** [wsff.md 全文（固定到 commit `418c1db`，2026-07-23 抓取）](https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/418c1dbaa9b71592bc58c44074cacb85a3092c7f/wsff.md) | [上游 main 最新版](https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/wsff.md) | [AI Engineer World's Fair 2026 主题演讲](https://www.youtube.com/watch?v=Ib5GBkD555M)
 - **作者：** Dex Horthy（HumanLayer 创始人兼 CEO；Pragmatic Engineer 称其为"context engineering"一词的提出者。本仓库 #5《Skill Issue》出自同一组织） | **日期：** 2026-07
 - **核心：** 迄今为止**对 harness engineering 最正面、也最有分量的一次反驳**——而且来自这个学派内部。论点一句话：**"再多的 harness engineering 或 loopsmaxxing，都解决不了一个本质上属于模型训练的问题。"** 注意作者的免责声明：他自己卖的正是人机协作工具，立场有偏。
 - **他自己踩的坑（第一手反例）：** 2025 年 7 月 HumanLayer 全面转"熄灯"——只读 spec 和工单，中小任务全交后台智能体，没人读代码。结局是遇到一个智能体怎么都修不好的问题，只能回头去啃三个月没读过的代码库；期间**站点宕机、用户不满**。第一次他说服自己"这点风险换速度值得"；到 11 月第三次时，团队判定重写更划算，联合创始人**花两周在 VS Code 里手工把模式重新梳一遍**。
@@ -1717,7 +1717,7 @@
   - **"如果一个模型能可靠区分好代码和坏代码，它一开始就会写出好的那版。"** RL 需要又快又可靠的 oracle，而可维护性没有快 oracle
   - 更多评审智能体和更多 token 确实有用，但**它们抬的是地板不是天花板**——天花板是 RL 里教会的东西
 - **为什么 Claude Code 赢：** 在它之前已有 aider、cline、codebuff，工具集几乎一样，但工具调用会时不时地失败。被广泛接受的解释是 **Anthropic 在 harness 内部对模型做了 RL**——第一次有实验室针对自己要发布的那套工具训练模型。作者引 OpenAI 团队的说法收尾：**你造了 harness 但不拥有权重、不能在里面做 RL，就永远处于劣势**（这条与 #62 Ronacher 的发现互为镜像）
-- **他认为方向对的三个前沿尝试：** SWE-Marathon（Abundant AI，约 400 小时的巨型任务 + 复合奖励通道而非单个通过位）、DeepSWE（Datacurve，用现实中从未真正实现过的大任务规避污染）、Frontier Code（Cognition，多 PR 任务，且**用变异测试式的确定性手段做惩罚——如果模型写的测试在打补丁之前也不会失败，就扣分**，另跑一个判官模型按代码质量规则读 diff）
+- **他认为方向对的三个前沿尝试：** SWE-Marathon（Abundant AI；**这里是 Dex 的转述**——“约 400 小时的巨型任务 + 复合奖励通道而非单个通过位”。论文本体见 [arXiv 2606.07682](https://arxiv.org/abs/2606.07682)：20 个超长任务，每个配可执行环境 + 人写参考解 + **多层验证套件**，轨迹平均 27.2M token，前沿编码智能体解出率不到 30%，13.8% 的 rollout 出现奖励作弊。**"复合奖励 vs 单个通过位"是 Dex 的说法，最终计分口径以论文为准**）、DeepSWE（Datacurve，用现实中从未真正实现过的大任务规避污染）、Frontier Code（Cognition，多 PR 任务，且**用变异测试式的确定性手段做惩罚——如果模型写的测试在打补丁之前也不会失败，就扣分**，另跑一个判官模型按代码质量规则读 diff）
 - **他给出的替代方案——把人的判断前移到四个阶段：** 产品评审（用户痛点 + 成功标准，且**用 HTML mockup 代替三段描述**）→ 系统架构（时序图、接口契约、数据模型）→ **程序设计**（他认为最被低估的一环：在写实现前先定类型、方法签名、程序布局与**调用栈树**，用 diff 语法标出变化，配文件树 diff）→ 垂直切片（tracer bullet；模型天然爱"横向计划"按 DB→服务→API→前端分层推进，中途没法真正上手摸）。任务分布大致是**约 40% 一把过或加一两轮轻反馈**，中型任务合成一份计划文档，大型任务走全流程。
 - **两句可以直接引用的话：** "你不是 PR 太多，你是**烂 PR** 太多"（他估计 AI 一把过的 PR 返工率接近 50%）；"你可能太忙着追 10–100x，忙到没空接受约束、稳稳地快 2–3 倍"
 - **他引的行业数据（Faros AI《AI acceleration whiplash》报告，相关性信号而非因果铁证）：** 评审评论数 +25%、评论长度 +22.7%、**+31.3% 的 PR 完全跳过评审**；每 PR 事故数 +242.7%、月度事故 +57.9%、人均 bug 数 +54%
@@ -1800,12 +1800,12 @@
 - **翻译：** [works/anthropic-context-engineering-claude5-translation.md](../works/anthropic-context-engineering-claude5-translation.md)
 - **作者：** Thariq Shihipar（Anthropic 技术团队） | **日期：** 2026-07-24
 - **核心：** #4 提出的"harness 瘦身"、#31 讲的"约束加减法纪律"，在这里第一次有了官方的量化落地：**为 Claude Opus 5 / Claude Fable 5 这一代模型，Claude Code 的系统提示词被删掉了 80% 以上，编码评测上没有可测量的损失。** 自陈的病因是"我们在过度约束 Claude"——读内部转录时能看到同一个请求里系统提示词、skill 与用户请求互相打架（"适当留文档"对上"不要写注释"），模型必须先想清楚这些冲突再决定做什么。
-- **七组 then / now（本文的主体，可直接当自查表）：**
+- **六组 then / now（本文的主体，可直接当自查表；原文配了一张按顺序列出这六组的图）：**
 
 | 过去 | 现在 |
 |------|------|
 | 给 Claude 规则 | 让 Claude 用判断力。旧系统提示词写"默认不写注释、绝不写多段 docstring"；新版改成一句**"写得像周围的代码：匹配它的注释密度、命名与惯用法"** |
-| 给 Claude 示例 | 设计接口。示例反而把新模型**限制在某个探索空间**里；该花心思的是工具、脚本与文件的参数设计够不够表达力（Todo 工具用 pending/in_progress/completed 枚举 + "只保持一项 in_progress"来暗示用法） |
+| 给 Claude 示例 | 设计接口。示例反而把新模型**限制在某个探索空间**里；该花心思的是工具、脚本与文件的参数设计够不够表达力。原文配图给了尺度：旧版 TodoWrite 描述约 **9,100 字符**（塞满何时使用的清单与示范例子），换成短接口后只剩一句说明 + pending/in_progress/completed 枚举 + 一条"同一时间只允许一项 in_progress" |
 | 全部前置塞进去 | 渐进式披露。验证与代码评审从系统提示词移进各自的 skill；**工具也可以 deferred loading**——必须先用 ToolSearch 搜到完整定义才能用，于是工具可以变多而不占上下文 |
 | 重复自己 | 简单的工具描述。旧模型有时需要重复指令、或更听上下文末尾的话；现在可以删掉重复，把用法写进工具描述而不是系统提示词 |
 | 用 CLAUDE.md 当记忆 | 自动记忆。不再靠 `#` 热键手动写入，Claude 自己保存与工作和你相关的记忆 |
@@ -1830,7 +1830,7 @@
 - **标题：** Don't Blame the Large Language Model: How Agent Harness Evolution Shapes Coding Agent Quality
 - **链接：** [arxiv.org/abs/2607.03691](https://arxiv.org/abs/2607.03691)
 - **作者：** Oussama Ben Sghaier、Hao Li、Bram Adams、Ahmed E. Hassan（Queen's University） | **日期：** 2026-07-04（v1）/ 2026-07-20（v2）
-- **核心：** 仓库里关于"harness 才是那个变量"的主张，此前主要靠 #34/#35 的横截面测量与 #23 的单次复盘。本文是**第一个把它做成纵向因果实验**的工作：**既有研究都固定 harness、换模型，他们反过来——固定模型，只换 harness 的 35 个连续版本。**
+- **核心：** 仓库里关于"harness 才是那个变量"的主张，此前主要靠 #34/#35 的横截面测量与 #23 的单次复盘。本文是**第一个把它做成受控纵向研究**的工作：**既有研究都固定 harness、换模型，他们反过来——固定模型，只换 harness 的 35 个连续版本。**（论文自述为 controlled longitudinal study。固定模型隔离掉了"模型更新"这一项混杂，但版本间的 harness 变更本身并未随机化，因此这是强关联证据，不是随机化的因果识别。）
 - **两段研究：**
   - **面上：** 实证五个主流开源 harness（Codex、Qwen Code、Gemini、OpenCode、OpenHands）的开发与发布演进，发现**发布速度超过每天两次**、数月内积累数千 issue
   - **点上：** 对 Qwen Code CLI 的 **35 个连续版本**做受控深潜，每个版本对 **50 个分层抽样的 SWE-bench Verified 任务**跑一遍，**底层 LLM 保持不变**，同时测有效性与效率；再把测出来的质量波动**追溯到具体的开发模式与架构组件**，并用单个 pull request 的定性证据佐证
@@ -2105,9 +2105,17 @@ Harness Engineering（AI 护栏）     Harness.io（交付管线）
 
 ## 观察项 / 候选材料（不计入文章数）
 
-> 2026-05 起各轮调研中已甄别、但**暂不值得做成正式文章**的产品页 / README / 短 bliki / 发布稿 / 工程随笔。本段不参与 `### N.` 编号，不计入 73 篇文章总数。
+> 2026-05 起各轮调研中已甄别、但**暂不值得做成正式文章**的材料。本段不参与 `### N.` 编号，不计入 73 篇文章总数。
 > 中文译文留在本地 `translate/`（gitignored）作阅读辅助；下表只记上游链接与定性，方便下次快速复看。
 > **去向标记：** 🔵 待实测后入 `tools/`（遵守 tools/「只收用过的工具」标准，未实测前不正式收录） ｜ ⚪ 长期观察 ｜ ⏭️ 暂存不收。
+>
+> **升格阈值（2026-07-27 补写，解决"论文为什么有的进编号、有的只进这张表"的口径问题）：**
+> 早期本表只收产品页 / README / 短 bliki / 发布稿 / 工程随笔，但随着 arXiv 上 harness 论文的产出速度上来，**论文同样会落到这张表**——否则每月十几篇会把编号正文淹掉。判据不是体裁而是**它是否改变你读既有条目的方式**：
+>
+> - **进编号正文**：提出新的实验设计范式（如 #67 首次固定模型只变 harness），或对库内已有主线给出系统性反证（如 #68 对自演化那条线）。
+> - **只进本表**：为已确立的结论再加一个数据点或做独立复现（Claw-SWE-Bench 复现 #35、Better Harnesses 复现 #57 的弱模型受益）、换一个测量轴但结论同向（StaminaBench）、地图式综述（Code as Agent Harness、Agent System and Harness Design）、或工具/工件本身尚未被实测。
+>
+> 这条阈值是可争的；争的时候请改这段文字，而不是在个案上临时松紧。
 
 | 候选 | 类型 | 去向 | 角度 / 为何只做观察项 | 原文 |
 |---|---|---|---|---|
