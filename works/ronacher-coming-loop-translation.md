@@ -10,6 +10,7 @@ sourceLanguage: "en"
 language: "zh-CN"
 translationMethod: "人工整理逐段翻译（cloud agent，对照原文全文）"
 sourceFigureCount: 0
+sourceFigureAudit: "2026-07-27 抓原文 HTML 核对：<figure> 与 <img> 计数均为 0"
 ---
 
 # 正在到来的循环

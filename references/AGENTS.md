@@ -9,10 +9,10 @@
 
 ## 文章
 
-详见 [articles.md](articles.md) — 完整的文章索引，含三条脉络 **61 篇文章 + 1 项已跟踪产品** 的深度摘要。
+详见 [articles.md](articles.md) — 完整的文章索引，含三条脉络 **73 篇文章 + 1 项已跟踪产品** 的深度摘要。
 权威计数与编号规则以 `articles.md` 头部为准；本表是它的概览缓存。
 
-### 脉络一：AI 时代的 Harness Engineering（57 篇）
+### 脉络一：AI 时代的 Harness Engineering（69 篇）
 
 | # | 文章 | 作者 | 核心贡献 |
 |---|------|------|---------|
@@ -73,20 +73,32 @@
 | 55 | [Own the Outer Loop](https://addyosmani.com/blog/own-the-outer-loop/) | Addy Osmani | 智能体跑内环、工程师拥有外环问责；back-pressure 调节循环速率与作用域来授予自主权 |
 | 56 | [Rewriting Bun in Rust](https://bun.sh/blog/bun-in-rust) | Jarred Sumner | "修流程不修代码"工业级实录：50 dynamic workflows × 64 Claude × 11 天移植 53.5 万行 Zig；语言无关测试套件作 oracle + 对抗评审默认化 |
 | 57 | [HarnessX 论文](https://arxiv.org/abs/2606.14249) | Darwin Agent Team（小米） | harness 一等类型化对象 + AEGIS 轨迹演化 + cross-harness GRPO 共演化：+14.5%（共演化再 +4.7%），弱模型受益最大 |
+| 58 | [Anthropic/长时智能体的有效 harness](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) | Justin Young | 外部工件即记忆的奠基文：initializer + coding 两段式、200+ 条 feature_list.json、progress 文件 + git、Puppeteer 端到端自验（存量回扫补录） |
+| 59 | [Anthropic/基础设施噪声](https://www.anthropic.com/engineering/infrastructure-noise) | Gian Segato | 只改资源配额，Terminal-Bench 2.0 摆动 6pp；1x–3x 修可靠性、3x 以上改变被测对象；"低于 3pp 的榜单差距都该怀疑" |
+| 60 | [Cursor/持续改进 agent harness](https://cursor.com/blog/continually-improving-agent-harness) | Stefan Heule & Jediah Katz | harness 运维的度量学：Keep Rate、LLM 读用户回复判满意、错误分类与按工具按模型基线、每周 Automation 修 harness；按训练分布供给工具格式 |
+| 61 | [Cursor/奖励作弊淹没智能增益](https://cursor.com/blog/reward-hacking-coding-benchmarks) | Naman Jain | 审计 731 条轨迹：SWE-bench Pro 上 63% 的成功解是检索答案而非推导；封 git+断网后 Opus 4.8 Max 87.1%→73.0% |
+| 62 | [Better Models: Worse Tools](https://lucumr.pocoo.org/2026/7/4/better-models-worse-tools/) | Armin Ronacher | 工具 schema 不是中立的：在宽容 harness 里做 RL，新模型对替代 schema 反而更差；跨模型可移植性的机制级坏消息 |
+| 63 | [为什么软件工厂会失败](https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/wsff.md) | Dex Horthy (HumanLayer) | "harness engineering 还不够"：可维护性没有快 oracle，RL 不惩罚坏设计；熄灯工厂第一手失败实录 + 四阶段前移方案 |
+| 64 | [Software Factories, Light and Dark](https://addyosmani.com/blog/software-factories/) | Addy Osmani | loop→harness→factory 三层 + 唯一昂贵的评审闸门 + 背压规则 + "什么样的循环配得上熄灯"准入清单 |
+| 65 | [智能体蜂群与新的模型经济学](https://cursor.com/blog/agent-swarm-model-economics) | Wilson Lin (Cursor) | 从 835 页手册重造 SQLite：质量趋同、账单从 $1,339 到 $10,565；规划/执行分层、自建 VCS（1000 提交/秒）、去相关评审、Field Guide |
+| 66 | [Claude 5 世代的上下文工程新规则](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models) | Thariq Shihipar (Anthropic) | 删掉 Claude Code 系统提示词 80%+ 而编码评测无可测损失；七组 then/now 对照 + `claude doctor` |
+| 67 | [Don't Blame the LLM 论文](https://arxiv.org/abs/2607.03691) | Oussama Ben Sghaier 等（Queen's） | 首个固定模型、只变 harness 的受控纵向研究：Qwen Code CLI 35 个连续版本 × 50 个 SWE-bench Verified 任务 |
+| 68 | [Rethinking Harness Evolution 论文](https://arxiv.org/abs/2607.12227) | Yike Wang 等 | 自动 harness 演化的第一份系统性负面结果：同等预算下不稳定优于简单 test-time scaling，泛化有限 |
+| 69 | [LangChain/Harbor 评测栈](https://www.langchain.com/blog/how-we-benchmark-deep-agents) | Nick Hollon, Harrison Chase 等 | 给 harness 建标尺（Harbor-Index 82 任务 / lite 子集 / capability suite），再给标尺建标尺（IssueBench 15 类失败分类法） |
 
 ### 脉络二：云原生 Harness.io（2 篇）
 
 | # | 文章 | 核心贡献 |
 |---|------|---------|
-| 58 | [Harness.io 官方](https://www.harness.io/blog/understanding-ci-cd-platforms-the-backbone-of-modern-devops) | CI/CD 平台全局架构 |
-| 59 | [Google Cloud Architecture](https://docs.cloud.google.com/architecture/partners/harness-cicd-pipeline-for-rag-app) | Harness + GCP 部署 RAG |
+| 70 | [Harness.io 官方](https://www.harness.io/blog/understanding-ci-cd-platforms-the-backbone-of-modern-devops) | CI/CD 平台全局架构 |
+| 71 | [Google Cloud Architecture](https://docs.cloud.google.com/architecture/partners/harness-cicd-pipeline-for-rag-app) | Harness + GCP 部署 RAG |
 
 ### 脉络三：效率悖论与能力进化（2 篇）
 
 | # | 文章 | 核心贡献 |
 |---|------|---------|
-| 60 | [YDD / Miss-you](https://yousali.com/posts/20260303-ai-coding-efficiency-to-evolution/) | 效率悖论的系统性拆解：约束理论 + Spec/Rule/Skill + 验证闭环 + 并发 |
-| 61 | [METR 实验后续 + 自报调查](https://metr.org/blog/2026-02-24-uplift-update/) | "慢 19%" 的官方后续：弱证据转向加速 + AI 渗透破坏 RCT 可行性本身 |
+| 72 | [YDD / Miss-you](https://yousali.com/posts/20260303-ai-coding-efficiency-to-evolution/) | 效率悖论的系统性拆解：约束理论 + Spec/Rule/Skill + 验证闭环 + 并发 |
+| 73 | [METR 实验后续 + 自报调查](https://metr.org/blog/2026-02-24-uplift-update/) | "慢 19%" 的官方后续：弱证据转向加速 + AI 渗透破坏 RCT 可行性本身 |
 
 ### 已跟踪产品 / 项目（不计入文章数）
 

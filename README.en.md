@@ -1,8 +1,8 @@
 [中文](README.md) | English
 
 ![License: MIT](https://img.shields.io/badge/license-MIT-blue)
-![Articles](https://img.shields.io/badge/articles-61-green)
-![Translations](https://img.shields.io/badge/translations-31-orange)
+![Articles](https://img.shields.io/badge/articles-73-green)
+![Translations](https://img.shields.io/badge/translations-33-orange)
 
 # Harness Engineering Study Guide
 
@@ -112,10 +112,10 @@ harness-engineering/
 ├── thinking/              # Phase 2: Independent analysis (11 articles)
 ├── practice/              # Phase 3: Hands-on experiments (1 Ralph Demo)
 ├── feedback/              # Phase 4: Lessons learned (1 article)
-├── works/                 # Phase 5: Shareable outputs (31 translations + 1 original + 2 external Chinese captures)
+├── works/                 # Phase 5: Shareable outputs (33 translations + 1 original + 2 external Chinese captures)
 ├── tools/                 # Tools that reduce the 6 complexity dimensions
 ├── prompts/               # Validated prompts collection
-└── references/            # External resource index (61 articles with deep summaries)
+└── references/            # External resource index (73 articles with deep summaries)
 ```
 
 Each subdirectory has its own `AGENTS.md` explaining its purpose and conventions — a direct practice of the "progressive disclosure" principle from the original article.
@@ -126,15 +126,15 @@ Each subdirectory has its own `AGENTS.md` explaining its purpose and conventions
 - [x] **Phase 2: Form your own opinions** — 11 independent analyses (ongoing)
 - [x] **Phase 3: Pick a small project to practice** — Ralph Demo completed (321s, $0.31)
 - [x] **Phase 4: Record feedback & iterations** — 1 article (ongoing)
-- [x] **Phase 5: Produce shareable work** — 31 professional translations + 1 original synthesis + 2 external Chinese captures
+- [x] **Phase 5: Produce shareable work** — 33 professional translations + 1 original synthesis + 2 external Chinese captures
 
 ## 📚 Research Library
 
-61 articles across three knowledge tracks + 2 extended readings:
+73 articles across three knowledge tracks + 2 extended readings:
 
 | Track | Coverage | Perspectives |
 |-------|----------|-------------|
-| AI-Era Harness Engineering | 57 articles | OpenAI → Fowler → Anthropic → LangChain → Stanford → Claude Code reverse engineering & source leak → Subagent runtime → Sensors/SPDD/ADLC → Out-of-scope, safety auditing & quality postmortems → Evaluation trilogy → Dynamic workflows → Origins (Ralph / Hashimoto) & discipline synthesis → Codex harness anatomy → Loop Engineering trilogy → Self-evolving harnesses & RSI → Formal verification → Multi-agent scaling (Cursor / C compiler) → Official containment & evals methodology → Behavior maps / DSLs / local models / outer-loop accountability → industrial-scale mechanical porting (Bun) & harness-model co-evolution (HarnessX) |
+| AI-Era Harness Engineering | 69 articles | OpenAI → Fowler → Anthropic → LangChain → Stanford → Claude Code reverse engineering & source leak → Subagent runtime → Sensors/SPDD/ADLC → Out-of-scope, safety auditing & quality postmortems → Evaluation trilogy → Dynamic workflows → Origins (Ralph / Hashimoto) & discipline synthesis → Codex harness anatomy → Loop Engineering trilogy → Self-evolving harnesses & RSI → Formal verification → Multi-agent scaling (Cursor / C compiler) → Official containment & evals methodology → Behavior maps / DSLs / local models / outer-loop accountability → industrial-scale mechanical porting (Bun) & harness-model co-evolution (HarnessX) → long-running harness foundations & eval-environment confounders (Anthropic backfill) → harness operations metrics & reward hacking (Cursor backfill) → tool schemas are not neutral → the software-factory debate (Dex Horthy / Osmani) → agent-swarm cost economics → deleting 80% of the system prompt |
 | Cloud-Native Harness.io | 2 articles | CI/CD platform architecture (same name, different meaning) |
 | Efficiency Paradox & Capability Evolution | 2 articles | YDD systematic teardown + METR follow-up (measurement-methodology crisis) |
 | Extended Reading | 2 articles | Context Engineering, Human-Agent collaboration |
@@ -144,11 +144,13 @@ See [references/articles.md](references/articles.md) — each article includes c
 ## 📖 Translations
 
 <details>
-<summary><b>31 Chinese translations of key articles</b> (click to expand)</summary>
+<summary><b>33 Chinese translations of key articles</b> (click to expand)</summary>
 
 | Translation | Original Author | Source |
 |-------------|----------------|--------|
 | ⭐ [Eight Years of Wanting](works/maganti-eight-years-building-ai-translation.md) | Lalit Maganti | Personal blog |
+| [The New Rules of Context Engineering for Claude 5](works/anthropic-context-engineering-claude5-translation.md) | Thariq Shihipar | Anthropic / Claude |
+| [Better Models: Worse Tools](works/ronacher-better-models-worse-tools-translation.md) | Armin Ronacher | Personal blog |
 | [Rewriting Bun in Rust](works/bun-in-rust-translation.md) | Jarred Sumner | Bun Blog |
 | [Building a C Compiler with a Team of Parallel Claudes](works/anthropic-c-compiler-translation.md) | Nicholas Carlini | Anthropic |
 | [Scaling Long-Running Autonomous Coding](works/cursor-scaling-agents-translation.md) | Wilson Lin | Cursor |
@@ -220,7 +222,7 @@ The "Ralph Wiggum Loop" is the core implementation pattern of Harness Engineerin
 
 ## 🛠️ Development Notes
 
-The repo ships with a consistency checker, `scripts/check-consistency.sh`, guarding against count drift across nine layers of checks:
+The repo ships with a consistency checker, `scripts/check-consistency.sh`, guarding against count and fidelity drift across thirteen layers of checks:
 
 - **C1-C2** — `references/articles.md` article count + its 4 downstream claim sites (README × 2 badges, `prompts/deep-research-tracker.md` header, `references/AGENTS.md` overview)
 - **C3** — actual `*.md` file counts in `concepts/` / `thinking/` / `feedback/` match the README "X 篇" claims
@@ -230,6 +232,10 @@ The repo ships with a consistency checker, `scripts/check-consistency.sh`, guard
 - **C7** — per-track counts (Track 1/2/3) stay consistent across their 4 downstream claim sites (README research-library tables × 2, `references/AGENTS.md` track headings, `prompts/deep-research-tracker.md` track lines)
 - **C8** — local translation-pipeline guard: once `translate/<...>/sources/<slug>/source-full.md` is captured, the matching `01-analysis.md` may no longer claim "abstract-only / fetch full text later". `translate/` is gitignored, so this auto-SKIPs on CI and clean clones
 - **C9** — authored prose in `concepts/` / `thinking/` / `feedback/` must not restate library counts ("N articles / N translations") as live facts; historical mentions must carry a dated-snapshot qualifier, otherwise drop the number and link `references/articles.md`
+- **C10** — figure fidelity (purely local, zero network): every translation's frontmatter must declare `sourceFigureCount`, the body must embed at least that many images, and every local embed path must exist on disk (`null` = source unavailable / unaudited → SKIP)
+- **C11** — markdown table shape: in the checked files, every table row must carry the same cell count as its header
+- **C12** — every numbered entry in `references/articles.md` must carry the **作者：** and **日期：** fields
+- **C13** — zero-figure claims need an audit trail. C10 can only falsify OVER-claiming, so `sourceFigureCount: 0` is unfalsifiable locally — that hole shipped a false 0 on 2026-07-27 (the source had 4 body figures). Any translation claiming 0 must therefore also carry `sourceFigureAudit` containing a `YYYY-MM-DD` date, stating how the claim was verified
 
 **Enable the pre-commit hook after first clone:**
 
@@ -249,7 +255,7 @@ See the "机械化检查" section of the root `AGENTS.md` for details.
 
 > This archive now curates itself.
 >
-> Bringing in outside research no longer runs on vibes — it follows a pipeline frozen into a skill, [`curate-research`](.claude/skills/curate-research/SKILL.md): review is automated by parallel agents (the feedback loop), `scripts/check-consistency.sh` keeps counts from drifting via C1–C9 (the mechanical rail), and whether something gets in is always a human gate (humans steer, agents execute).
+> Bringing in outside research no longer runs on vibes — it follows a pipeline frozen into a skill, [`curate-research`](.claude/skills/curate-research/SKILL.md): review is automated by parallel agents (the feedback loop), `scripts/check-consistency.sh` keeps counts and fidelity from drifting via C1–C13 (the mechanical rail), and whether something gets in is always a human gate (humans steer, agents execute).
 >
 > So the constraints themselves became the product — exactly what [concepts/07-spec-as-product.md](concepts/07-spec-as-product.md) argues, except this time the subject is the repo itself.
 

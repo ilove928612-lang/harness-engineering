@@ -1,6 +1,6 @@
 ---
 name: curate-research
-description: 把一批 Harness Engineering 调研候选（文章/论文/工具的 URL）走完「抓取→翻译→评审→收录→清理」流水线，整合进本仓库 works/ 与 references/articles.md，并保持 C1–C12 一致性检查全绿。当用户说"处理这批调研候选 / 收录这些链接 / 整理 translate / 把这几篇翻译收进来"时使用。这是仓库给自己用的策展 harness。
+description: 把一批 Harness Engineering 调研候选（文章/论文/工具的 URL）走完「抓取→翻译→评审→收录→清理」流水线，整合进本仓库 works/ 与 references/articles.md，并保持 C1–C13 一致性检查全绿。当用户说"处理这批调研候选 / 收录这些链接 / 整理 translate / 把这几篇翻译收进来"时使用。这是仓库给自己用的策展 harness。
 ---
 
 # curate-research —— 仓库自我策展 harness
@@ -60,12 +60,14 @@ description: 把一批 Harness Engineering 调研候选（文章/论文/工具�
 
 **入库前 checklist（每篇 works/ 候选必过，再进 ⑤）：**
 - [ ] frontmatter 声明 `sourceFigureCount` 并与原文实际图数核对（null = 原文不可得、未审计）；原文插图下载入 `works/imgs/<slug>/` 本地嵌入——C10 校验嵌图数 ≥ 声明数、本地路径文件存在
+- [ ] **数图要抓原文 HTML 数，不能只看渲染出来的正文。** 2026-07-27 的教训：一篇 claude.com 译文声明 `sourceFigureCount: 0`，而原文 HTML 里有 4 个 `<figure>`——抓取工具吐出的 markdown 把它们丢了，人只看那份 markdown 就会以为没有图。可用 `curl <url> | grep -c '<figure'` 交叉验证
+- [ ] 若确实为 0，必须同时写 `sourceFigureAudit`（含 `YYYY-MM-DD`），说明怎么核对的——C13 会拦。判定只算正文配图，站点 logo / 作者头像 / 页脚图标 / 推荐位缩略图 / 社交卡片不计入，但这个判断要写进审计值
 - [ ] 译文保留原文正文超链接（不得译丢）
 - [ ] 关键数字 / 结论句与原文抽查比对（防翻译走样）
 - [ ] 跑 `bash scripts/check-consistency.sh` 全绿
 
 ### ⑤ 校验 + 提交
-- 跑 `bash scripts/check-consistency.sh`，C1–C12 必须全绿再提交。
+- 跑 `bash scripts/check-consistency.sh`，C1–C13 必须全绿再提交。
 - commit 匿名：无 `Co-Authored-By`，作者用 noreply `deusyu@users.noreply.github.com`（依赖全局 git 配置，勿覆盖）。
 - push 仅在用户要求时。
 
@@ -91,4 +93,5 @@ description: 把一批 Harness Engineering 调研候选（文章/论文/工具�
 - C8 lint：`source-full.md` 存在时禁止 analysis 谎报摘要页（`scripts/check-consistency.sh`）
 - C9 lint：`concepts/` / `thinking/` / `feedback/` 正文禁止裸写文库计数（历史提法须带"写作时点/当时/此前/首批/首轮/截至/快照"限定词）
 - C10/C11/C12 lint：图片保真（`sourceFigureCount` vs 正文嵌图数 + 本地嵌图路径存在）/ markdown 表格列数与表头一致 / articles.md 编号条目必含 **作者：**/**日期：** 字段（同上脚本）
+- C13 lint：`sourceFigureCount: 0` 必须配 `sourceFigureAudit`（含核对日期）。这条是补 C10 的结构性盲区——C10 的判据是"嵌图数 < 声明数才 FAIL"，所以 0 永远为真，无论你有没有真去数过原文。机械检查只能证伪"多报"，"零报"只能靠留痕让人复核
 - 历史首批实例：articles.md #19–27（2026-06 收录的 9 篇）+ 末尾观察项表 14 行

@@ -23,7 +23,7 @@
 - [x] Phase 2：形成自己的观点（thinking/，11 篇，持续中）
 - [x] Phase 3：选一个小项目实践（practice/，1 个 Ralph Demo）
 - [x] Phase 4：记录反馈迭代（feedback/，1 篇，持续中）
-- [x] Phase 5：输出可展示的作品（works/，31 篇翻译 + 1 篇原创 + 2 篇外部中文收录）
+- [x] Phase 5：输出可展示的作品（works/，33 篇翻译 + 1 篇原创 + 2 篇外部中文收录）
 
 > 进度详情以人类向 README.md 的"学习路线"段为准；本节是给智能体的快照。
 
@@ -45,6 +45,10 @@
 - **C7** — 三脉络 per-track 计数（脉络一/二/三）在 4 处下游声明保持一致：READMEs 资料库表、`references/AGENTS.md` 三脉络小标题、`prompts/deep-research-tracker.md` 三脉络明细
 - **C8** — 翻译流水线本地守卫：`translate/<...>/sources/<slug>/source-full.md` 存在时，对应 `01-analysis.md` 不得再声称"仅摘要页 / 建议补抓全文"。`translate/` 已 gitignore，CI 与干净 clone 自动 SKIP，仅本地有过程稿时触发
 - **C9** — `concepts/` / `thinking/` / `feedback/` 正文不得裸写文库计数（"N 篇文章 / N 篇翻译 / N 大概念"）；历史性提法须带"写作时点 / 当时 / 此前 / 首批 / 首轮 / 截至 / 快照"限定词，否则去数字改链 `references/articles.md`
+- **C10** — 图片保真（纯本地、零网络）：每篇 `works/*-translation.md` 的 frontmatter 必须声明 `sourceFigureCount`（缺失即 FAIL；`null` = 原文不可得、未审计 → SKIP；数字 N → 正文嵌图数须 ≥ N），且所有本地嵌图路径（`imgs/...`）必须在磁盘上存在
+- **C11** — markdown 表格形状：README ×2、`references/AGENTS.md`、`references/articles.md`、`works/AGENTS.md` 里每一行表格的单元格数须与表头一致
+- **C12** — 条目字段完整性：`references/articles.md` 每个 `### N.` 编号条目必须带 **作者：** 与 **日期：** 字段
+- **C13** — 零插图声明须留痕：C10 只能证伪"多报"（嵌图数 < 声明数才 FAIL），因此 `sourceFigureCount: 0` 在本地**永远无法被证伪**——不管你有没有真去核对原文，它都是绿的。2026-07-27 就是这个洞放行了一个假 0（原文实有 4 张配图）。C10 刻意零网络、无法回查原文，所以改为要求留痕：**声明 0 的译文必须同时带 `sourceFigureAudit` 字段，值里要有 `YYYY-MM-DD` 核对日期**，写清怎么核对的、结论是什么。`null` 仍然 SKIP——它本来就自陈未审计
 
 执行：`bash scripts/check-consistency.sh`（仓库根目录）
 启用 pre-commit 阻断：`git config core.hooksPath .githooks`

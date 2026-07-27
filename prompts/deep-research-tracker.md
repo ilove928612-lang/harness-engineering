@@ -61,11 +61,11 @@
 > 它必须自包含，因为搜索器无法访问 `references/articles.md`。
 >
 > **维护纪律：** 当 `references/articles.md` 新增/删除条目时，**同一次提交中**必须同步更新本节。两份内容的口径（脉络划分、篇数、产品/项目清单）应保持完全一致。
-> 本节最近一次同步：2026-07-22（与 `articles.md` 当前内容对齐：61 篇文章 + 1 项已跟踪产品）。
+> 本节最近一次同步：2026-07-27（与 `articles.md` 当前内容对齐：73 篇文章 + 1 项已跟踪产品）。
 
-**核心文章 61 篇，分布于三条脉络：**
+**核心文章 73 篇，分布于三条脉络：**
 
-- **脉络一 — AI 时代 Harness Engineering（57 篇）：**
+- **脉络一 — AI 时代 Harness Engineering（69 篇）：**
   - OpenAI "Harness engineering"（原点，2026-02-11）/ "An open-source spec for Codex orchestration: Symphony"（2026-04-27，任务跟踪器作为控制平面）
   - Fowler/Böckeler "Harness engineering for coding agent users"（2026-04-02）+ 前传备忘录（2026-02-17）
   - LangChain "The Anatomy of an Agent Harness"（2026-03）/ "Continual Learning for AI Agents"（2026-04-05）/ "Agent Evaluation Readiness Checklist"
@@ -119,6 +119,18 @@
   - Addy Osmani "Own the Outer Loop"（2026-07-15，AIE 闭幕演讲：智能体跑内环、工程师拥有外环问责 + back-pressure 调速）
   - Jarred Sumner "Rewriting Bun in Rust"（2026-07-08，50 dynamic workflows × 峰值 64 Claude × 11 天机械移植 53.5 万行 Zig→Rust；语言无关测试套件作 oracle + 1 实现者/2 对抗评审者/1 修复者 + "修流程不修代码"；$165k API 成本账本）
   - HarnessX 论文（arXiv 2606.14249，小米 Darwin Agent Team，2026-06：harness 一等类型化对象（processor × 8 hooks × 九维分类）+ AEGIS 四阶段演化 + cross-harness GRPO 共演化；+14.5% 均值（最高 +44.0%）、共演化再 +4.7%、弱模型受益最大）
+  - Anthropic / Justin Young "Effective harnesses for long-running agents"（2025-11-26，存量回扫补录：initializer + coding 两段式、200+ 条 feature_list.json、claude-progress.txt + git、Puppeteer 端到端自验；#4/#7 的上游）
+  - Anthropic / Gian Segato "Quantifying infrastructure noise in agentic coding evals"（2026-02-05，存量回扫补录：只改资源配额 Terminal-Bench 2.0 摆动 6pp；1x–3x 修可靠性、3x 以上改变被测对象；建议每任务声明保底分配 + 硬杀阈值）
+  - Cursor / Stefan Heule & Jediah Katz "Continually improving our agent harness"（2026-04-30，存量回扫补录：Keep Rate、LLM 读用户回复判满意、CursorBench + 线上 A/B、错误分类与按工具按模型基线、每周 Automation 修 harness、按训练分布供给工具格式、context anxiety）
+  - Cursor / Naman Jain "Reward hacking is swamping model intelligence gains"（2026-06-25，存量回扫补录：审计 731 条轨迹，SWE-bench Pro 上 63% 成功解是检索答案；封 git + 断网后 Opus 4.8 Max 87.1%→73.0%、Composer 2.5 74.7%→54.0%）
+  - Armin Ronacher "Better Models: Worse Tools"（2026-07-04，工具 schema 不是中立的：Claude Code 的宽容客户端 + 在其中做 RL → 新模型对替代 schema 更差；strict 模式可清零）
+  - Dex Horthy / HumanLayer "Why Software Factories Fail — harness engineering is not enough"（2026-07，AIE World's Fair 主题演讲 + wsff.md：熄灯工厂第一手失败实录、可维护性没有快 oracle、产品/架构/程序设计/垂直切片四阶段前移）
+  - Addy Osmani "Software Factories, Light and Dark"（2026-07-20，loop→harness→factory 三层 + 唯一昂贵的评审闸门 + 背压规则 + "什么样的循环配得上熄灯"准入清单 + loops vs graphs）
+  - Cursor / Wilson Lin "Agent swarms and the new model economics"（2026-07-20，#48 续篇：835 页手册重造 SQLite，账单 $1,339–$10,565；规划/执行分层、自建 VCS 1000 提交/秒、五种蜂群失效、去相关评审、Field Guide）
+  - Anthropic / Thariq Shihipar "The new rules of context engineering for Claude 5 generation models"（2026-07-24，删掉 Claude Code 系统提示词 80%+ 无可测损失；七组 then/now + `claude doctor`）
+  - Don't Blame the LLM 论文（arXiv 2607.03691，Queen's University，首个固定模型只变 harness 的受控纵向研究：Qwen Code CLI 35 个连续版本 × 50 个 SWE-bench Verified 任务）
+  - Rethinking Harness Evolution 论文（arXiv 2607.12227，自动 harness 演化的第一份系统性负面结果：同等预算下不稳定优于 test-time scaling、泛化有限）
+  - LangChain "How We Benchmark Deep Agents"（2026-07-23）+ "IssueBench"（2026-07-20）——Harbor 评测栈：Harbor-Index 82 任务 / lite 冻结子集 / capability suite；IssueBench 15 类失败分类法与 issue 集层面判分
 - **脉络二 — 云原生 Harness.io（2 篇）：** Harness.io 官方全局架构 / Google Cloud 集成场景
 - **脉络三 — 效率悖论（2 篇）：** YDD/Miss-you "效率悖论的系统性拆解"（2026-03-03）/ METR 实验后续 + 自报调查（2026-02-24 + 2026-05-11，"慢 19%"的官方后续：弱证据转向加速 + RCT 方法论危机）
 
@@ -305,3 +317,14 @@
 5. langchain.com/blog、claude.com/blog、addyosmani.com/blog、simonwillison.net 月归档
 
 发现漏网存量时，与本批增量一起进「候选 × 定性 × 去向」评审表，注明"存量补课"。
+
+### 轮换记录
+
+| 批次 | 回扫信源 | 捞回的存量 |
+|------|---------|-----------|
+| 2026-07-21 | （教训来源，未做系统回扫） | 事后补收 #48 / #49 / #50 / #47 |
+| 2026-07-27 | ① anthropic.com/engineering 全量列表 ② cursor.com/blog 全量 slug 清单 | #58 Effective harnesses（2025-11）、#59 基础设施噪声（2026-02）、#60 持续改进 agent harness（2026-04）、#61 奖励作弊（2026-06）——四篇均为 harness 主题正中靶心却漏网数月 |
+
+> 下一轮建议轮换：openai.com/index（Engineering 分类）+ martinfowler.com/tags（GenAI 标签）。
+> 回扫技巧（2026-07-27 验证有效）：列表页只渲染最近若干条时，直接抓 `curl <blog>|grep -oE '/blog/[a-z0-9-]+'|sort -u` 拿全量 slug，
+> 再逐个取 `datePublished` 与标题——Cursor 那四条里有两条（`continually-improving-agent-harness`、`reward-hacking-coding-benchmarks`）就是这样发现的，它们不在列表页首屏。

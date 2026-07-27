@@ -26,6 +26,7 @@ summary: |-
 language: "zh-CN"
 translationMethod: "baoyu-translate skill"
 sourceFigureCount: 0
+sourceFigureAudit: "2026-07-27 抓原文 HTML 核对：<article> 区内 <figure> 与 <img> 计数均为 0"
 ---
 
 # 渴望了八年，用 AI 三个月造出来
