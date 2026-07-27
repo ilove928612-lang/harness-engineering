@@ -221,7 +221,7 @@ harness-engineering/
 
 ## 🛠️ 开发须知
 
-仓库自带一致性检查脚本 `scripts/check-consistency.sh`，守护数量类漂移，覆盖九层校验：
+仓库自带一致性检查脚本 `scripts/check-consistency.sh`，守护数量与保真类漂移，覆盖十三层校验：
 
 - **C1-C2** — `references/articles.md` 文章数 + 下游 4 处引用（README × 2 badges、`prompts/deep-research-tracker.md` 头部、`references/AGENTS.md` 概览）
 - **C3** — `concepts/` / `thinking/` / `feedback/` 三个目录的 `*.md` 实际数与 README "X 篇" 声明一致
@@ -231,6 +231,10 @@ harness-engineering/
 - **C7** — 三脉络（脉络一/二/三）的 per-track 计数在 4 处下游声明（READMEs 资料库表 × 2、`references/AGENTS.md` 三脉络小标题、`prompts/deep-research-tracker.md` 三脉络明细）保持一致
 - **C8** — 翻译流水线本地守卫：当 `translate/<...>/sources/<slug>/source-full.md` 已抓取，对应 `01-analysis.md` 不得再声称"仅摘要页 / 建议补抓全文"。`translate/` 已 gitignore，故 CI 与干净 clone 上自动 SKIP，仅在本地有过程稿时触发
 - **C9** — `concepts/` / `thinking/` / `feedback/` 正文不得把文库计数（"N 篇文章 / N 篇翻译 / N 大概念"）当活事实裸写——这类数字在 C2/C7 声明位之外会悄悄腐烂。历史性提法必须带"写作时点 / 当时 / 此前 / 首批 / 首轮 / 截至 / 快照"限定词，否则去掉数字、改链 `references/articles.md`
+- **C10** — 图片保真（纯本地、零网络）：每篇译文 frontmatter 必须声明 `sourceFigureCount`，正文嵌图数须 ≥ 声明数，且本地嵌图路径必须真实存在（`null` = 原文不可得、未审计 → SKIP）
+- **C11** — markdown 表格形状：受检文件里每行表格的单元格数须与表头一致
+- **C12** — `references/articles.md` 每个编号条目必须带 **作者：** 与 **日期：** 字段
+- **C13** — 零插图声明须留痕。C10 只能证伪"多报"，`sourceFigureCount: 0` 在本地永远无法被证伪——2026-07-27 就是这个洞放行了一个假 0（原文实有 4 张图）。因此声明 0 的译文必须同时带 `sourceFigureAudit`，值里要有 `YYYY-MM-DD` 核对日期，写清怎么核对、结论是什么
 
 **首次 clone 后启用 pre-commit hook：**
 
@@ -250,7 +254,7 @@ git config core.hooksPath .githooks
 
 > 这个仓库开始策展自己了。
 >
-> 收录外部调研不再靠手感——它走一条固化成 skill 的流水线 [`curate-research`](.claude/skills/curate-research/SKILL.md)：评审由并行 agent 自动完成（反馈回路），`scripts/check-consistency.sh` 的 C1–C9 守着计数不漂移（机械护栏），而"收不收进来"始终是一道人类闸门（人类掌舵、智能体执行）。
+> 收录外部调研不再靠手感——它走一条固化成 skill 的流水线 [`curate-research`](.claude/skills/curate-research/SKILL.md)：评审由并行 agent 自动完成（反馈回路），`scripts/check-consistency.sh` 的 C1–C13 守着计数与保真不漂移（机械护栏），而"收不收进来"始终是一道人类闸门（人类掌舵、智能体执行）。
 >
 > 于是约束本身成了产品——正是本仓库 [concepts/07-spec-as-product.md](concepts/07-spec-as-product.md) 讲的东西，只不过这次的实验对象是仓库自己。
 

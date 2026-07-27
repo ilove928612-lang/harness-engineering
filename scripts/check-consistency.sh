@@ -33,6 +33,18 @@
 #         same cell count as its header row (separator rows skipped).
 #   C12 — entry field completeness: every numbered entry (### N.) in
 #         references/articles.md must carry the **作者：** and **日期：** field lines.
+#   C13 — zero-figure claims must carry an audit trail. C10 can only falsify
+#         OVER-claiming: it fails when the body embeds fewer images than
+#         declared. A declared 0 is therefore unfalsifiable locally, because
+#         "embedded >= 0" always holds — so "sourceFigureCount: 0" goes green
+#         whether the translator actually checked the source or just wanted a
+#         passing build. That hole shipped a false 0 on 2026-07-27 (the source
+#         had 4 body figures; C10 said PASS). Since C10 is deliberately
+#         network-free it cannot re-count the source, so this guard demands
+#         provenance instead: any translation claiming 0 must also carry a
+#         sourceFigureAudit field containing a YYYY-MM-DD date, recording when
+#         and how the "no figures" claim was verified. null keeps SKIPping —
+#         it already self-declares as unaudited.
 #
 # Locale pitfall (do NOT reintroduce): bracket expressions containing multibyte
 # characters — e.g. [├└] or [^。] — silently break under LC_ALL=C with BSD grep:
@@ -458,6 +470,43 @@ C12EOF
   FAIL=1
 else
   echo "  $(green PASS) — all $c12_total numbered entries carry 作者/日期"
+fi
+
+# ─── C13 ───────────────────────────────────────────────────────────────
+# Zero-figure claims need provenance, because C10 structurally cannot check
+# them (see the header note). Requiring a dated sourceFigureAudit turns an
+# unfalsifiable machine claim into a human-auditable one: a reviewer can
+# re-run the stated method against the stated date.
+echo "[C13] zero-figure claims carry a dated sourceFigureAudit trail"
+c13_zero=0
+c13_fail=0
+for tf in works/*-translation.md; do
+  declared=$(awk '
+    NR==1 { if ($0 !~ /^---[ \t]*$/) exit; next }
+    /^---[ \t]*$/ { exit }
+    /^sourceFigureCount:/ { sub(/^sourceFigureCount:[ \t]*/, ""); sub(/[ \t]*$/, ""); print; exit }
+  ' "$tf")
+  [ "$declared" = "0" ] || continue
+  c13_zero=$((c13_zero + 1))
+  audit=$(awk '
+    NR==1 { if ($0 !~ /^---[ \t]*$/) exit; next }
+    /^---[ \t]*$/ { exit }
+    /^sourceFigureAudit:/ { sub(/^sourceFigureAudit:[ \t]*/, ""); print; exit }
+  ' "$tf")
+  # Strip surrounding quotes before judging emptiness.
+  audit=$(echo "$audit" | sed -E 's/^"(.*)"$/\1/; s/^'"'"'(.*)'"'"'$/\1/')
+  if [ -z "$audit" ]; then
+    echo "  $(red FAIL) — $tf: declares sourceFigureCount 0 but has no sourceFigureAudit"
+    echo "    fix: add sourceFigureAudit: \"YYYY-MM-DD 你怎么核对的 + 结论\"（C10 无法证伪 0，只能靠这条留痕）"
+    FAIL=1; c13_fail=$((c13_fail + 1))
+  elif ! echo "$audit" | grep -qE '20[0-9]{2}-[0-9]{2}-[0-9]{2}'; then
+    echo "  $(red FAIL) — $tf: sourceFigureAudit lacks a YYYY-MM-DD date"
+    echo "    fix: 审计结论必须带核对日期，否则无法判断它是否已经过期"
+    FAIL=1; c13_fail=$((c13_fail + 1))
+  fi
+done
+if [ "$c13_fail" -eq 0 ]; then
+  echo "  $(green PASS) — $c13_zero zero-figure claim(s), all carrying a dated audit trail"
 fi
 
 # ─── Summary ───────────────────────────────────────────────────────────

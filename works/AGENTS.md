@@ -23,6 +23,7 @@ sourcePublishedAt: # 原文日期（未知可为 null）
 translationMethod: # 翻译方式，如 "baoyu-translate skill (refined mode)"
 language: "zh-CN"
 sourceFigureCount: # 原文插图数（数字；null = 原文不可得、未审计。C10 据此校验正文嵌图数）
+sourceFigureAudit: # 仅当 sourceFigureCount 为 0 时必填：核对留痕，值里必须含 YYYY-MM-DD（C13）
 ```
 
 可选字段（抓取流水线的溯源元数据）：`sourceCoverImage`、`sourceSiteName`、`sourceSummary`、`summary`、`sourceLanguage`、`sourceAdapter`、`sourceCapturedAt`、`sourceConversionMethod`、`sourceKind`、`sourceRequestedUrl`、`translatedAt`、`translatorAudience`、`translatorStyle` 等。封面图字段统一用 `sourceCoverImage`（不用 `coverImage`）。
@@ -32,6 +33,14 @@ sourceFigureCount: # 原文插图数（数字；null = 原文不可得、未审�
 - 新收录译文的原文插图应下载到 `works/imgs/<slug>/`，以本地相对路径嵌入（`imgs/<slug>/<文件名>`，先例见 [claude-code-architecture-reverse-translation.md](claude-code-architecture-reverse-translation.md)）；存量条目的远程嵌图暂容忍，不强制回迁。
 - 译文正文保留原文中的超链接，不得在翻译时丢弃。
 - `scripts/check-consistency.sh` C10 会校验 `sourceFigureCount` 与正文嵌图数（嵌图数 ≥ 声明数），并对本地嵌图路径做文件存在性检查。
+- **声明 `sourceFigureCount: 0` 时另需 `sourceFigureAudit`（C13）。** 原因是 C10 只能证伪"多报"——它的判据是"嵌图数 < 声明数"，所以 0 在本地**永远为真**，不管你有没有真去数过原文。2026-07-27 就有一篇靠这个洞蒙混过关（声明 0，原文实有 4 张配图）。审计值要写清**怎么核对的**并带上核对日期，例如：
+
+  ```yaml
+  sourceFigureCount: 0
+  sourceFigureAudit: "2026-07-27 抓原文 HTML 核对：<article> 区内 <figure> 与 <img> 计数均为 0"
+  ```
+
+  判定口径：**只算正文配图。** 站点 logo、作者头像、页脚图标、推荐位缩略图、社交分享卡片、系列导航卡片都不计入——但如果你据此判 0，就把这个判断写进审计值里，别只写"没有图"。
 
 | 文件 | 原文 | 来源 |
 |------|------|------|
