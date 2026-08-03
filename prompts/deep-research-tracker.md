@@ -324,7 +324,8 @@
 |------|---------|-----------|
 | 2026-07-21 | （教训来源，未做系统回扫） | 事后补收 #48 / #49 / #50 / #47 |
 | 2026-07-27 | ① anthropic.com/engineering 全量列表 ② cursor.com/blog 全量 slug 清单 | #58 Effective harnesses（2025-11）、#59 基础设施噪声（2026-02）、#60 持续改进 agent harness（2026-04）、#61 奖励作弊（2026-06）——四篇均为 harness 主题正中靶心却漏网数月 |
+| 2026-08-03 | ① openai.com/sitemap.xml/engineering 全量 URL+lastmod ② martinfowler.com/feed.atom（GenAI 归档） | 无漏网存量：OpenAI Engineering 分类的 harness 主题件（harness-engineering / unrolling / unlocking / symphony / windows-sandbox / core-dump / websockets / how-agents-transforming-work）均已在编号正文或观察项；其余 gpt-5.6 / atlas / sora-android / tax-agents / data-agent 为产品·基建，非 harness。Fowler 侧捞出的是增量而非存量（重构经济效益 / Conductor Developer / Fragments 07-21 / Orchestrator's Tax 草稿）——已进本批观察项 |
 
-> 下一轮建议轮换：openai.com/index（Engineering 分类）+ martinfowler.com/tags（GenAI 标签）。
+> 下一轮建议轮换：langchain.com/blog（Observability & Evals 分类）+ claude.com/blog（全量 slug）。openai.com/index 用 `curl https://openai.com/sitemap.xml/engineering/` 拿到带 lastmod 的全量 URL 最省事（2026-08-03 验证有效，比抓列表页首屏可靠）。
 > 回扫技巧（2026-07-27 验证有效）：列表页只渲染最近若干条时，直接抓 `curl <blog>|grep -oE '/blog/[a-z0-9-]+'|sort -u` 拿全量 slug，
 > 再逐个取 `datePublished` 与标题——Cursor 那四条里有两条（`continually-improving-agent-harness`、`reward-hacking-coding-benchmarks`）就是这样发现的，它们不在列表页首屏。
