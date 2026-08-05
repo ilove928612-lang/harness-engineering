@@ -77,6 +77,7 @@ sourceFigureAudit: # 仅当 sourceFigureCount 为 0 时必填：核对留痕，�
 | [bun-in-rust-translation.md](bun-in-rust-translation.md) | Rewriting Bun in Rust | Bun Blog / Jarred Sumner |
 | [ronacher-better-models-worse-tools-translation.md](ronacher-better-models-worse-tools-translation.md) | Better Models: Worse Tools | Armin Ronacher / 个人博客 |
 | [anthropic-context-engineering-claude5-translation.md](anthropic-context-engineering-claude5-translation.md) | The new rules of context engineering for Claude 5 generation models | Anthropic / Claude · Thariq Shihipar |
+| [langchain-reviewbench-translation.md](langchain-reviewbench-translation.md) | Evaluating code review agents with ReviewBench | LangChain / Nick Hollon |
 
 ### 中文转译 / 二手资料
 

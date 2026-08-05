@@ -1,8 +1,8 @@
 [中文](README.md) | English
 
 ![License: MIT](https://img.shields.io/badge/license-MIT-blue)
-![Articles](https://img.shields.io/badge/articles-73-green)
-![Translations](https://img.shields.io/badge/translations-33-orange)
+![Articles](https://img.shields.io/badge/articles-74-green)
+![Translations](https://img.shields.io/badge/translations-34-orange)
 
 # Harness Engineering Study Guide
 
@@ -112,10 +112,10 @@ harness-engineering/
 ├── thinking/              # Phase 2: Independent analysis (11 articles)
 ├── practice/              # Phase 3: Hands-on experiments (1 Ralph Demo)
 ├── feedback/              # Phase 4: Lessons learned (1 article)
-├── works/                 # Phase 5: Shareable outputs (33 translations + 1 original + 2 external Chinese captures)
+├── works/                 # Phase 5: Shareable outputs (34 translations + 1 original + 2 external Chinese captures)
 ├── tools/                 # Tools that reduce the 6 complexity dimensions
 ├── prompts/               # Validated prompts collection
-└── references/            # External resource index (73 articles with deep summaries)
+└── references/            # External resource index (74 articles with deep summaries)
 ```
 
 Each subdirectory has its own `AGENTS.md` explaining its purpose and conventions — a direct practice of the "progressive disclosure" principle from the original article.
@@ -126,15 +126,15 @@ Each subdirectory has its own `AGENTS.md` explaining its purpose and conventions
 - [x] **Phase 2: Form your own opinions** — 11 independent analyses (ongoing)
 - [x] **Phase 3: Pick a small project to practice** — Ralph Demo completed (321s, $0.31)
 - [x] **Phase 4: Record feedback & iterations** — 1 article (ongoing)
-- [x] **Phase 5: Produce shareable work** — 33 professional translations + 1 original synthesis + 2 external Chinese captures
+- [x] **Phase 5: Produce shareable work** — 34 professional translations + 1 original synthesis + 2 external Chinese captures
 
 ## 📚 Research Library
 
-73 articles across three knowledge tracks + 2 extended readings:
+74 articles across three knowledge tracks + 2 extended readings:
 
 | Track | Coverage | Perspectives |
 |-------|----------|-------------|
-| AI-Era Harness Engineering | 69 articles | OpenAI → Fowler → Anthropic → LangChain → Stanford → Claude Code reverse engineering & source leak → Subagent runtime → Sensors/SPDD/ADLC → Out-of-scope, safety auditing & quality postmortems → Evaluation trilogy → Dynamic workflows → Origins (Ralph / Hashimoto) & discipline synthesis → Codex harness anatomy → Loop Engineering trilogy → Self-evolving harnesses & RSI → Formal verification → Multi-agent scaling (Cursor / C compiler) → Official containment & evals methodology → Behavior maps / DSLs / local models / outer-loop accountability → industrial-scale mechanical porting (Bun) & harness-model co-evolution (HarnessX) → long-running harness foundations & eval-environment confounders (Anthropic backfill) → harness operations metrics & reward hacking (Cursor backfill) → tool schemas are not neutral → the software-factory debate (Dex Horthy / Osmani) → agent-swarm cost economics → deleting 80% of the system prompt |
+| AI-Era Harness Engineering | 70 articles | OpenAI → Fowler → Anthropic → LangChain → Stanford → Claude Code reverse engineering & source leak → Subagent runtime → Sensors/SPDD/ADLC → Out-of-scope, safety auditing & quality postmortems → Evaluation trilogy → Dynamic workflows → Origins (Ralph / Hashimoto) & discipline synthesis → Codex harness anatomy → Loop Engineering trilogy → Self-evolving harnesses & RSI → Formal verification → Multi-agent scaling (Cursor / C compiler) → Official containment & evals methodology → Behavior maps / DSLs / local models / outer-loop accountability → industrial-scale mechanical porting (Bun) & harness-model co-evolution (HarnessX) → long-running harness foundations & eval-environment confounders (Anthropic backfill) → harness operations metrics & reward hacking (Cursor backfill) → tool schemas are not neutral → the software-factory debate (Dex Horthy / Osmani) → agent-swarm cost economics → deleting 80% of the system prompt → a code-review-sensor benchmark (ReviewBench) |
 | Cloud-Native Harness.io | 2 articles | CI/CD platform architecture (same name, different meaning) |
 | Efficiency Paradox & Capability Evolution | 2 articles | YDD systematic teardown + METR follow-up (measurement-methodology crisis) |
 | Extended Reading | 2 articles | Context Engineering, Human-Agent collaboration |
@@ -144,11 +144,12 @@ See [references/articles.md](references/articles.md) — each article includes c
 ## 📖 Translations
 
 <details>
-<summary><b>33 Chinese translations of key articles</b> (click to expand)</summary>
+<summary><b>34 Chinese translations of key articles</b> (click to expand)</summary>
 
 | Translation | Original Author | Source |
 |-------------|----------------|--------|
 | ⭐ [Eight Years of Wanting](works/maganti-eight-years-building-ai-translation.md) | Lalit Maganti | Personal blog |
+| [Evaluating code review agents with ReviewBench](works/langchain-reviewbench-translation.md) | Nick Hollon | LangChain |
 | [The New Rules of Context Engineering for Claude 5](works/anthropic-context-engineering-claude5-translation.md) | Thariq Shihipar | Anthropic / Claude |
 | [Better Models: Worse Tools](works/ronacher-better-models-worse-tools-translation.md) | Armin Ronacher | Personal blog |
 | [Rewriting Bun in Rust](works/bun-in-rust-translation.md) | Jarred Sumner | Bun Blog |

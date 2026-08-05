@@ -10,7 +10,7 @@
 > **下游引用都是本文的冗余缓存：** 根 `README.md` / `README.en.md` 的 badge、`prompts/deep-research-tracker.md` 的去重清单、`references/AGENTS.md` 的概览表。
 > 新增/删除文章时，必须**同一次提交**更新本文 + 所有下游缓存。
 >
-> 当前规模：**73 篇文章**（脉络一 69 + 脉络二 2 + 脉络三 2）+ **1 项已跟踪产品**（不计入文章数）。最近一次同步：2026-07-27。
+> 当前规模：**74 篇文章**（脉络一 70 + 脉络二 2 + 脉络三 2）+ **1 项已跟踪产品**（不计入文章数）。最近一次同步：2026-08-05。
 
 ## 脉络一：AI 时代的 Harness Engineering（大模型护栏与认知工程）
 
@@ -745,7 +745,7 @@
 |---------|---------|
 | 四要素 Harness | #2 Fowler、#5 HumanLayer 六杠杆、概念 2/3（地图而非手册 / 机械化执行） |
 | 反馈循环防腐化 | #9 Fowler 反馈飞轮、#19 Fowler Sensors |
-| 反馈瓶颈 / serial speed-up | #72 YDD 效率悖论 |
+| 反馈瓶颈 / serial speed-up | #73 YDD 效率悖论 |
 
 ---
 
@@ -1176,7 +1176,7 @@
 | agent loop vs harness loop | #41 Osmani 的 loop 定调、#37 "harness 拥有 loop" |
 | 防御式编码的放大 | #19 Fowler 传感器的失败案例、概念 6 熵与垃圾回收 |
 | 理解与参与 | #26 Chris Parsons 从批准者到训练者、#14 Maganti 的"必须理解每一行" |
-| 无法退出的压力 | #72 YDD 效率悖论、#31 学科汇流的产业动力 |
+| 无法退出的压力 | #73 YDD 效率悖论、#31 学科汇流的产业动力 |
 
 ---
 
@@ -1729,7 +1729,7 @@
 | 同一组织的自我修正 | #5 HumanLayer《Skill Issue》六杠杆（2026-03）→ 本文（2026-07）"杠杆不够" |
 | 可维护性没有快 oracle | #19 计算性 vs 推理性传感器的边界、#49 GCC oracle 与 #56 测试套件 oracle 之所以奏效的前提 |
 | 熄灯工厂的失败实录 | #64 Osmani 同题（明确基于本演讲）、#42 Ronacher comprehension |
-| 评审是瓶颈 / 反馈是新瓶颈 | #26 Chris Parsons、#55 外环问责、#72 YDD 效率悖论与 Faros 数据 |
+| 评审是瓶颈 / 反馈是新瓶颈 | #26 Chris Parsons、#55 外环问责、#73 YDD 效率悖论与 Faros 数据 |
 
 <a id="article-64"></a>
 
@@ -1898,11 +1898,35 @@
 
 ---
 
-## 脉络二：云原生时代的 Harness.io（交付与平台工程）
-
 <a id="article-70"></a>
 
-### 70. Harness.io 官方 — 全局架构
+### 70. LangChain — ReviewBench：给"AI 代码评审"这个传感器造考卷
+
+- **标题：** Evaluating code review agents with ReviewBench
+- **链接：** [langchain.com](https://www.langchain.com/blog/evaluating-code-review-agents-with-reviewbench)
+- **翻译：** [works/langchain-reviewbench-translation.md](../works/langchain-reviewbench-translation.md)
+- **作者：** Nick Hollon（LangChain） | **日期：** 2026-07-31
+- **核心：** #69 Harbor 评测栈的第三块拼图：评测对象从"通用智能体"（Harbor-Index）、"改进智能体的智能体"（IssueBench）推进到**推理性传感器本身**——AI 代码评审，#2 矩阵里最贵、最不确定的那一格。做法是从 LangSmith 单仓已合并 PR 的**真实评审意见**出发（LLM 闸门标弱候选 + 人工逐条复核，策展成 **59 任务 / 64 个基线问题**；Harbor 格式、本地 GitHub stub 冻结 PR 状态、隐藏验证器 LLM-as-judge），大量问题要求从周边代码**重建隐式系统契约**（租户约束、加锁模式、API 等价性），而非只扫改动行。计分 = 覆盖率与精确率等权的 F1，判"同一代码路径上的同一底层问题"。
+- **两个结果：**
+  - **裸 harness 下最强也只找回约 30% 的基线问题**（同一 Deep Agents harness、刻意不加评审专用提示词：Kimi K3 与 Opus 4.8 均 0.30，GLM-5.2 0.26，Luna 0.14，Terra 0.13）——"AI 评审作为垃圾回收"（#19）目前的真实召回上限
+  - **只换一段结构化评审 prompt（不加工具、不换模型）**：Luna 在 20 任务切片上从 0.13 → **0.32**，反超同片静态评审的 Opus 4.8（0.23）与 Kimi K3（0.25）。prompt 内容是"先识别改了什么 → 追踪周边系统如何依赖 → 对照调用方/测试/相关实现验证发现"；作者自点破"**这是 harness 对比，不是模型对比**"——评审策略是 harness 的可调面
+- **保留意见：** 与 #69 同源的利益相关（自家基准评自家 harness 上的模型）；任务出自私有单仓、文中未说明是否开源，外部可复现性待观察；表中成本列（调优 Luna $0.74/任务 vs Opus $1.27/任务）是"传感器性价比"的首批公开数字
+- **与其他文章的关联：**
+
+| 本文概念 | 对应文章 |
+|---------|---------|
+| AI 代码评审传感器的第一份专用标尺 | #2 推理性传感器那格、#19 "AI 评审作为垃圾回收"的定量补充 |
+| prompt-only 的 harness 效应变体 | #34 配置级效应、#35 统计归因、#67 固定模型只变 harness |
+| 评审策略可设计、可测量 | #56 Bun 的对抗评审者、#65 蜂群的去相关评审 |
+| 真实评审意见 → 冻结任务的策展法 | #69 IssueBench 的合成环境路线（同栈两种 ground truth 取法） |
+
+---
+
+## 脉络二：云原生时代的 Harness.io（交付与平台工程）
+
+<a id="article-71"></a>
+
+### 71. Harness.io 官方 — 全局架构
 
 - **标题：** Understanding CI/CD Platforms: The backbone of modern DevOps
 - **链接：** [harness.io](https://www.harness.io/blog/understanding-ci-cd-platforms-the-backbone-of-modern-devops)
@@ -1910,9 +1934,9 @@
 - **核心：** 标准 CI/CD 平台介绍。8 大组件：SCM → Build → Test → Code Quality → Security Scan → Artifact → Deploy → Monitor
 - **Harness 差异化：** 统一管线、Test Intelligence 智能测试、最少脚本、Policy-as-Code 治理
 
-<a id="article-71"></a>
+<a id="article-72"></a>
 
-### 71. Google Cloud Architecture — 前沿场景结合
+### 72. Google Cloud Architecture — 前沿场景结合
 
 - **标题：** Harness CI/CD pipeline for RAG applications
 - **链接：** [docs.cloud.google.com](https://docs.cloud.google.com/architecture/partners/harness-cicd-pipeline-for-rag-app)
@@ -1925,9 +1949,9 @@
 
 ## 脉络三：效率悖论与能力进化
 
-<a id="article-72"></a>
+<a id="article-73"></a>
 
-### 72. YDD / Miss-you — 效率悖论的系统性拆解
+### 73. YDD / Miss-you — 效率悖论的系统性拆解
 
 - **标题：** 为什么 AI 写代码更快但交付没变，以及我怎么把它扳回来的
 - **链接：** [yousali.com](https://yousali.com/posts/20260303-ai-coding-efficiency-to-evolution/)
@@ -1973,15 +1997,15 @@
 
 ---
 
-<a id="article-73"></a>
+<a id="article-74"></a>
 
-### 73. METR — 生产力实验的后续：结论松动与方法论危机
+### 74. METR — 生产力实验的后续：结论松动与方法论危机
 
 - **标题：** We are Changing our Developer Productivity Experiment Design（2026-02-24）+ Measuring the Self-Reported Impact of Early-2026 AI on Technical Worker Productivity（2026-05-11）
 - **链接：** [metr.org 实验设计更新](https://metr.org/blog/2026-02-24-uplift-update/) | [metr.org 自报调查](https://metr.org/blog/2026-05-11-ai-usage-survey/) | [后续研究数据集](https://github.com/METR/Measuring-Late-2025-AI-on-OSS-Devs)
 - **翻译：** [works/metr-uplift-update-translation.md](../works/metr-uplift-update-translation.md)（实验设计更新篇）
 - **作者：** Joel Becker, Nate Rush, Tom Cunningham, David Rein, Khalid Mahamud (METR) | **日期：** 2026-02-24 / 2026-05-11
-- **核心：** #72 YDD 的论证基石（METR RCT "AI 辅助反而慢 19%"）的官方后续。late-2025 复现实验（57 名开发者、143 仓库、800+ 任务）的原始结果转向加速——原班开发者估计 **-18% 加速**（CI -38%~+9%）、新开发者 -4%（CI -15%~+9%）——但 METR 自己判定这只是**很弱的证据**，并宣布改实验设计。真正的信息量在于：**AI 渗透已经破坏了任务级随机对照实验本身的可行性**。
+- **核心：** #73 YDD 的论证基石（METR RCT "AI 辅助反而慢 19%"）的官方后续。late-2025 复现实验（57 名开发者、143 仓库、800+ 任务）的原始结果转向加速——原班开发者估计 **-18% 加速**（CI -38%~+9%）、新开发者 -4%（CI -15%~+9%）——但 METR 自己判定这只是**很弱的证据**，并宣布改实验设计。真正的信息量在于：**AI 渗透已经破坏了任务级随机对照实验本身的可行性**。
 
 - **选择效应的三重来源（实验设计为何失效）：**
   - 开发者拒绝参与——越来越多人不愿在无 AI 条件下工作（时薪 $50 也不愿），最乐观的采纳者系统性缺席
@@ -1995,9 +2019,9 @@
 
 | 本文概念 | 对应文章 |
 |---------|---------|
-| 19% 减速数据的后续 | #72 YDD 第一章效率悖论（引用了原实验） |
-| 感知与现实的偏差 | #72 的 39 个百分点偏差、自报高估 40+ 个百分点 |
-| 并发智能体使计时失效 | #72 第五章并发策略（并发正是 YDD 开出的药方） |
+| 19% 减速数据的后续 | #73 YDD 第一章效率悖论（引用了原实验） |
+| 感知与现实的偏差 | #73 的 39 个百分点偏差、自报高估 40+ 个百分点 |
+| 并发智能体使计时失效 | #73 第五章并发策略（并发正是 YDD 开出的药方） |
 | 测量方法的时代错位 | #38 Position 论文（基准侧的同构诊断：测量工具追不上被测对象） |
 
 ---
@@ -2024,7 +2048,7 @@ Harness Engineering（AI 护栏）     Harness.io（交付管线）
 ## 中文转译 / 二手资料（不计入文章数）
 
 > 这里收录的是**他人已发布的中文译介或二手综述**——本仓库做了归档但**不视为一手文献**。
-> 本段不参与 `### N. ...` 的全局编号，不计入 73 篇文章总数；与上方编号正文严格区分，避免污染脉络计数。
+> 本段不参与 `### N. ...` 的全局编号，不计入 74 篇文章总数；与上方编号正文严格区分，避免污染脉络计数。
 > 收录标准：内容与 Harness Engineering 直接相关、来源可追溯到具名作者 / 译者、且对本仓库已有一手文献有补充或对照价值。
 
 ### Akshay Pachaar — The Anatomy of an Agent Harness（中译版）
@@ -2077,7 +2101,7 @@ Harness Engineering（AI 护栏）     Harness.io（交付管线）
 
 ## 已跟踪产品 / 项目（不计入文章数）
 
-> 这里收录的是**开源产品 / 框架 / 工具**，不是文章。本段不参与"### N. ..." 的全局编号，不计入 73 篇的文章总数。
+> 这里收录的是**开源产品 / 框架 / 工具**，不是文章。本段不参与"### N. ..." 的全局编号，不计入 74 篇的文章总数。
 > 触发"产品级实现案例"的判定通常是：有可运行代码、有版本号、被本仓库 thinking/ 或 works/ 单独分析。
 
 ### ⭐ Chachamaru127 — claude-code-harness v4.2 "Hokage"（产品级实现案例）
@@ -2105,7 +2129,7 @@ Harness Engineering（AI 护栏）     Harness.io（交付管线）
 
 ## 观察项 / 候选材料（不计入文章数）
 
-> 2026-05 起各轮调研中已甄别、但**暂不值得做成正式文章**的材料。本段不参与 `### N.` 编号，不计入 73 篇文章总数。
+> 2026-05 起各轮调研中已甄别、但**暂不值得做成正式文章**的材料。本段不参与 `### N.` 编号，不计入 74 篇文章总数。
 > 中文译文留在本地 `translate/`（gitignored）作阅读辅助；下表只记上游链接与定性，方便下次快速复看。
 > **去向标记：** 🔵 待实测后入 `tools/`（遵守 tools/「只收用过的工具」标准，未实测前不正式收录） ｜ ⚪ 长期观察 ｜ ⏭️ 暂存不收。
 >
@@ -2143,7 +2167,7 @@ Harness Engineering（AI 护栏）     Harness.io（交付管线）
 | OpenAI Core dump 流行病学 | 工程复盘 | ⚪ | "群体级诊断 > 逐例分析"修复 18 年 libunwind 老 bug，ChatGPT 参与写分析管线；可观测性方法论好文但与 harness 关系间接，2026-06-30 | [openai](https://openai.com/index/core-dump-epidemiology-data-infrastructure-bug/) |
 | thedeepfeed：学科史梳理 | 编年 | ⚪ | "七个声音九个月汇流成一个学科"的传播史（含 Osmani 文收藏/点赞比 2:1 等传播数据）；二手史料，配 #31 看 | [thedeepfeed.ai](https://www.thedeepfeed.ai/posts/2026-05-09-agent-harness-engineering-the-discipline/) |
 | Boris Cherny 工作流 | 实践 | ⚪ | Claude Code 作者本人"出奇原味"的用法（~100 行 CLAUDE.md、早期以 plan mode 纪律著称；站内 Part 15 已记录其 4.6+ 后放弃 plan mode 起手、改 auto mode 直跑——"新模型不再需要显式规划步骤"）；源头是其 X 帖，链接为社区维护的档案站（非 Anthropic 官方） | [howborisusesclaudecode.com](https://howborisusesclaudecode.com) |
-| Steering Claude Code 官方指南 | 产品文档 | ⚪ | 七种转向机制（CLAUDE.md/rules/skills/subagents/hooks/output styles/system prompt append）按"加载时机 × compaction 行为 × token 成本"三轴对照——#72 YDD"区别在加载机制"论的官方版说明书；参考手册体裁，2026-06-18 | [claude.com](https://claude.com/blog/steering-claude-code-skills-hooks-rules-subagents-and-more) |
+| Steering Claude Code 官方指南 | 产品文档 | ⚪ | 七种转向机制（CLAUDE.md/rules/skills/subagents/hooks/output styles/system prompt append）按"加载时机 × compaction 行为 × token 成本"三轴对照——#73 YDD"区别在加载机制"论的官方版说明书；参考手册体裁，2026-06-18 | [claude.com](https://claude.com/blog/steering-claude-code-skills-hooks-rules-subagents-and-more) |
 | The Harness Effect 论文 | 论文/厂商评测 | ⚪ | "成本数据"缺口的首个系统数据：同 22 任务 × 6 模型只换编排层，成本 -41%、时延 -44%、token -38%；提出 token maxing 与 harness leverage（质量增益与基线能力 r=0.99）。注意 Writer Inc. 自评自家 harness，利益相关，方法论（frozen baseline + locked tasks）可取 | [arxiv 2607.06906](https://arxiv.org/abs/2607.06906) |
 | Harness Updating ≠ Harness Benefit 论文 | 论文 | ⚪ | 拆开两条能力轴：写 harness 编辑的能力各模型持平（9B 能写出与 Opus 同构的 skill），利用 harness 的能力非单调（中档模型受益最多）——跨模型可移植性缺口的机制侧证据；被 #45 Weng 综述引用 | [arxiv 2605.30621](https://arxiv.org/abs/2605.30621) |
 | ToFu 白盒研究 harness | 工具 | 🔵 | MIT 协议、面向研究者的白盒 harness：三层上下文压缩 + 多语言 + MCP 集成，可作为 research object 检查/修改编排逻辑；待实测后再定去向 | [arxiv 2607.11423](https://arxiv.org/abs/2607.11423) |
@@ -2178,11 +2202,10 @@ Harness Engineering（AI 护栏）     Harness.io（交付管线）
 | LangChain：Towards Automating Eval Engineering | 产品/方法 | ⚪ | Eval Engineering Skill 发布稿，但两处有料：**verifier 的第一版几乎从不是最终版**，要同时检查智能体轨迹与 **verifier 轨迹**；已观察到的四种作弊形态（过度引用无关来源骗满分 / 声称做过其实没做 / 利用暴露在环境里的答案材料 / 满足代理指标但没真正完成）。定调句"Evals are training data for agents"，2026-07-22 | [langchain](https://www.langchain.com/blog/towards-automating-eval-engineering) |
 | LangChain：Agents need their own computer | 概念/产品 | ⚪ | 隔离论证与 #50 重复度高，值得单取的是**注入防御那节**：沙箱遏制执行爆炸半径但**不消除提示词注入**，因为沙箱输出会被读回上下文；给出具名模式 **"non-agentic read"**——由非模型进程去沙箱取成品（文件、diff、报告），而不是把原始输出灌进智能体上下文；并直言"别指望靠提示模型去识别或忽略注入"，2026-07-15 | [langchain](https://www.langchain.com/blog/agents-need-their-own-computer) |
 | Harrison Chase：Own your intelligence | 战略随笔 | ⚪ | "拥有智能"三层（model / harness / context）+ 拥有经济性、质量与风险 + 复利闭环（每一次改动配一条 eval 固化）；论点与 #3/#15/#21 高度重叠，唯一增量是结尾那份 **10 问自评清单**，可作 `prompts/` 模板引用，2026-07-25 | [langchain](https://www.langchain.com/blog/own-your-intelligence) |
-| Faros AI：AI acceleration whiplash | 行业报告 | ⚪ | #63 与 #72 共同引用的那份遥测报告：评审评论数 +25%、评论长度 +22.7%、**+31.3% 的 PR 完全跳过评审**；每 PR 事故 +242.7%、月度事故 +57.9%、人均 bug +54%。相关性信号而非因果铁证，但它是"熄灯工厂会失败"论证的经验底座；同站另有一篇 harness engineering 五层框架科普（tool orchestration / verification loops / context & memory / guardrails / observability）+ 一组可从现有系统拉出的基线指标（每合并 PR 成本、智能体 PR 的 time-to-merge、评审速度对 PR 体积、人均算力开销） | [research](https://www.faros.ai/research/ai-acceleration-whiplash) / [blog](https://www.faros.ai/blog/harness-engineering) |
+| Faros AI：AI acceleration whiplash | 行业报告 | ⚪ | #63 与 #73 共同引用的那份遥测报告：评审评论数 +25%、评论长度 +22.7%、**+31.3% 的 PR 完全跳过评审**；每 PR 事故 +242.7%、月度事故 +57.9%、人均 bug +54%。相关性信号而非因果铁证，但它是"熄灯工厂会失败"论证的经验底座；同站另有一篇 harness engineering 五层框架科普（tool orchestration / verification loops / context & memory / guardrails / observability）+ 一组可从现有系统拉出的基线指标（每合并 PR 成本、智能体 PR 的 time-to-merge、评审速度对 PR 体积、人均算力开销） | [research](https://www.faros.ai/research/ai-acceleration-whiplash) / [blog](https://www.faros.ai/blog/harness-engineering) |
 | StrongDM 熄灯工厂 + Dan Shapiro 五级 | 一手实验 / 分级 | ⚪ | #63/#64 讨论的"熄灯工厂"实物：StrongDM 公开运行的 lights-off factory（无人写码、无人读码，配 weather-report 更新页）与 Dan Shapiro 的"从辣味自动补全到软件工厂"五级分类。Dex 的批评是"没找到确定性的成效数据"；作为反方样本长期跟踪 | [factory.strongdm.ai](https://factory.strongdm.ai) / [danshapiro.com](https://www.danshapiro.com/blog/2026/01/the-five-levels-from-spicy-autocomplete-to-the-software-factory/) |
 | Ronacher：The Tower Keeps Rising | 随笔 | ⚪ | #62 作者同月另一篇：vibecoding 与"共享语言可能崩塌"；哲学性论述、无一手数据，与 #42 The Coming Loop 同一关切的延伸，2026-07-13 | [lucumr](https://lucumr.pocoo.org/2026/7/13/the-tower-keeps-rising/) |
 | Fowler / Giles Edwards-Alexander：重构的经济效益 | 实验 | ⚪ | Exploring Gen AI 系列少见的**定量重构实验**：一个 15 万行、纯智能体生成、作者从不 review 的应用里，数据访问层膨胀到单文件 17,155 行；用"智能体永远学不会"这一特性把它变成干净实验——每完成一步重构就派一个全新 sub-agent 跑同一个代表性变更并回报 token，无学习污染。14+ 步后同一变更的输入 token 从 159,564 降到 27,360（−83%），且是**一次重构、此后每次触碰该层都更便宜**的复利式节省。附带黑色幽默：机械重构用 Python+grep/sed 脚本执行，"经常被缩进搞晕"。给"熄灯工厂里到底还要不要重构"一个可迁移的算账方法，2026-07-30。**升格候选**（新实验范式） | [martinfowler](https://martinfowler.com/articles/exploring-gen-ai/refactoring-economic-benefit.html) |
-| LangChain：ReviewBench | 论文/基准 | ⚪ | 给"AI 代码评审"这个推理性传感器（#2）造的专用基准：59 任务 / 64 个 issue，全部从 LangSmith 单仓真实 PR 评审意见里提炼（要求智能体从周边代码重建隐式系统契约，而非只看改动行），Harbor 格式、F1 计分。两个结论正中 harness>model 主线——裸 harness 下最强模型也只召回约 30% 的基线问题；而**只换一段结构化评审 prompt（不加工具、不换模型）**就把 Luna 从垫底拉到 0.32、反超同片 Opus/Kimi："评审策略本身可调"。延伸 #69 Harbor 评测栈，2026-07-31 | [langchain](https://www.langchain.com/blog/evaluating-code-review-agents-with-reviewbench) |
 | Geoffrey Huntley：engineer away the slop | 随笔/立场 | ⚪ | Ralph 方法论源头（#28）本人宣布加入 Antithesis，并抛出直指**行为 harness（#2 最弱那维）**的假说：形式化验证 + 确定性系统测试即将跨越鸿沟；靠"模拟一台确定性计算机"逼出普通测试暴露不了的整类 bug；与对抗式 LLM 评审 + pre-commit 里的语言分析器合流，成为软件工厂交付可靠软件的关键件。定调句"创造已近乎免费，验证/理解还不是——是时候把 slop 工程掉了"；与 #63/#64 熄灯工厂、#33 安全审计对读，2026-07-24 | [ghuntley](https://ghuntley.com/slop/) |
 | Fowler / Rachel Laycock：The Conductor Developer | 随笔 | ⚪ | Thoughtworks CTO 新开博客首批文之一："开发正越来越像指挥乐团"——她预期瓶颈会沿 SDLC 从编码逐段后移到设计规格、架构、验证，且已经在发生；领导者视角的定调文，与 #55 外环问责、#63 工厂失败同题，一手数据少、胜在措辞，2026-07-31 | [martinfowler](https://martinfowler.com/rachels-ramblings/conductor-developer.html) |
 | claude.com：Datadog 的"通用机床"工具 | 案例 | ⚪ | 反 MCP 工具膨胀的一手做法：Datadog 不给 Claude Code 塞几十个细粒度工具，而是造一个"通用机床"式的单一工具让模型自行组合调用——工具设计即 harness 的具体案例，与 #62 工具 schema 论、#54 DSL 工具集互证；案例文体裁，2026-07-21 | [claude.com](https://claude.com/blog/how-datadog-built-a-universal-machine-tool-for-claude-code) |
