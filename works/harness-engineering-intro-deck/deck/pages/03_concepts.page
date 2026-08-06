@@ -48,7 +48,7 @@ elements:
     content:
       fontSize: 21
       color: "$ink"
-      fontFamily: "阿里妈妈数黑体"
+      fontFamily: "得意黑"
       align: [center, middle]
       wrap: false
       text: 驭缰
@@ -101,11 +101,11 @@ elements:
   - elementId: c1-num
     elementType: text
     bounds: [66, 152, 310, 16]
-    content: {fontSize: 12, bold: true, color: "$accent", fontFamily: "阿里妈妈数黑体", align: [right, top], wrap: false, text: "01"}
+    content: {fontSize: 12, bold: true, color: "$accent", fontFamily: "得意黑", align: [right, top], wrap: false, text: "01"}
   - elementId: c1-name
     elementType: text
     bounds: [66, 170, 310, 26]
-    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "阿里妈妈数黑体"}, align: [right, top], wrap: false, text: 仓库即记录系统}
+    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "得意黑"}, align: [right, top], wrap: false, text: 仓库即记录系统}
   - elementId: c1-desc
     elementType: text
     bounds: [66, 198, 310, 18]
@@ -114,11 +114,11 @@ elements:
   - elementId: c2-num
     elementType: text
     bounds: [66, 272, 310, 16]
-    content: {fontSize: 12, bold: true, color: "$accent", fontFamily: "阿里妈妈数黑体", align: [right, top], wrap: false, text: "02"}
+    content: {fontSize: 12, bold: true, color: "$accent", fontFamily: "得意黑", align: [right, top], wrap: false, text: "02"}
   - elementId: c2-name
     elementType: text
     bounds: [66, 290, 310, 26]
-    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "阿里妈妈数黑体"}, align: [right, top], wrap: false, text: 地图而非手册}
+    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "得意黑"}, align: [right, top], wrap: false, text: 地图而非手册}
   - elementId: c2-desc
     elementType: text
     bounds: [66, 318, 310, 18]
@@ -127,11 +127,11 @@ elements:
   - elementId: c3-num
     elementType: text
     bounds: [66, 392, 310, 16]
-    content: {fontSize: 12, bold: true, color: "$accent", fontFamily: "阿里妈妈数黑体", align: [right, top], wrap: false, text: "03"}
+    content: {fontSize: 12, bold: true, color: "$accent", fontFamily: "得意黑", align: [right, top], wrap: false, text: "03"}
   - elementId: c3-name
     elementType: text
     bounds: [66, 410, 310, 26]
-    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "阿里妈妈数黑体"}, align: [right, top], wrap: false, text: 机械化执行}
+    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "得意黑"}, align: [right, top], wrap: false, text: 机械化执行}
   - elementId: c3-desc
     elementType: text
     bounds: [66, 438, 310, 18]
@@ -141,11 +141,11 @@ elements:
   - elementId: c4-num
     elementType: text
     bounds: [584, 152, 310, 16]
-    content: {fontSize: 12, bold: true, color: "$accent", fontFamily: "阿里妈妈数黑体", wrap: false, text: "04"}
+    content: {fontSize: 12, bold: true, color: "$accent", fontFamily: "得意黑", wrap: false, text: "04"}
   - elementId: c4-name
     elementType: text
     bounds: [584, 170, 310, 26]
-    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "阿里妈妈数黑体"}, wrap: false, text: 智能体可读性}
+    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "得意黑"}, wrap: false, text: 智能体可读性}
   - elementId: c4-desc
     elementType: text
     bounds: [584, 198, 310, 18]
@@ -154,11 +154,11 @@ elements:
   - elementId: c5-num
     elementType: text
     bounds: [584, 272, 310, 16]
-    content: {fontSize: 12, bold: true, color: "$accent", fontFamily: "阿里妈妈数黑体", wrap: false, text: "05"}
+    content: {fontSize: 12, bold: true, color: "$accent", fontFamily: "得意黑", wrap: false, text: "05"}
   - elementId: c5-name
     elementType: text
     bounds: [584, 290, 310, 26]
-    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "阿里妈妈数黑体"}, wrap: false, text: 吞吐量改变合并理念}
+    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "得意黑"}, wrap: false, text: 吞吐量改变合并理念}
   - elementId: c5-desc
     elementType: text
     bounds: [584, 318, 310, 18]
@@ -167,11 +167,11 @@ elements:
   - elementId: c6-num
     elementType: text
     bounds: [584, 392, 310, 16]
-    content: {fontSize: 12, bold: true, color: "$accent", fontFamily: "阿里妈妈数黑体", wrap: false, text: "06"}
+    content: {fontSize: 12, bold: true, color: "$accent", fontFamily: "得意黑", wrap: false, text: "06"}
   - elementId: c6-name
     elementType: text
     bounds: [584, 410, 310, 26]
-    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "阿里妈妈数黑体"}, wrap: false, text: 熵管理 = 垃圾回收}
+    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "得意黑"}, wrap: false, text: 熵管理 = 垃圾回收}
   - elementId: c6-desc
     elementType: text
     bounds: [584, 438, 310, 18]

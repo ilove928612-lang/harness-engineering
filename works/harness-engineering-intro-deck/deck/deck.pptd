@@ -22,7 +22,7 @@ theme:
       fontSize: 30
       color: "$ink"
       lineHeight: 1.2
-      fontFamily: {latin: "Liter", ea: "阿里妈妈数黑体"}
+      fontFamily: {latin: "Liter", ea: "得意黑"}
     body:
       fontSize: 13
       color: "$ink"
@@ -36,7 +36,7 @@ theme:
     num:
       fontSize: 46
       color: "$ink"
-      fontFamily: {latin: "阿里妈妈数黑体", ea: "阿里妈妈数黑体"}
+      fontFamily: {latin: "得意黑", ea: "得意黑"}
 pages:
   - pages/01_cover.page
   - pages/02_paradigm.page

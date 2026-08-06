@@ -106,7 +106,7 @@ elements:
   - elementId: tr-num
     elementType: text
     bounds: [668, 216, 226, 76]
-    content: {fontSize: 64, color: "$accent", fontFamily: "阿里妈妈数黑体", wrap: false, text: "34"}
+    content: {fontSize: 64, color: "$accent", fontFamily: "得意黑", wrap: false, text: "34"}
   - elementId: tr-label
     elementType: text
     bounds: [668, 298, 226, 22]

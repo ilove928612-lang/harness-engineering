@@ -147,7 +147,7 @@ elements:
   - elementId: m1-term
     elementType: text
     bounds: [66, 322, 150, 24]
-    content: {fontSize: 17, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "阿里妈妈数黑体"}, wrap: false, text: 人类掌舵}
+    content: {fontSize: 17, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "得意黑"}, wrap: false, text: 人类掌舵}
   - elementId: m1-desc
     elementType: text
     bounds: [240, 326, 654, 20]
@@ -156,7 +156,7 @@ elements:
   - elementId: m2-term
     elementType: text
     bounds: [66, 366, 150, 24]
-    content: {fontSize: 17, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "阿里妈妈数黑体"}, wrap: false, text: 智能体执行}
+    content: {fontSize: 17, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "得意黑"}, wrap: false, text: 智能体执行}
   - elementId: m2-desc
     elementType: text
     bounds: [240, 370, 654, 20]
@@ -165,7 +165,7 @@ elements:
   - elementId: m3-term
     elementType: text
     bounds: [66, 410, 150, 24]
-    content: {fontSize: 17, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "阿里妈妈数黑体"}, wrap: false, text: 机械护栏}
+    content: {fontSize: 17, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "得意黑"}, wrap: false, text: 机械护栏}
   - elementId: m3-desc
     elementType: text
     bounds: [240, 414, 654, 20]

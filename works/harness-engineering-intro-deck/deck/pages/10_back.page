@@ -9,7 +9,7 @@ elements:
     elementType: line
     bounds: [0, 0, 960, 540]
     viewBox: [960, 540]
-    points: "894,64 620,96 350,360 96,452"
+    points: "926,64 760,150 870,340 648,468"
     curve: smooth
     arrow: [null, stealth]
     border: {style: solid, width: 3, color: "$accent"}
@@ -28,7 +28,7 @@ elements:
     content:
       fontSize: 44
       color: "$paper"
-      fontFamily: {latin: "Liter", ea: "阿里妈妈数黑体"}
+      fontFamily: {latin: "Liter", ea: "得意黑"}
       wrap: false
       text: |
         <p>人类掌舵，<span style="color:$accent">智能体执行</span>。</p>

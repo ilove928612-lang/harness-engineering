@@ -117,7 +117,7 @@ elements:
   - elementId: r1-range
     elementType: text
     bounds: [66, 302, 110, 24]
-    content: {fontSize: 16, bold: true, color: "$accent", fontFamily: "阿里妈妈数黑体", wrap: false, text: "C1–C7"}
+    content: {fontSize: 16, bold: true, color: "$accent", fontFamily: "得意黑", wrap: false, text: "C1–C7"}
   - elementId: r1-name
     elementType: text
     bounds: [190, 304, 110, 20]
@@ -136,7 +136,7 @@ elements:
   - elementId: r2-range
     elementType: text
     bounds: [66, 350, 110, 24]
-    content: {fontSize: 16, bold: true, color: "$accent", fontFamily: "阿里妈妈数黑体", wrap: false, text: "C8–C9"}
+    content: {fontSize: 16, bold: true, color: "$accent", fontFamily: "得意黑", wrap: false, text: "C8–C9"}
   - elementId: r2-name
     elementType: text
     bounds: [190, 352, 110, 20]
@@ -155,7 +155,7 @@ elements:
   - elementId: r3-range
     elementType: text
     bounds: [66, 398, 110, 24]
-    content: {fontSize: 16, bold: true, color: "$accent", fontFamily: "阿里妈妈数黑体", wrap: false, text: "C10·C13"}
+    content: {fontSize: 16, bold: true, color: "$accent", fontFamily: "得意黑", wrap: false, text: "C10·C13"}
   - elementId: r3-name
     elementType: text
     bounds: [190, 400, 110, 20]
@@ -174,7 +174,7 @@ elements:
   - elementId: r4-range
     elementType: text
     bounds: [66, 446, 110, 24]
-    content: {fontSize: 16, bold: true, color: "$accent", fontFamily: "阿里妈妈数黑体", wrap: false, text: "C11–C12"}
+    content: {fontSize: 16, bold: true, color: "$accent", fontFamily: "得意黑", wrap: false, text: "C11–C12"}
   - elementId: r4-name
     elementType: text
     bounds: [190, 448, 110, 20]

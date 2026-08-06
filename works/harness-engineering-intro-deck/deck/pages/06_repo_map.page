@@ -26,43 +26,48 @@ elements:
     shapeName: rect
     fill: {type: solid, color: "$hairline"}
 
-  # 左：目录树
-  - elementId: tree
-    elementType: table
-    bounds: [66, 148, 470, 308]
-    columnWidths: [0.40, 0.60]
-    rowHeights: [0.0909, 0.0909, 0.0909, 0.0909, 0.0909, 0.0909, 0.0909, 0.0909, 0.0909, 0.0909, 0.091]
-    style:
-      cellStyle:
-        border: null
-        align: [left, middle]
-        fontSize: 13
-        color: "$ink"
-        fontFamily: {latin: "Liter", ea: "MiSans"}
-    rows:
-      - - text: "harness-engineering/"
-          bold: true
-        - text: ""
-      - - text: "├─ README.md"
-        - {text: "人类入口 · 学习路线与全景", color: "$steel", fontSize: 12}
-      - - {text: "├─ AGENTS.md", color: "$accent", bold: true}
-        - {text: "智能体入口 · ~100 行的目录页", color: "$accent", fontSize: 12}
-      - - text: "├─ concepts/"
-        - {text: "概念笔记 · 拆解原文", color: "$steel", fontSize: 12}
-      - - text: "├─ thinking/"
-        - {text: "独立思考 · 质疑与延伸", color: "$steel", fontSize: 12}
-      - - text: "├─ practice/"
-        - {text: "动手实践 · 小项目实验", color: "$steel", fontSize: 12}
-      - - text: "├─ feedback/"
-        - {text: "反馈记录 · 踩坑与迭代", color: "$steel", fontSize: 12}
-      - - text: "├─ works/"
-        - {text: "作品输出 · 翻译与原创", color: "$steel", fontSize: 12}
-      - - text: "├─ tools/ · prompts/"
-        - {text: "工具杠杆库 · 提示词积累", color: "$steel", fontSize: 12}
-      - - text: "├─ references/"
-        - {text: "外部文章的深度摘要索引", color: "$steel", fontSize: 12}
-      - - text: "└─ scripts/"
-        - {text: "一致性检查（机械护栏）", color: "$steel", fontSize: 12}
+  # 左：目录树（固定行高的双文本列，行行对齐）
+  - elementId: tree-names
+    elementType: text
+    bounds: [66, 150, 230, 312]
+    content:
+      fontSize: 13
+      color: "$ink"
+      lineHeightPx: 28
+      fontFamily: {latin: "Liter", ea: "MiSans"}
+      text: |
+        <p><strong>harness-engineering/</strong></p>
+        <p>├─ README.md</p>
+        <p><span style="color:$accent"><strong>├─ AGENTS.md</strong></span></p>
+        <p>├─ concepts/</p>
+        <p>├─ thinking/</p>
+        <p>├─ practice/</p>
+        <p>├─ feedback/</p>
+        <p>├─ works/</p>
+        <p>├─ tools/ · prompts/</p>
+        <p>├─ references/</p>
+        <p>└─ scripts/</p>
+
+  - elementId: tree-notes
+    elementType: text
+    bounds: [312, 150, 258, 312]
+    content:
+      fontSize: 12
+      color: "$steel"
+      lineHeightPx: 28
+      fontFamily: {latin: "Liter", ea: "MiSans"}
+      text: |
+        <p><span style="color:$faint">（仓库根）</span></p>
+        <p>人类入口 · 学习路线与全景</p>
+        <p><span style="color:$accent">智能体入口 · ~100 行的目录页</span></p>
+        <p>概念笔记 · 拆解原文</p>
+        <p>独立思考 · 质疑与延伸</p>
+        <p>动手实践 · 小项目实验</p>
+        <p>反馈记录 · 踩坑与迭代</p>
+        <p>作品输出 · 翻译与原创</p>
+        <p>工具杠杆库 · 提示词积累</p>
+        <p>外部文章的深度摘要索引</p>
+        <p>一致性检查（机械护栏）</p>
 
   # 右：渐进式披露
   - elementId: right-head
@@ -73,7 +78,7 @@ elements:
       bold: true
       color: "$ink"
       lineHeight: 1.35
-      fontFamily: {latin: "Liter", ea: "阿里妈妈数黑体"}
+      fontFamily: {latin: "Liter", ea: "得意黑"}
       text: 每个子目录，都有自己的 AGENTS.md
 
   - elementId: right-body

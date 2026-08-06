@@ -34,7 +34,7 @@ elements:
     content:
       fontSize: 92
       color: "$ink"
-      fontFamily: "阿里妈妈数黑体"
+      fontFamily: "得意黑"
       wrap: false
       text: 驭缰工程
 
@@ -44,7 +44,7 @@ elements:
     content:
       fontSize: 19
       color: "$ink"
-      fontFamily: {latin: "Liter", ea: "阿里妈妈数黑体"}
+      fontFamily: {latin: "Liter", ea: "得意黑"}
       wrap: false
       text: |
         <p>人类掌舵，<span style="color:$accent">智能体执行</span>。</p>
@@ -63,11 +63,11 @@ elements:
   - elementId: s1-num
     elementType: text
     bounds: [54, 302, 34, 20]
-    content: {fontSize: 15, bold: true, color: "$accent", fontFamily: "阿里妈妈数黑体", wrap: false, text: "01"}
+    content: {fontSize: 15, bold: true, color: "$accent", fontFamily: "得意黑", wrap: false, text: "01"}
   - elementId: s1-head
     elementType: text
     bounds: [96, 300, 516, 22]
-    content: {fontSize: 16, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "阿里妈妈数黑体"}, wrap: false, text: 工程师的产出：从代码，变成约束系统}
+    content: {fontSize: 16, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "得意黑"}, wrap: false, text: 工程师的产出：从代码，变成约束系统}
 
   - elementId: s1-f1
     elementType: text
@@ -141,11 +141,11 @@ elements:
   - elementId: s2-num
     elementType: text
     bounds: [54, 438, 34, 20]
-    content: {fontSize: 15, bold: true, color: "$accent", fontFamily: "阿里妈妈数黑体", wrap: false, text: "02"}
+    content: {fontSize: 15, bold: true, color: "$accent", fontFamily: "得意黑", wrap: false, text: "02"}
   - elementId: s2-head
     elementType: text
     bounds: [96, 436, 516, 22]
-    content: {fontSize: 16, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "阿里妈妈数黑体"}, wrap: false, text: 六大核心概念}
+    content: {fontSize: 16, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "得意黑"}, wrap: false, text: 六大核心概念}
 
   - elementId: c1-name
     elementType: text
@@ -211,16 +211,16 @@ elements:
   - elementId: s3-num
     elementType: text
     bounds: [54, 666, 34, 20]
-    content: {fontSize: 15, bold: true, color: "$accent", fontFamily: "阿里妈妈数黑体", wrap: false, text: "03"}
+    content: {fontSize: 15, bold: true, color: "$accent", fontFamily: "得意黑", wrap: false, text: "03"}
   - elementId: s3-head
     elementType: text
     bounds: [96, 664, 516, 22]
-    content: {fontSize: 16, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "阿里妈妈数黑体"}, wrap: false, text: OpenAI 的实证刻度}
+    content: {fontSize: 16, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "得意黑"}, wrap: false, text: OpenAI 的实证刻度}
 
   - elementId: d1-num
     elementType: text
     bounds: [96, 698, 130, 34]
-    content: {fontSize: 25, color: "$ink", fontFamily: "阿里妈妈数黑体", wrap: false, text: "3 → 7"}
+    content: {fontSize: 25, color: "$ink", fontFamily: "得意黑", wrap: false, text: "3 → 7"}
   - elementId: d1-label
     elementType: text
     bounds: [96, 734, 130, 14]
@@ -229,7 +229,7 @@ elements:
   - elementId: d2-num
     elementType: text
     bounds: [242, 698, 110, 34]
-    content: {fontSize: 25, color: "$ink", fontFamily: "阿里妈妈数黑体", wrap: false, text: "5"}
+    content: {fontSize: 25, color: "$ink", fontFamily: "得意黑", wrap: false, text: "5"}
   - elementId: d2-label
     elementType: text
     bounds: [242, 734, 110, 14]
@@ -238,7 +238,7 @@ elements:
   - elementId: d3-num
     elementType: text
     bounds: [368, 698, 140, 34]
-    content: {fontSize: 25, color: "$accent", fontFamily: "阿里妈妈数黑体", wrap: false, text: "~100万"}
+    content: {fontSize: 25, color: "$accent", fontFamily: "得意黑", wrap: false, text: "~100万"}
   - elementId: d3-label
     elementType: text
     bounds: [368, 734, 140, 14]
@@ -247,7 +247,7 @@ elements:
   - elementId: d4-num
     elementType: text
     bounds: [524, 698, 142, 34]
-    content: {fontSize: 25, color: "$ink", fontFamily: "阿里妈妈数黑体", wrap: false, text: "~1,500"}
+    content: {fontSize: 25, color: "$ink", fontFamily: "得意黑", wrap: false, text: "~1,500"}
   - elementId: d4-label
     elementType: text
     bounds: [524, 734, 142, 14]
@@ -271,11 +271,11 @@ elements:
   - elementId: s4-num
     elementType: text
     bounds: [54, 808, 34, 20]
-    content: {fontSize: 15, bold: true, color: "$accent", fontFamily: "阿里妈妈数黑体", wrap: false, text: "04"}
+    content: {fontSize: 15, bold: true, color: "$accent", fontFamily: "得意黑", wrap: false, text: "04"}
   - elementId: s4-head
     elementType: text
     bounds: [96, 806, 516, 22]
-    content: {fontSize: 16, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "阿里妈妈数黑体"}, wrap: false, text: 五个 Phase 的学习闭环}
+    content: {fontSize: 16, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "得意黑"}, wrap: false, text: 五个 Phase 的学习闭环}
 
   - elementId: s4-chain
     elementType: text

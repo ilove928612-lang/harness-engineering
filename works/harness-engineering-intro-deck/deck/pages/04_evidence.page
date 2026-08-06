@@ -26,26 +26,17 @@ elements:
     shapeName: rect
     fill: {type: solid, color: "$hairline"}
 
-  # 主数字
+  # 主数字（数字与单位同一基线）
   - elementId: hero-num
     elementType: text
-    bounds: [66, 168, 620, 108]
+    bounds: [66, 168, 828, 108]
     content:
       fontSize: 88
       color: "$accent"
-      fontFamily: "阿里妈妈数黑体"
+      fontFamily: "得意黑"
       wrap: false
-      text: "~1,000,000"
-
-  - elementId: hero-unit
-    elementType: text
-    bounds: [700, 218, 194, 40]
-    content:
-      fontSize: 22
-      color: "$ink"
-      fontFamily: {latin: "Liter", ea: "阿里妈妈数黑体"}
-      wrap: false
-      text: 行代码
+      text: |
+        <p>~1,000,000<span style="font-size:24px; color:$ink">　行代码</span></p>
 
   - elementId: hero-note
     elementType: text
@@ -67,7 +58,7 @@ elements:
   - elementId: s1-num
     elementType: text
     bounds: [66, 352, 130, 44]
-    content: {fontSize: 34, color: "$ink", fontFamily: "阿里妈妈数黑体", wrap: false, text: "3 → 7"}
+    content: {fontSize: 34, color: "$ink", fontFamily: "得意黑", wrap: false, text: "3 → 7"}
   - elementId: s1-label
     elementType: text
     bounds: [66, 400, 130, 16]
@@ -76,7 +67,7 @@ elements:
   - elementId: s2-num
     elementType: text
     bounds: [210, 352, 120, 44]
-    content: {fontSize: 34, color: "$ink", fontFamily: "阿里妈妈数黑体", wrap: false, text: "5"}
+    content: {fontSize: 34, color: "$ink", fontFamily: "得意黑", wrap: false, text: "5"}
   - elementId: s2-label
     elementType: text
     bounds: [210, 400, 120, 16]
@@ -85,7 +76,7 @@ elements:
   - elementId: s3-num
     elementType: text
     bounds: [348, 352, 140, 44]
-    content: {fontSize: 34, color: "$ink", fontFamily: "阿里妈妈数黑体", wrap: false, text: "~1,500"}
+    content: {fontSize: 34, color: "$ink", fontFamily: "得意黑", wrap: false, text: "~1,500"}
   - elementId: s3-label
     elementType: text
     bounds: [348, 400, 140, 16]
@@ -94,7 +85,7 @@ elements:
   - elementId: s4-num
     elementType: text
     bounds: [508, 352, 120, 44]
-    content: {fontSize: 34, color: "$ink", fontFamily: "阿里妈妈数黑体", wrap: false, text: "3.5"}
+    content: {fontSize: 34, color: "$ink", fontFamily: "得意黑", wrap: false, text: "3.5"}
   - elementId: s4-label
     elementType: text
     bounds: [508, 400, 120, 16]
@@ -103,7 +94,7 @@ elements:
   - elementId: s5-num
     elementType: text
     bounds: [646, 352, 120, 44]
-    content: {fontSize: 34, color: "$ink", fontFamily: "阿里妈妈数黑体", wrap: false, text: "6+"}
+    content: {fontSize: 34, color: "$ink", fontFamily: "得意黑", wrap: false, text: "6+"}
   - elementId: s5-label
     elementType: text
     bounds: [646, 400, 120, 16]
@@ -112,7 +103,7 @@ elements:
   - elementId: s6-num
     elementType: text
     bounds: [784, 352, 110, 44]
-    content: {fontSize: 34, color: "$accent", fontFamily: "阿里妈妈数黑体", wrap: false, text: "1/10"}
+    content: {fontSize: 34, color: "$accent", fontFamily: "得意黑", wrap: false, text: "1/10"}
   - elementId: s6-label
     elementType: text
     bounds: [784, 400, 110, 16]

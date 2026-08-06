@@ -34,7 +34,7 @@ elements:
   - elementId: p1-name
     elementType: text
     bounds: [66, 180, 132, 26]
-    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "阿里妈妈数黑体"}, wrap: false, text: 概念}
+    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "得意黑"}, wrap: false, text: 概念}
   - elementId: p1-count
     elementType: text
     bounds: [66, 210, 132, 15]
@@ -55,7 +55,7 @@ elements:
   - elementId: p2-name
     elementType: text
     bounds: [238, 180, 132, 26]
-    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "阿里妈妈数黑体"}, wrap: false, text: 思考}
+    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "得意黑"}, wrap: false, text: 思考}
   - elementId: p2-count
     elementType: text
     bounds: [238, 210, 132, 15]
@@ -76,7 +76,7 @@ elements:
   - elementId: p3-name
     elementType: text
     bounds: [410, 180, 132, 26]
-    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "阿里妈妈数黑体"}, wrap: false, text: 实践}
+    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "得意黑"}, wrap: false, text: 实践}
   - elementId: p3-count
     elementType: text
     bounds: [410, 210, 132, 15]
@@ -97,7 +97,7 @@ elements:
   - elementId: p4-name
     elementType: text
     bounds: [582, 180, 132, 26]
-    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "阿里妈妈数黑体"}, wrap: false, text: 反馈}
+    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "得意黑"}, wrap: false, text: 反馈}
   - elementId: p4-count
     elementType: text
     bounds: [582, 210, 132, 15]
@@ -118,7 +118,7 @@ elements:
   - elementId: p5-name
     elementType: text
     bounds: [754, 180, 140, 26]
-    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "阿里妈妈数黑体"}, wrap: false, text: 作品}
+    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "得意黑"}, wrap: false, text: 作品}
   - elementId: p5-count
     elementType: text
     bounds: [754, 210, 140, 15]
@@ -176,7 +176,7 @@ elements:
   - elementId: demo-n1
     elementType: text
     bounds: [710, 366, 90, 36]
-    content: {fontSize: 26, color: "$ink", fontFamily: "阿里妈妈数黑体", wrap: false, text: "321s"}
+    content: {fontSize: 26, color: "$ink", fontFamily: "得意黑", wrap: false, text: "321s"}
   - elementId: demo-n1-label
     elementType: text
     bounds: [710, 404, 90, 14]
@@ -185,7 +185,7 @@ elements:
   - elementId: demo-n2
     elementType: text
     bounds: [812, 366, 82, 36]
-    content: {fontSize: 26, color: "$accent", fontFamily: "阿里妈妈数黑体", wrap: false, text: "$0.31"}
+    content: {fontSize: 26, color: "$accent", fontFamily: "得意黑", wrap: false, text: "$0.31"}
   - elementId: demo-n2-label
     elementType: text
     bounds: [812, 404, 82, 14]

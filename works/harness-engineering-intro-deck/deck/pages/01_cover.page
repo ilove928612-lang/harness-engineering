@@ -9,7 +9,7 @@ elements:
     elementType: line
     bounds: [0, 0, 960, 540]
     viewBox: [960, 540]
-    points: "120,488 450,452 680,175 928,104"
+    points: "120,468 450,432 680,170 928,100"
     curve: smooth
     arrow: [null, stealth]
     border: {style: solid, width: 3, color: "$accent"}
@@ -17,13 +17,13 @@ elements:
   # 人类锚点
   - elementId: anchor-dot
     elementType: shape
-    bounds: [112, 480, 16, 16]
+    bounds: [112, 460, 16, 16]
     shapeName: ellipse
     fill: {type: solid, color: "$ink"}
 
   - elementId: anchor-label
     elementType: text
-    bounds: [138, 481, 200, 15]
+    bounds: [138, 461, 220, 15]
     content:
       style: "$caption"
       wrap: false
@@ -31,7 +31,7 @@ elements:
 
   - elementId: agent-label
     elementType: text
-    bounds: [700, 118, 210, 15]
+    bounds: [640, 70, 254, 15]
     content:
       style: "$caption"
       align: [right, top]
@@ -54,7 +54,7 @@ elements:
     content:
       fontSize: 96
       color: "$ink"
-      fontFamily: "阿里妈妈数黑体"
+      fontFamily: "得意黑"
       wrap: false
       text: 驭缰工程
 
@@ -76,7 +76,7 @@ elements:
     content:
       fontSize: 26
       color: "$ink"
-      fontFamily: {latin: "Liter", ea: "阿里妈妈数黑体"}
+      fontFamily: {latin: "Liter", ea: "得意黑"}
       wrap: false
       text: |
         <p>人类掌舵，<span style="color:$accent">智能体执行</span>。</p>
