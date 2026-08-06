@@ -61,11 +61,11 @@
 > 它必须自包含，因为搜索器无法访问 `references/articles.md`。
 >
 > **维护纪律：** 当 `references/articles.md` 新增/删除条目时，**同一次提交中**必须同步更新本节。两份内容的口径（脉络划分、篇数、产品/项目清单）应保持完全一致。
-> 本节最近一次同步：2026-07-27（与 `articles.md` 当前内容对齐：73 篇文章 + 1 项已跟踪产品）。
+> 本节最近一次同步：2026-08-05（与 `articles.md` 当前内容对齐：74 篇文章 + 1 项已跟踪产品）。
 
-**核心文章 73 篇，分布于三条脉络：**
+**核心文章 74 篇，分布于三条脉络：**
 
-- **脉络一 — AI 时代 Harness Engineering（69 篇）：**
+- **脉络一 — AI 时代 Harness Engineering（70 篇）：**
   - OpenAI "Harness engineering"（原点，2026-02-11）/ "An open-source spec for Codex orchestration: Symphony"（2026-04-27，任务跟踪器作为控制平面）
   - Fowler/Böckeler "Harness engineering for coding agent users"（2026-04-02）+ 前传备忘录（2026-02-17）
   - LangChain "The Anatomy of an Agent Harness"（2026-03）/ "Continual Learning for AI Agents"（2026-04-05）/ "Agent Evaluation Readiness Checklist"
@@ -131,6 +131,7 @@
   - Don't Blame the LLM 论文（arXiv 2607.03691，Queen's University，首个固定模型只变 harness 的受控纵向研究：Qwen Code CLI 35 个连续版本 × 50 个 SWE-bench Verified 任务）
   - Rethinking Harness Evolution 论文（arXiv 2607.12227，自动 harness 演化的第一份系统性负面结果：同等预算下不稳定优于 test-time scaling、泛化有限）
   - LangChain "How We Benchmark Deep Agents"（2026-07-23）+ "IssueBench"（2026-07-20）——Harbor 评测栈：Harbor-Index 82 任务 / lite 冻结子集 / capability suite；IssueBench 15 类失败分类法与 issue 集层面判分
+  - LangChain / Nick Hollon "Evaluating code review agents with ReviewBench"（2026-07-31，真实 PR 评审意见策展成 59 任务 / 64 基线问题；裸 harness 最强召回 ~30%，prompt-only 调优 Luna 0.13→0.32 反超 Opus/Kimi）
 - **脉络二 — 云原生 Harness.io（2 篇）：** Harness.io 官方全局架构 / Google Cloud 集成场景
 - **脉络三 — 效率悖论（2 篇）：** YDD/Miss-you "效率悖论的系统性拆解"（2026-03-03）/ METR 实验后续 + 自报调查（2026-02-24 + 2026-05-11，"慢 19%"的官方后续：弱证据转向加速 + RCT 方法论危机）
 
@@ -324,7 +325,8 @@
 |------|---------|-----------|
 | 2026-07-21 | （教训来源，未做系统回扫） | 事后补收 #48 / #49 / #50 / #47 |
 | 2026-07-27 | ① anthropic.com/engineering 全量列表 ② cursor.com/blog 全量 slug 清单 | #58 Effective harnesses（2025-11）、#59 基础设施噪声（2026-02）、#60 持续改进 agent harness（2026-04）、#61 奖励作弊（2026-06）——四篇均为 harness 主题正中靶心却漏网数月 |
+| 2026-08-03 | ① openai.com/sitemap.xml/engineering 全量 URL+lastmod ② martinfowler.com/feed.atom（GenAI 归档） | 无漏网存量：OpenAI Engineering 分类的 harness 主题件（harness-engineering / unrolling / unlocking / symphony / windows-sandbox / core-dump / websockets / how-agents-transforming-work）均已在编号正文或观察项；其余 gpt-5.6 / atlas / sora-android / tax-agents / data-agent 为产品·基建，非 harness。Fowler 侧捞出的是增量而非存量（重构经济效益 / Conductor Developer / Fragments 07-21 / Orchestrator's Tax 草稿）——已进本批观察项 |
 
-> 下一轮建议轮换：openai.com/index（Engineering 分类）+ martinfowler.com/tags（GenAI 标签）。
+> 下一轮建议轮换：langchain.com/blog（Observability & Evals 分类）+ claude.com/blog（全量 slug）。openai.com/index 用 `curl https://openai.com/sitemap.xml/engineering/` 拿到带 lastmod 的全量 URL 最省事（2026-08-03 验证有效，比抓列表页首屏可靠）。
 > 回扫技巧（2026-07-27 验证有效）：列表页只渲染最近若干条时，直接抓 `curl <blog>|grep -oE '/blog/[a-z0-9-]+'|sort -u` 拿全量 slug，
 > 再逐个取 `datePublished` 与标题——Cursor 那四条里有两条（`continually-improving-agent-harness`、`reward-hacking-coding-benchmarks`）就是这样发现的，它们不在列表页首屏。
