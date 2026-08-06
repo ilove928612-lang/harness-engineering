@@ -1,0 +1,104 @@
+pageType: final
+background:
+  type: solid
+  color: "$dark"
+notes: 封底：深底反白，缰绳曲线自右上折返左下与封面呼应，收束到仓库地址。
+elements:
+  # 缰绳曲线（与封面镜像呼应）
+  - elementId: rein-curve
+    elementType: line
+    bounds: [0, 0, 960, 540]
+    viewBox: [960, 540]
+    points: "894,64 620,96 350,360 96,452"
+    curve: smooth
+    arrow: [null, stealth]
+    border: {style: solid, width: 3, color: "$accent"}
+
+  - elementId: kicker
+    elementType: text
+    bounds: [66, 138, 620, 16]
+    content:
+      style: "$kicker"
+      wrap: false
+      text: "HARNESS ENGINEERING · 学习档案"
+
+  - elementId: motto
+    elementType: text
+    bounds: [62, 170, 800, 66]
+    content:
+      fontSize: 44
+      color: "$paper"
+      fontFamily: {latin: "Liter", ea: "阿里妈妈数黑体"}
+      wrap: false
+      text: |
+        <p>人类掌舵，<span style="color:$accent">智能体执行</span>。</p>
+
+  - elementId: star-note
+    elementType: text
+    bounds: [66, 262, 620, 18]
+    content:
+      fontSize: 12.5
+      color: "$paperdim"
+      fontFamily: {latin: "Liter", ea: "MiSans"}
+      wrap: false
+      text: 档案在这里——如果它帮你省了时间，点一颗 Star 就是最好的支持。
+
+  - elementId: repo
+    elementType: text
+    bounds: [66, 288, 660, 30]
+    content:
+      fontSize: 20
+      bold: true
+      color: "$paper"
+      fontFamily: {latin: "Liter", ea: "MiSans"}
+      wrap: false
+      text: github.com/deusyu/harness-engineering
+
+  # 参与方式
+  - elementId: join-rule
+    elementType: shape
+    bounds: [66, 356, 520, 1]
+    shapeName: rect
+    fill: {type: solid, color: "#4A443A"}
+
+  - elementId: join-head
+    elementType: text
+    bounds: [66, 372, 120, 18]
+    content: {fontSize: 13, bold: true, color: "$paper", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 欢迎参与}
+
+  - elementId: join-items
+    elementType: text
+    bounds: [66, 396, 640, 18]
+    content:
+      fontSize: 12
+      color: "$paperdim"
+      fontFamily: {latin: "Liter", ea: "MiSans"}
+      wrap: false
+      text: 补概念（concepts/）· 分享思考（thinking/）· 贡献实践（practice/）· 推荐资源（references/）
+
+  - elementId: contacts
+    elementType: text
+    bounds: [66, 424, 640, 16]
+    content:
+      fontSize: 11.5
+      color: "$paperdim"
+      fontFamily: {latin: "Liter", ea: "MiSans"}
+      wrap: false
+      text: GitHub @deusyu · X @0xdeusyu · Telegram @DeusThink · rainman.deus@gmail.com
+
+  # 页脚
+  - elementId: footer-rule
+    elementType: shape
+    bounds: [66, 486, 828, 1]
+    shapeName: rect
+    fill: {type: solid, color: "#4A443A"}
+
+  - elementId: footer
+    elementType: text
+    bounds: [66, 496, 828, 15]
+    content:
+      fontSize: 10.5
+      color: "#8A8272"
+      fontFamily: {latin: "Liter", ea: "MiSans"}
+      wrap: false
+      text: 本演示由 open-kimi-ppt skill 生成 · PPTD 源文件与本档案同仓，可继续编辑 · MIT License

@@ -1,0 +1,129 @@
+pageType: content
+background:
+  type: solid
+  color: "$paper"
+notes: OpenAI 实证数据。主数字 ~100 万行居中放大，其余指标一排列于下方。
+elements:
+  - elementId: kicker
+    elementType: text
+    bounds: [66, 52, 400, 16]
+    content:
+      style: "$kicker"
+      wrap: false
+      text: "03 · 实证"
+
+  - elementId: title
+    elementType: text
+    bounds: [66, 76, 828, 40]
+    content:
+      style: "$title"
+      wrap: false
+      text: 3 人起步、5 个月，写出约 100 万行代码
+
+  - elementId: title-rule
+    elementType: shape
+    bounds: [66, 128, 828, 1]
+    shapeName: rect
+    fill: {type: solid, color: "$hairline"}
+
+  # 主数字
+  - elementId: hero-num
+    elementType: text
+    bounds: [66, 168, 620, 108]
+    content:
+      fontSize: 88
+      color: "$accent"
+      fontFamily: "阿里妈妈数黑体"
+      wrap: false
+      text: "~1,000,000"
+
+  - elementId: hero-unit
+    elementType: text
+    bounds: [700, 218, 194, 40]
+    content:
+      fontSize: 22
+      color: "$ink"
+      fontFamily: {latin: "Liter", ea: "阿里妈妈数黑体"}
+      wrap: false
+      text: 行代码
+
+  - elementId: hero-note
+    elementType: text
+    bounds: [66, 284, 828, 16]
+    content:
+      fontSize: 12
+      color: "$steel"
+      fontFamily: {latin: "Liter", ea: "MiSans"}
+      wrap: false
+      text: 一个内部大型项目，几乎全部由智能体在约束系统之内产出
+
+  # 次级指标行
+  - elementId: sub-rule
+    elementType: shape
+    bounds: [66, 330, 828, 1]
+    shapeName: rect
+    fill: {type: solid, color: "$hairline"}
+
+  - elementId: s1-num
+    elementType: text
+    bounds: [66, 352, 130, 44]
+    content: {fontSize: 34, color: "$ink", fontFamily: "阿里妈妈数黑体", wrap: false, text: "3 → 7"}
+  - elementId: s1-label
+    elementType: text
+    bounds: [66, 400, 130, 16]
+    content: {fontSize: 11.5, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 团队规模（人）}
+
+  - elementId: s2-num
+    elementType: text
+    bounds: [210, 352, 120, 44]
+    content: {fontSize: 34, color: "$ink", fontFamily: "阿里妈妈数黑体", wrap: false, text: "5"}
+  - elementId: s2-label
+    elementType: text
+    bounds: [210, 400, 120, 16]
+    content: {fontSize: 11.5, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 个月时间跨度}
+
+  - elementId: s3-num
+    elementType: text
+    bounds: [348, 352, 140, 44]
+    content: {fontSize: 34, color: "$ink", fontFamily: "阿里妈妈数黑体", wrap: false, text: "~1,500"}
+  - elementId: s3-label
+    elementType: text
+    bounds: [348, 400, 140, 16]
+    content: {fontSize: 11.5, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 合并的 PR}
+
+  - elementId: s4-num
+    elementType: text
+    bounds: [508, 352, 120, 44]
+    content: {fontSize: 34, color: "$ink", fontFamily: "阿里妈妈数黑体", wrap: false, text: "3.5"}
+  - elementId: s4-label
+    elementType: text
+    bounds: [508, 400, 120, 16]
+    content: {fontSize: 11.5, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 人均日 PR}
+
+  - elementId: s5-num
+    elementType: text
+    bounds: [646, 352, 120, 44]
+    content: {fontSize: 34, color: "$ink", fontFamily: "阿里妈妈数黑体", wrap: false, text: "6+"}
+  - elementId: s5-label
+    elementType: text
+    bounds: [646, 400, 120, 16]
+    content: {fontSize: 11.5, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 小时单次运行}
+
+  - elementId: s6-num
+    elementType: text
+    bounds: [784, 352, 110, 44]
+    content: {fontSize: 34, color: "$accent", fontFamily: "阿里妈妈数黑体", wrap: false, text: "1/10"}
+  - elementId: s6-label
+    elementType: text
+    bounds: [784, 400, 110, 16]
+    content: {fontSize: 11.5, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 对比手工耗时}
+
+  # 来源脚注
+  - elementId: source
+    elementType: text
+    bounds: [66, 462, 828, 32]
+    content:
+      style: "$caption"
+      text: |
+        <p>数据：OpenAI 团队 2026-02 披露的内部实践；长时运行常发生在人类睡眠时段。来源：<a href="https://openai.com/zh-Hans-CN/index/harness-engineering/">openai.com/zh-Hans-CN/index/harness-engineering</a></p>
+        <p>逐项拆解与出处对照见仓库 references/articles.md 第 1 条。</p>

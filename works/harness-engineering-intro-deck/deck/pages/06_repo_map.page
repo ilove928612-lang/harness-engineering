@@ -1,0 +1,132 @@
+pageType: content
+background:
+  type: solid
+  color: "$paper"
+notes: 仓库结构：左侧目录树（无边框表格保证行对齐），右侧解释渐进式披露。
+elements:
+  - elementId: kicker
+    elementType: text
+    bounds: [66, 52, 400, 16]
+    content:
+      style: "$kicker"
+      wrap: false
+      text: "05 · 结构"
+
+  - elementId: title
+    elementType: text
+    bounds: [66, 76, 828, 40]
+    content:
+      style: "$title"
+      wrap: false
+      text: 一张为智能体画的地图，而不是手册
+
+  - elementId: title-rule
+    elementType: shape
+    bounds: [66, 128, 828, 1]
+    shapeName: rect
+    fill: {type: solid, color: "$hairline"}
+
+  # 左：目录树
+  - elementId: tree
+    elementType: table
+    bounds: [66, 148, 470, 308]
+    columnWidths: [0.40, 0.60]
+    rowHeights: [0.0909, 0.0909, 0.0909, 0.0909, 0.0909, 0.0909, 0.0909, 0.0909, 0.0909, 0.0909, 0.091]
+    style:
+      cellStyle:
+        border: null
+        align: [left, middle]
+        fontSize: 13
+        color: "$ink"
+        fontFamily: {latin: "Liter", ea: "MiSans"}
+    rows:
+      - - text: "harness-engineering/"
+          bold: true
+        - text: ""
+      - - text: "├─ README.md"
+        - {text: "人类入口 · 学习路线与全景", color: "$steel", fontSize: 12}
+      - - {text: "├─ AGENTS.md", color: "$accent", bold: true}
+        - {text: "智能体入口 · ~100 行的目录页", color: "$accent", fontSize: 12}
+      - - text: "├─ concepts/"
+        - {text: "概念笔记 · 拆解原文", color: "$steel", fontSize: 12}
+      - - text: "├─ thinking/"
+        - {text: "独立思考 · 质疑与延伸", color: "$steel", fontSize: 12}
+      - - text: "├─ practice/"
+        - {text: "动手实践 · 小项目实验", color: "$steel", fontSize: 12}
+      - - text: "├─ feedback/"
+        - {text: "反馈记录 · 踩坑与迭代", color: "$steel", fontSize: 12}
+      - - text: "├─ works/"
+        - {text: "作品输出 · 翻译与原创", color: "$steel", fontSize: 12}
+      - - text: "├─ tools/ · prompts/"
+        - {text: "工具杠杆库 · 提示词积累", color: "$steel", fontSize: 12}
+      - - text: "├─ references/"
+        - {text: "外部文章的深度摘要索引", color: "$steel", fontSize: 12}
+      - - text: "└─ scripts/"
+        - {text: "一致性检查（机械护栏）", color: "$steel", fontSize: 12}
+
+  # 右：渐进式披露
+  - elementId: right-head
+    elementType: text
+    bounds: [590, 152, 304, 48]
+    content:
+      fontSize: 17
+      bold: true
+      color: "$ink"
+      lineHeight: 1.35
+      fontFamily: {latin: "Liter", ea: "阿里妈妈数黑体"}
+      text: 每个子目录，都有自己的 AGENTS.md
+
+  - elementId: right-body
+    elementType: text
+    bounds: [590, 210, 304, 84]
+    content:
+      style: "$body"
+      fontSize: 12.5
+      color: "$steel"
+      text: |
+        <p>说明该目录的用途、组织方式与写作约定——从任何一个目录出发，都能找到下一步该看什么。入口很小，纵深按需展开。</p>
+
+  # 渐进式披露小图
+  - elementId: pd-1
+    elementType: text
+    bounds: [590, 306, 304, 20]
+    content: {fontSize: 13, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 根 AGENTS.md —— 入口}
+  - elementId: pd-a1
+    elementType: line
+    bounds: [600, 330, 12, 22]
+    viewBox: [12, 22]
+    points: "6,0 6,22"
+    arrow: [null, stealth]
+    border: {style: solid, width: 1.5, color: "$accent"}
+  - elementId: pd-2
+    elementType: text
+    bounds: [590, 356, 304, 20]
+    content: {fontSize: 13, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 子目录 AGENTS.md —— 局部约定}
+  - elementId: pd-a2
+    elementType: line
+    bounds: [600, 380, 12, 22]
+    viewBox: [12, 22]
+    points: "6,0 6,22"
+    arrow: [null, stealth]
+    border: {style: solid, width: 1.5, color: "$accent"}
+  - elementId: pd-3
+    elementType: text
+    bounds: [590, 406, 304, 20]
+    content: {fontSize: 13, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 具体文档 —— 纵深}
+
+  # 底部对比句
+  - elementId: foot-rule
+    elementType: shape
+    bounds: [66, 470, 828, 1]
+    shapeName: rect
+    fill: {type: solid, color: "$hairline"}
+
+  - elementId: foot
+    elementType: text
+    bounds: [66, 480, 828, 18]
+    content:
+      fontSize: 12
+      color: "$steel"
+      fontFamily: {latin: "Liter", ea: "MiSans"}
+      wrap: false
+      text: 巨型指令文件的三个死因：挤占上下文 · 无法维护 · 无法机械验证——所以是地图，不是手册。

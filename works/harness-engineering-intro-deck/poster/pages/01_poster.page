@@ -1,0 +1,319 @@
+pageType: cover
+background:
+  type: solid
+  color: "$paper"
+notes: 单页海报：巨字标题 + 缰绳曲线构成主视觉，编号条目自上而下，深色档案脚收底。
+elements:
+  # ── 头部 ──
+  - elementId: kicker
+    elementType: text
+    bounds: [54, 56, 520, 16]
+    content:
+      style: "$kicker"
+      wrap: false
+      text: "HARNESS ENGINEERING · 学习档案"
+
+  - elementId: rein-curve
+    elementType: line
+    bounds: [400, 52, 266, 210]
+    viewBox: [266, 210]
+    points: "6,196 96,186 180,84 260,30"
+    curve: smooth
+    arrow: [null, stealth]
+    border: {style: solid, width: 2.5, color: "$accent"}
+
+  - elementId: anchor-dot
+    elementType: shape
+    bounds: [398, 240, 14, 14]
+    shapeName: ellipse
+    fill: {type: solid, color: "$ink"}
+
+  - elementId: title
+    elementType: text
+    bounds: [50, 92, 480, 116]
+    content:
+      fontSize: 92
+      color: "$ink"
+      fontFamily: "阿里妈妈数黑体"
+      wrap: false
+      text: 驭缰工程
+
+  - elementId: motto
+    elementType: text
+    bounds: [54, 218, 440, 30]
+    content:
+      fontSize: 19
+      color: "$ink"
+      fontFamily: {latin: "Liter", ea: "阿里妈妈数黑体"}
+      wrap: false
+      text: |
+        <p>人类掌舵，<span style="color:$accent">智能体执行</span>。</p>
+
+  - elementId: subtitle
+    elementType: text
+    bounds: [54, 256, 520, 17]
+    content:
+      fontSize: 12
+      color: "$steel"
+      fontFamily: {latin: "Liter", ea: "MiSans"}
+      wrap: false
+      text: 一座从概念理解到独立实践的深度学习档案
+
+  # ── 01 范式 ──
+  - elementId: s1-num
+    elementType: text
+    bounds: [54, 302, 34, 20]
+    content: {fontSize: 15, bold: true, color: "$accent", fontFamily: "阿里妈妈数黑体", wrap: false, text: "01"}
+  - elementId: s1-head
+    elementType: text
+    bounds: [96, 300, 516, 22]
+    content: {fontSize: 16, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "阿里妈妈数黑体"}, wrap: false, text: 工程师的产出：从代码，变成约束系统}
+
+  - elementId: s1-f1
+    elementType: text
+    bounds: [96, 340, 44, 24]
+    content: {fontSize: 12.5, color: "$ink", fontFamily: {latin: "Liter", ea: "MiSans"}, align: [left, middle], wrap: false, text: 人类}
+  - elementId: s1-a1
+    elementType: line
+    bounds: [142, 346, 22, 12]
+    viewBox: [22, 12]
+    points: "0,6 22,6"
+    arrow: [null, stealth]
+    border: {style: solid, width: 1.2, color: "$ink"}
+  - elementId: s1-box
+    elementType: shape
+    bounds: [170, 334, 96, 34]
+    shapeName: rect
+    border: {style: solid, width: 1.8, color: "$accent"}
+  - elementId: s1-box-t
+    elementType: text
+    bounds: [170, 334, 96, 34]
+    content: {fontSize: 13, bold: true, color: "$accent", fontFamily: {latin: "Liter", ea: "MiSans"}, align: [center, middle], wrap: false, text: 约束系统}
+  - elementId: s1-a2
+    elementType: line
+    bounds: [272, 346, 22, 12]
+    viewBox: [22, 12]
+    points: "0,6 22,6"
+    arrow: [null, stealth]
+    border: {style: solid, width: 1.2, color: "$ink"}
+  - elementId: s1-f2
+    elementType: text
+    bounds: [300, 340, 58, 24]
+    content: {fontSize: 12.5, color: "$ink", fontFamily: {latin: "Liter", ea: "MiSans"}, align: [left, middle], wrap: false, text: 智能体}
+  - elementId: s1-a3
+    elementType: line
+    bounds: [360, 346, 22, 12]
+    viewBox: [22, 12]
+    points: "0,6 22,6"
+    arrow: [null, stealth]
+    border: {style: solid, width: 1.2, color: "$ink"}
+  - elementId: s1-f3
+    elementType: text
+    bounds: [388, 340, 44, 24]
+    content: {fontSize: 12.5, color: "$ink", fontFamily: {latin: "Liter", ea: "MiSans"}, align: [left, middle], wrap: false, text: 代码}
+  - elementId: s1-a4
+    elementType: line
+    bounds: [434, 346, 22, 12]
+    viewBox: [22, 12]
+    points: "0,6 22,6"
+    arrow: [null, stealth]
+    border: {style: solid, width: 1.2, color: "$ink"}
+  - elementId: s1-f4
+    elementType: text
+    bounds: [462, 340, 44, 24]
+    content: {fontSize: 12.5, color: "$ink", fontFamily: {latin: "Liter", ea: "MiSans"}, align: [left, middle], wrap: false, text: 机器}
+
+  - elementId: s1-cap
+    elementType: text
+    bounds: [96, 384, 516, 15]
+    content:
+      style: "$caption"
+      wrap: false
+      text: Harness Engineering · OpenAI 2026-02 提出：设计环境、明确意图、构建反馈回路。
+
+  - elementId: rule-1
+    elementType: shape
+    bounds: [54, 420, 612, 1]
+    shapeName: rect
+    fill: {type: solid, color: "$hairline"}
+
+  # ── 02 六概念 ──
+  - elementId: s2-num
+    elementType: text
+    bounds: [54, 438, 34, 20]
+    content: {fontSize: 15, bold: true, color: "$accent", fontFamily: "阿里妈妈数黑体", wrap: false, text: "02"}
+  - elementId: s2-head
+    elementType: text
+    bounds: [96, 436, 516, 22]
+    content: {fontSize: 16, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "阿里妈妈数黑体"}, wrap: false, text: 六大核心概念}
+
+  - elementId: c1-name
+    elementType: text
+    bounds: [96, 472, 262, 19]
+    content: {fontSize: 13.5, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 仓库即记录系统}
+  - elementId: c1-desc
+    elementType: text
+    bounds: [96, 493, 262, 15]
+    content: {fontSize: 10.5, color: "$faint", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 不在仓库里的东西，对智能体不存在}
+
+  - elementId: c2-name
+    elementType: text
+    bounds: [380, 472, 286, 19]
+    content: {fontSize: 13.5, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 智能体可读性}
+  - elementId: c2-desc
+    elementType: text
+    bounds: [380, 493, 286, 15]
+    content: {fontSize: 10.5, color: "$faint", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 优先为智能体的推理能力优化}
+
+  - elementId: c3-name
+    elementType: text
+    bounds: [96, 530, 262, 19]
+    content: {fontSize: 13.5, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 地图而非手册}
+  - elementId: c3-desc
+    elementType: text
+    bounds: [96, 551, 262, 15]
+    content: {fontSize: 10.5, color: "$faint", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: AGENTS.md 是目录页，不是百科全书}
+
+  - elementId: c4-name
+    elementType: text
+    bounds: [380, 530, 286, 19]
+    content: {fontSize: 13.5, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 吞吐量改变合并理念}
+  - elementId: c4-desc
+    elementType: text
+    bounds: [380, 551, 286, 15]
+    content: {fontSize: 10.5, color: "$faint", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 纠错成本低，等待成本高}
+
+  - elementId: c5-name
+    elementType: text
+    bounds: [96, 588, 262, 19]
+    content: {fontSize: 13.5, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 机械化执行}
+  - elementId: c5-desc
+    elementType: text
+    bounds: [96, 609, 262, 15]
+    content: {fontSize: 10.5, color: "$faint", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 文档会腐烂，lint 规则不会}
+
+  - elementId: c6-name
+    elementType: text
+    bounds: [380, 588, 286, 19]
+    content: {fontSize: 13.5, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 熵管理 = 垃圾回收}
+  - elementId: c6-desc
+    elementType: text
+    bounds: [380, 609, 286, 15]
+    content: {fontSize: 10.5, color: "$faint", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 技术债是高息贷款}
+
+  - elementId: rule-2
+    elementType: shape
+    bounds: [54, 648, 612, 1]
+    shapeName: rect
+    fill: {type: solid, color: "$hairline"}
+
+  # ── 03 实证 ──
+  - elementId: s3-num
+    elementType: text
+    bounds: [54, 666, 34, 20]
+    content: {fontSize: 15, bold: true, color: "$accent", fontFamily: "阿里妈妈数黑体", wrap: false, text: "03"}
+  - elementId: s3-head
+    elementType: text
+    bounds: [96, 664, 516, 22]
+    content: {fontSize: 16, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "阿里妈妈数黑体"}, wrap: false, text: OpenAI 的实证刻度}
+
+  - elementId: d1-num
+    elementType: text
+    bounds: [96, 698, 130, 34]
+    content: {fontSize: 25, color: "$ink", fontFamily: "阿里妈妈数黑体", wrap: false, text: "3 → 7"}
+  - elementId: d1-label
+    elementType: text
+    bounds: [96, 734, 130, 14]
+    content: {fontSize: 10, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 团队规模（人）}
+
+  - elementId: d2-num
+    elementType: text
+    bounds: [242, 698, 110, 34]
+    content: {fontSize: 25, color: "$ink", fontFamily: "阿里妈妈数黑体", wrap: false, text: "5"}
+  - elementId: d2-label
+    elementType: text
+    bounds: [242, 734, 110, 14]
+    content: {fontSize: 10, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 个月时间跨度}
+
+  - elementId: d3-num
+    elementType: text
+    bounds: [368, 698, 140, 34]
+    content: {fontSize: 25, color: "$accent", fontFamily: "阿里妈妈数黑体", wrap: false, text: "~100万"}
+  - elementId: d3-label
+    elementType: text
+    bounds: [368, 734, 140, 14]
+    content: {fontSize: 10, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 行代码}
+
+  - elementId: d4-num
+    elementType: text
+    bounds: [524, 698, 142, 34]
+    content: {fontSize: 25, color: "$ink", fontFamily: "阿里妈妈数黑体", wrap: false, text: "~1,500"}
+  - elementId: d4-label
+    elementType: text
+    bounds: [524, 734, 142, 14]
+    content: {fontSize: 10, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 合并 PR}
+
+  - elementId: s3-cap
+    elementType: text
+    bounds: [96, 758, 540, 15]
+    content:
+      style: "$caption"
+      wrap: false
+      text: 人均日 PR 3.5 · 单次运行 6+ 小时 · 约为手工 1/10 时间（2026-02 披露）
+
+  - elementId: rule-3
+    elementType: shape
+    bounds: [54, 792, 612, 1]
+    shapeName: rect
+    fill: {type: solid, color: "$hairline"}
+
+  # ── 04 闭环 ──
+  - elementId: s4-num
+    elementType: text
+    bounds: [54, 808, 34, 20]
+    content: {fontSize: 15, bold: true, color: "$accent", fontFamily: "阿里妈妈数黑体", wrap: false, text: "04"}
+  - elementId: s4-head
+    elementType: text
+    bounds: [96, 806, 516, 22]
+    content: {fontSize: 16, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "阿里妈妈数黑体"}, wrap: false, text: 五个 Phase 的学习闭环}
+
+  - elementId: s4-chain
+    elementType: text
+    bounds: [96, 836, 540, 20]
+    content:
+      fontSize: 14
+      color: "$ink"
+      fontFamily: {latin: "Liter", ea: "MiSans"}
+      wrap: false
+      text: |
+        <p>概念 → 思考 → 实践 → 反馈 → 作品 <span style="color:$accent">⟲ 读者反馈回流</span></p>
+
+  - elementId: s4-cap
+    elementType: text
+    bounds: [96, 862, 540, 15]
+    content:
+      style: "$caption"
+      wrap: false
+      text: 8 篇概念 · 11 篇思考 · 1 个 Ralph Demo · 34 篇翻译 + 1 篇原创（2026-08 快照）
+
+  # ── 档案脚 ──
+  - elementId: footer-band
+    elementType: shape
+    bounds: [0, 896, 720, 64]
+    shapeName: rect
+    fill: {type: solid, color: "$dark"}
+
+  - elementId: footer-repo
+    elementType: text
+    bounds: [54, 914, 470, 20]
+    content: {fontSize: 15, bold: true, color: "#F5F1E8", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: github.com/deusyu/harness-engineering}
+
+  - elementId: footer-right
+    elementType: text
+    bounds: [520, 916, 146, 16]
+    content: {fontSize: 11, color: "$paperdim", fontFamily: {latin: "Liter", ea: "MiSans"}, align: [right, top], wrap: false, text: "MIT · @deusyu"}
+
+  - elementId: footer-line2
+    elementType: text
+    bounds: [54, 938, 560, 13]
+    content: {fontSize: 10, color: "$paperdim", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 人类掌舵，智能体执行。—— 欢迎 Issue / PR 参与共建}

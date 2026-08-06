@@ -1,0 +1,50 @@
+version: v2
+title: 驭缰工程 · Harness Engineering 学习档案
+size: [960, 540]
+theme:
+  colors:
+    paper: "#F5F1E8"
+    ink: "#1F1C17"
+    accent: "#C2481D"
+    steel: "#6E675B"
+    faint: "#98907F"
+    hairline: "#DCD5C6"
+    dark: "#26221C"
+    paperdim: "#B4AA97"
+  textStyles:
+    kicker:
+      fontSize: 13
+      color: "$accent"
+      bold: true
+      letterSpacing: 4
+      fontFamily: {latin: "Liter", ea: "MiSans"}
+    title:
+      fontSize: 30
+      color: "$ink"
+      lineHeight: 1.2
+      fontFamily: {latin: "Liter", ea: "阿里妈妈数黑体"}
+    body:
+      fontSize: 13
+      color: "$ink"
+      lineHeight: 1.55
+      fontFamily: {latin: "Liter", ea: "MiSans"}
+    caption:
+      fontSize: 11
+      color: "$faint"
+      lineHeight: 1.45
+      fontFamily: {latin: "Liter", ea: "MiSans"}
+    num:
+      fontSize: 46
+      color: "$ink"
+      fontFamily: {latin: "阿里妈妈数黑体", ea: "阿里妈妈数黑体"}
+pages:
+  - pages/01_cover.page
+  - pages/02_paradigm.page
+  - pages/03_concepts.page
+  - pages/04_evidence.page
+  - pages/05_loop.page
+  - pages/06_repo_map.page
+  - pages/07_checks.page
+  - pages/08_self_harness.page
+  - pages/09_library.page
+  - pages/10_back.page
