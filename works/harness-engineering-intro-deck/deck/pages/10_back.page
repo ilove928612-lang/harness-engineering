@@ -28,7 +28,7 @@ elements:
     content:
       fontSize: 44
       color: "$paper"
-      fontFamily: {latin: "Liter", ea: "得意黑"}
+      fontFamily: "得意黑"
       wrap: false
       text: |
         <p>人类掌舵，<span style="color:$accent">智能体执行</span>。</p>

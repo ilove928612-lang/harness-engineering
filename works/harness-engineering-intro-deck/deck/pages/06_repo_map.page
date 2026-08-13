@@ -78,7 +78,7 @@ elements:
       bold: true
       color: "$ink"
       lineHeight: 1.35
-      fontFamily: {latin: "Liter", ea: "得意黑"}
+      fontFamily: "得意黑"
       text: 每个子目录，都有自己的 AGENTS.md
 
   - elementId: right-body

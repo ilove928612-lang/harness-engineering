@@ -22,7 +22,7 @@ theme:
       fontSize: 30
       color: "$ink"
       lineHeight: 1.2
-      fontFamily: {latin: "Liter", ea: "得意黑"}
+      fontFamily: "得意黑"
     body:
       fontSize: 13
       color: "$ink"

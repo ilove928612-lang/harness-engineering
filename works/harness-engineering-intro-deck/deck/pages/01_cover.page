@@ -14,6 +14,35 @@ elements:
     arrow: [null, stealth]
     border: {style: solid, width: 3, color: "$accent"}
 
+  # 缰绳上的三个约束节点（约束系统的具象化）
+  - elementId: node-1
+    elementType: shape
+    bounds: [389, 382, 9, 9]
+    shapeName: ellipse
+    fill: {type: solid, color: "$accent"}
+  - elementId: node-1-label
+    elementType: text
+    bounds: [404, 390, 140, 14]
+    content: {fontSize: 10.5, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: "AGENTS.md"}
+  - elementId: node-2
+    elementType: shape
+    bounds: [550, 292, 9, 9]
+    shapeName: ellipse
+    fill: {type: solid, color: "$accent"}
+  - elementId: node-2-label
+    elementType: text
+    bounds: [566, 300, 140, 14]
+    content: {fontSize: 10.5, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 自定义 linter}
+  - elementId: node-3
+    elementType: shape
+    bounds: [702, 199, 9, 9]
+    shapeName: ellipse
+    fill: {type: solid, color: "$accent"}
+  - elementId: node-3-label
+    elementType: text
+    bounds: [718, 207, 130, 14]
+    content: {fontSize: 10.5, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: CI 反馈}
+
   # 人类锚点
   - elementId: anchor-dot
     elementType: shape
@@ -76,7 +105,7 @@ elements:
     content:
       fontSize: 26
       color: "$ink"
-      fontFamily: {latin: "Liter", ea: "得意黑"}
+      fontFamily: "得意黑"
       wrap: false
       text: |
         <p>人类掌舵，<span style="color:$accent">智能体执行</span>。</p>

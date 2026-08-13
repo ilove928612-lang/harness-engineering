@@ -44,7 +44,7 @@ elements:
     content:
       fontSize: 19
       color: "$ink"
-      fontFamily: {latin: "Liter", ea: "得意黑"}
+      fontFamily: "得意黑"
       wrap: false
       text: |
         <p>人类掌舵，<span style="color:$accent">智能体执行</span>。</p>
@@ -67,7 +67,7 @@ elements:
   - elementId: s1-head
     elementType: text
     bounds: [96, 300, 516, 22]
-    content: {fontSize: 16, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "得意黑"}, wrap: false, text: 工程师的产出：从代码，变成约束系统}
+    content: {fontSize: 16, bold: true, color: "$ink", fontFamily: "得意黑", wrap: false, text: 工程师的产出：从代码，变成约束系统}
 
   - elementId: s1-f1
     elementType: text
@@ -145,7 +145,7 @@ elements:
   - elementId: s2-head
     elementType: text
     bounds: [96, 436, 516, 22]
-    content: {fontSize: 16, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "得意黑"}, wrap: false, text: 六大核心概念}
+    content: {fontSize: 16, bold: true, color: "$ink", fontFamily: "得意黑", wrap: false, text: 六大核心概念}
 
   - elementId: c1-name
     elementType: text
@@ -215,7 +215,7 @@ elements:
   - elementId: s3-head
     elementType: text
     bounds: [96, 664, 516, 22]
-    content: {fontSize: 16, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "得意黑"}, wrap: false, text: OpenAI 的实证刻度}
+    content: {fontSize: 16, bold: true, color: "$ink", fontFamily: "得意黑", wrap: false, text: OpenAI 的实证刻度}
 
   - elementId: d1-num
     elementType: text
@@ -275,7 +275,7 @@ elements:
   - elementId: s4-head
     elementType: text
     bounds: [96, 806, 516, 22]
-    content: {fontSize: 16, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "得意黑"}, wrap: false, text: 五个 Phase 的学习闭环}
+    content: {fontSize: 16, bold: true, color: "$ink", fontFamily: "得意黑", wrap: false, text: 五个 Phase 的学习闭环}
 
   - elementId: s4-chain
     elementType: text

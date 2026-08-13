@@ -65,6 +65,44 @@ elements:
       wrap: false
       text: HARNESS
 
+  # 条目 → 环节点的引导线
+  - elementId: link-1
+    elementType: line
+    bounds: [384, 186, 53, 12]
+    viewBox: [53, 12]
+    points: "0,6 53,6"
+    border: {style: solid, width: 1, color: "$faint"}
+  - elementId: link-2
+    elementType: line
+    bounds: [384, 306, 17, 12]
+    viewBox: [17, 12]
+    points: "0,6 17,6"
+    border: {style: solid, width: 1, color: "$faint"}
+  - elementId: link-3
+    elementType: line
+    bounds: [384, 426, 53, 12]
+    viewBox: [53, 12]
+    points: "0,6 53,6"
+    border: {style: solid, width: 1, color: "$faint"}
+  - elementId: link-4
+    elementType: line
+    bounds: [521, 186, 55, 12]
+    viewBox: [55, 12]
+    points: "0,6 55,6"
+    border: {style: solid, width: 1, color: "$faint"}
+  - elementId: link-5
+    elementType: line
+    bounds: [554, 306, 22, 12]
+    viewBox: [22, 12]
+    points: "0,6 22,6"
+    border: {style: solid, width: 1, color: "$faint"}
+  - elementId: link-6
+    elementType: line
+    bounds: [521, 426, 55, 12]
+    viewBox: [55, 12]
+    points: "0,6 55,6"
+    border: {style: solid, width: 1, color: "$faint"}
+
   # 环上六个节点
   - elementId: dot-1
     elementType: shape
@@ -105,7 +143,7 @@ elements:
   - elementId: c1-name
     elementType: text
     bounds: [66, 170, 310, 26]
-    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "得意黑"}, align: [right, top], wrap: false, text: 仓库即记录系统}
+    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: "得意黑", align: [right, top], wrap: false, text: 仓库即记录系统}
   - elementId: c1-desc
     elementType: text
     bounds: [66, 198, 310, 18]
@@ -118,7 +156,7 @@ elements:
   - elementId: c2-name
     elementType: text
     bounds: [66, 290, 310, 26]
-    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "得意黑"}, align: [right, top], wrap: false, text: 地图而非手册}
+    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: "得意黑", align: [right, top], wrap: false, text: 地图而非手册}
   - elementId: c2-desc
     elementType: text
     bounds: [66, 318, 310, 18]
@@ -131,7 +169,7 @@ elements:
   - elementId: c3-name
     elementType: text
     bounds: [66, 410, 310, 26]
-    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "得意黑"}, align: [right, top], wrap: false, text: 机械化执行}
+    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: "得意黑", align: [right, top], wrap: false, text: 机械化执行}
   - elementId: c3-desc
     elementType: text
     bounds: [66, 438, 310, 18]
@@ -145,7 +183,7 @@ elements:
   - elementId: c4-name
     elementType: text
     bounds: [584, 170, 310, 26]
-    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "得意黑"}, wrap: false, text: 智能体可读性}
+    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: "得意黑", wrap: false, text: 智能体可读性}
   - elementId: c4-desc
     elementType: text
     bounds: [584, 198, 310, 18]
@@ -158,7 +196,7 @@ elements:
   - elementId: c5-name
     elementType: text
     bounds: [584, 290, 310, 26]
-    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "得意黑"}, wrap: false, text: 吞吐量改变合并理念}
+    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: "得意黑", wrap: false, text: 吞吐量改变合并理念}
   - elementId: c5-desc
     elementType: text
     bounds: [584, 318, 310, 18]
@@ -171,7 +209,7 @@ elements:
   - elementId: c6-name
     elementType: text
     bounds: [584, 410, 310, 26]
-    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "得意黑"}, wrap: false, text: 熵管理 = 垃圾回收}
+    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: "得意黑", wrap: false, text: 熵管理 = 垃圾回收}
   - elementId: c6-desc
     elementType: text
     bounds: [584, 438, 310, 18]
