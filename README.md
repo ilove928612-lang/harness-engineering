@@ -284,6 +284,24 @@ bash scripts/install-harness.sh --apply  # 实际安装
 
 > 设计说明：安装器只分发 skill 本体。`scripts/check-consistency.sh`、`.githooks/pre-commit`、各目录 `AGENTS.md` 是仓库内资产——任何一端的 agent 在本仓库目录内工作时自然可见，无需复制。skill 内所有路径均为仓库相对路径，因此必须在仓库内使用。
 
+## 🛠️ 在任意项目初始化 harness（harness-init）
+
+不只是本仓库自己用——六大概念可以在任意项目里实施：
+
+```bash
+bash scripts/harness-init.sh <目标目录> [项目名]
+```
+
+生成 3 件套（已存在自动跳过）：
+
+| 产物 | 扮演的角色 |
+|------|------|
+| `AGENTS.md` | 地图而非手册：目录页指向更深层文档 |
+| `scripts/check-harness.sh` | 机械化执行：C1 死链接 / C2 表格列数 / C3 光 TODO |
+| `.claude/skills/harness-workflow/SKILL.md` | 六大概念物化的编码循环（读地图→小步实现→校验→提交） |
+
+对 agent 说「按项目规矩来」即可触发。
+
 ## 🤝 参与贡献
 
 欢迎通过 Issue 和 PR 参与：

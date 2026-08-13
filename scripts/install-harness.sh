@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# install-harness.sh — 把 harness-engineering 的 curate-research skill 分发到 5 个 agent 端
+# install-harness.sh — 把 harness-engineering 的 skill 分发到 5 个 agent 端
 #
+# 分发: curate-research（仓库自策展）+ harness-workflow（六大概念编码循环）
 # 5 端: Claude Code / Codex / Grok / Claw (OpenClaw·ClawX) / Hermes
 # 用法:
 #   bash scripts/install-harness.sh          # dry-run: 打印将安装到哪些位置
@@ -13,14 +14,11 @@
 #   - Windows git-bash 下 ~ 解析为 C:\Users\<user>
 
 set -u
-SRC="$(cd "$(dirname "$0")/.." && pwd)/.claude/skills/curate-research"
+REPO="$(cd "$(dirname "$0")/.." && pwd)"
 APPLY=0
 [ "${1:-}" = "--apply" ] && APPLY=1
 
-if [ ! -d "$SRC" ]; then
-  echo "✗ 源 skill 不存在: $SRC"
-  exit 1
-fi
+SKILLS=("curate-research" "harness-workflow")
 
 # 端名 | 目标目录 | 说明
 TARGETS=(
@@ -31,33 +29,34 @@ TARGETS=(
   "Hermes|${HERMES_HOME:-$HOME/.hermes}/skills|HERMES_HOME 或默认"
 )
 
-echo "=== curate-research skill → 5 端分发 ($([ $APPLY -eq 1 ] && echo APPLY || echo DRY-RUN)) ==="
-echo "源: $SRC"
-echo
-
-for entry in "${TARGETS[@]}"; do
-  name="${entry%%|*}"; rest="${entry#*|}"
-  dir="${rest%%|*}"; note="${rest#*|}"
-  if [ ! -d "$dir" ]; then
-    echo "[$name] ✗ 目录不存在，跳过: $dir ($note)"
-    continue
-  fi
-  if [ -e "$dir/curate-research" ]; then
-    echo "[$name] ✓ 已安装，跳过（不覆盖）: $dir/curate-research"
-    continue
-  fi
-  if [ $APPLY -eq 1 ]; then
-    cp -r "$SRC" "$dir/curate-research" && \
-      echo "[$name] ✓ 已安装: $dir/curate-research" || \
-      echo "[$name] ✗ 复制失败"
-  else
-    echo "[$name] → 将安装: $dir/curate-research  ($note)"
-  fi
+echo "=== harness skill → 5 端分发 ($([ $APPLY -eq 1 ] && echo APPLY || echo DRY-RUN)) ==="
+for skill in "${SKILLS[@]}"; do
+  src="$REPO/.claude/skills/$skill"
+  [ -d "$src" ] || src="$REPO/scaffold/$skill"
+  [ -d "$src" ] || { echo "✗ 源 skill 不存在: $skill"; continue; }
+  echo "--- $skill (源: $src) ---"
+  for entry in "${TARGETS[@]}"; do
+    name="${entry%%|*}"; rest="${entry#*|}"
+    dir="${rest%%|*}"; note="${rest#*|}"
+    if [ ! -d "$dir" ]; then
+      echo "  [$name] ✗ 目录不存在，跳过: $dir ($note)"
+      continue
+    fi
+    if [ -e "$dir/$skill" ]; then
+      echo "  [$name] ✓ 已安装，跳过（不覆盖）"
+      continue
+    fi
+    if [ $APPLY -eq 1 ]; then
+      cp -r "$src" "$dir/$skill" && echo "  [$name] ✓ 已安装: $dir/$skill" || echo "  [$name] ✗ 复制失败"
+    else
+      echo "  [$name] → 将安装: $dir/$skill  ($note)"
+    fi
+  done
 done
 
 echo
 if [ $APPLY -eq 1 ]; then
-  echo "完成。验证: 各端执行 'skills' 相关命令查看 curate-research 是否被识别。"
+  echo "完成。验证: 各端执行 'skills' 相关命令查看 skill 是否被识别。"
 else
   echo "dry-run 完成。确认无误后执行: bash scripts/install-harness.sh --apply"
 fi

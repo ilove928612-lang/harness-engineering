@@ -285,6 +285,24 @@ bash scripts/install-harness.sh --apply  # install for real
 
 > Design note: the installer only ships the skill itself. `scripts/check-consistency.sh`, `.githooks/pre-commit`, and per-directory `AGENTS.md` are in-repo assets — any CLI's agent sees them naturally while working inside the repo, no copy needed. All paths inside the skill are repo-relative, so it must be used from within the repo.
 
+## 🛠️ Initialize harness in any project (harness-init)
+
+The six concepts aren't just for this repo — scaffold any project:
+
+```bash
+bash scripts/harness-init.sh <target-dir> [project-name]
+```
+
+Generates 3 artifacts (existing files are skipped):
+
+| Artifact | Role |
+|------|------|
+| `AGENTS.md` | Map, not manual: entry page pointing to deeper docs |
+| `scripts/check-harness.sh` | Mechanical enforcement: C1 dead links / C2 table columns / C3 bare TODOs |
+| `.claude/skills/harness-workflow/SKILL.md` | The six concepts as a coding loop (read map → small steps → verify → commit) |
+
+Tell your agent “follow the project conventions” to trigger it.
+
 ## 🤝 Contributing
 
 Contributions via Issues and PRs are welcome:
