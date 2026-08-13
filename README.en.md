@@ -264,6 +264,27 @@ See the "机械化检查" section of the root `AGENTS.md` for details.
 >
 > So the constraints themselves became the product — exactly what [concepts/07-spec-as-product.md](concepts/07-spec-as-product.md) argues, except this time the subject is the repo itself.
 
+## 🖥️ Install to 5 agent CLIs
+
+The `curate-research` skill doesn't only live in Claude Code — it ships to 5 agent CLIs. Any of them can invoke the same curation pipeline when working inside this repo:
+
+| CLI | Install location | Verify |
+|----|---------|------|
+| Claude Code | `~/.claude/skills/curate-research` | `/skills` or prompt “process this research batch” |
+| Codex | `~/.codex/skills/curate-research` | trigger via skill description in a `codex` session |
+| Grok | `~/.grok/skills/curate-research` | trigger via skill description in a `grok` session |
+| Claw (OpenClaw/ClawX) | `~/.openclaw/skills/curate-research` | trigger via skill description in an OpenClaw session |
+| Hermes | `${HERMES_HOME}/skills/curate-research` | `skills_list` or prompt “process this research batch” |
+
+One-shot installer (dry-run preview → `--apply` to copy; already-installed CLIs are skipped, never overwritten):
+
+```bash
+bash scripts/install-harness.sh          # preview install targets
+bash scripts/install-harness.sh --apply  # install for real
+```
+
+> Design note: the installer only ships the skill itself. `scripts/check-consistency.sh`, `.githooks/pre-commit`, and per-directory `AGENTS.md` are in-repo assets — any CLI's agent sees them naturally while working inside the repo, no copy needed. All paths inside the skill are repo-relative, so it must be used from within the repo.
+
 ## 🤝 Contributing
 
 Contributions via Issues and PRs are welcome:

@@ -263,6 +263,27 @@ git config core.hooksPath .githooks
 >
 > 于是约束本身成了产品——正是本仓库 [concepts/07-spec-as-product.md](concepts/07-spec-as-product.md) 讲的东西，只不过这次的实验对象是仓库自己。
 
+## 🖥️ 安装到 5 个 agent 端
+
+`curate-research` skill 不只活在 Claude Code 里——它分发到 5 个 agent 端，任何一端打开本仓库都能调用同一条策展流水线：
+
+| 端 | 安装位置 | 验证 |
+|----|---------|------|
+| Claude Code | `~/.claude/skills/curate-research` | `/skills` 或提示“处理这批调研候选” |
+| Codex | `~/.codex/skills/curate-research` | `codex` 会话内按 skill 描述触发 |
+| Grok | `~/.grok/skills/curate-research` | `grok` 会话内按 skill 描述触发 |
+| Claw (OpenClaw/ClawX) | `~/.openclaw/skills/curate-research` | OpenClaw 会话内按 skill 描述触发 |
+| Hermes | `${HERMES_HOME}/skills/curate-research` | `skills_list` 或提示“处理这批调研候选” |
+
+一键安装（dry-run 预览 → `--apply` 实际复制，已装过的端自动跳过、绝不覆盖）：
+
+```bash
+bash scripts/install-harness.sh          # 预览将安装到哪些位置
+bash scripts/install-harness.sh --apply  # 实际安装
+```
+
+> 设计说明：安装器只分发 skill 本体。`scripts/check-consistency.sh`、`.githooks/pre-commit`、各目录 `AGENTS.md` 是仓库内资产——任何一端的 agent 在本仓库目录内工作时自然可见，无需复制。skill 内所有路径均为仓库相对路径，因此必须在仓库内使用。
+
 ## 🤝 参与贡献
 
 欢迎通过 Issue 和 PR 参与：
