@@ -114,7 +114,7 @@ harness-engineering/
 │   └── 07-spec-as-product.md #   Spec as product (Symphony extension)
 │
 ├── thinking/              # Phase 2: Independent analysis (12 articles)
-├── practice/              # Phase 3: Hands-on experiments (1 Ralph Demo)
+├── practice/              # Phase 3: Hands-on experiments (Ralph Demo + 3-loop routing)
 ├── feedback/              # Phase 4: Lessons learned (1 article)
 ├── works/                 # Phase 5: Shareable outputs (34 translations + 1 original + 2 external Chinese captures)
 ├── tools/                 # Tools that reduce the 6 complexity dimensions
@@ -266,15 +266,19 @@ See the "机械化检查" section of the root `AGENTS.md` for details.
 
 ## 🖥️ Install to 5 agent CLIs
 
-The `curate-research` skill doesn't only live in Claude Code — it ships to 5 agent CLIs. Any of them can invoke the same curation pipeline when working inside this repo:
+3 skills don't only live in Claude Code — they ship to 5 agent CLIs. Any of them can invoke the same curation / coding / routing pipeline when working inside this repo:
+
+- `curate-research` — research candidate curation (fetch → translate → review → ingest)
+- `harness-workflow` — six-concepts coding loop (read map → small steps → verify → commit)
+- `workflow-loop` — automatic routing across the three loops (superpowers × vloop × ponytail)
 
 | CLI | Install location | Verify |
 |----|---------|------|
-| Claude Code | `~/.claude/skills/curate-research` | `/skills` or prompt “process this research batch” |
-| Codex | `~/.codex/skills/curate-research` | trigger via skill description in a `codex` session |
-| Grok | `~/.grok/skills/curate-research` | trigger via skill description in a `grok` session |
-| Claw (OpenClaw/ClawX) | `~/.openclaw/skills/curate-research` | trigger via skill description in an OpenClaw session |
-| Hermes | `${HERMES_HOME}/skills/curate-research` | `skills_list` or prompt “process this research batch” |
+| Claude Code | `~/.claude/skills/<skill>` | `/skills` or prompt by skill description |
+| Codex | `~/.codex/skills/<skill>` | trigger via skill description in a `codex` session |
+| Grok | `~/.grok/skills/<skill>` | trigger via skill description in a `grok` session |
+| Claw (OpenClaw/ClawX) | `~/.openclaw/skills/<skill>` | trigger via skill description in an OpenClaw session |
+| Hermes | `${HERMES_HOME}/skills/<skill>` | `skills_list` or prompt by skill description |
 
 One-shot installer (dry-run preview → `--apply` to copy; already-installed CLIs are skipped, never overwritten):
 

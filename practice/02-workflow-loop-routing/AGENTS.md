@@ -13,7 +13,7 @@
 
 1. 三套 skill 就位：superpowers（14 skill）+ vloop + ponytail（hook）
 2. 装上 workflow-loop（skills 目录）
-3. 说"实现 X"（小任务）→ 应走 superpowers 链；说"跑完再叫我"（大任务）→ 应走 vloop 协议
+3. 说“实现 X”（小任务）→ 应走 superpowers 链；说“跑完再叫我”（大任务）→ 应走 vloop 协议
 
 ## 下一步
 

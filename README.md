@@ -113,7 +113,7 @@ harness-engineering/
 │   └── 07-spec-as-product.md #   约束即产品（Symphony 延伸）
 │
 ├── thinking/              # Phase 2：独立思考与质疑（12 篇）
-├── practice/              # Phase 3：小项目实验（1 个 Ralph Demo）
+├── practice/              # Phase 3：小项目实验（Ralph Demo + 三方闭环路由）
 ├── feedback/              # Phase 4：踩坑与迭代心得（1 篇）
 ├── works/                 # Phase 5：可展示的作品（34 篇翻译 + 1 篇原创 + 2 篇外部中文收录）
 ├── tools/                 # 工具具像化：降低 6 维复杂度的杠杆库
@@ -265,15 +265,19 @@ git config core.hooksPath .githooks
 
 ## 🖥️ 安装到 5 个 agent 端
 
-`curate-research` skill 不只活在 Claude Code 里——它分发到 5 个 agent 端，任何一端打开本仓库都能调用同一条策展流水线：
+3 个 skill 不只活在 Claude Code 里——它们分发到 5 个 agent 端，任何一端打开本仓库都能调用同一条策展/编码/路由流水线：
+
+- `curate-research` — 调研候选策展（抓取→翻译→评审→收录）
+- `harness-workflow` — 六大概念编码循环（读地图→小步实现→校验→提交）
+- `workflow-loop` — 三方闭环自动路由（superpowers × vloop × ponytail 分流）
 
 | 端 | 安装位置 | 验证 |
 |----|---------|------|
-| Claude Code | `~/.claude/skills/curate-research` | `/skills` 或提示“处理这批调研候选” |
-| Codex | `~/.codex/skills/curate-research` | `codex` 会话内按 skill 描述触发 |
-| Grok | `~/.grok/skills/curate-research` | `grok` 会话内按 skill 描述触发 |
-| Claw (OpenClaw/ClawX) | `~/.openclaw/skills/curate-research` | OpenClaw 会话内按 skill 描述触发 |
-| Hermes | `${HERMES_HOME}/skills/curate-research` | `skills_list` 或提示“处理这批调研候选” |
+| Claude Code | `~/.claude/skills/<skill>` | `/skills` 或按 skill 描述提示触发 |
+| Codex | `~/.codex/skills/<skill>` | `codex` 会话内按 skill 描述触发 |
+| Grok | `~/.grok/skills/<skill>` | `grok` 会话内按 skill 描述触发 |
+| Claw (OpenClaw/ClawX) | `~/.openclaw/skills/<skill>` | OpenClaw 会话内按 skill 描述触发 |
+| Hermes | `${HERMES_HOME}/skills/<skill>` | `skills_list` 或按 skill 描述提示触发 |
 
 一键安装（dry-run 预览 → `--apply` 实际复制，已装过的端自动跳过、绝不覆盖）：
 

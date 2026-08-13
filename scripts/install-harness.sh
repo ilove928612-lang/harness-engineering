@@ -2,6 +2,7 @@
 # install-harness.sh — 把 harness-engineering 的 skill 分发到 5 个 agent 端
 #
 # 分发: curate-research（仓库自策展）+ harness-workflow（六大概念编码循环）
+#       + workflow-loop（三方闭环自动路由）
 # 5 端: Claude Code / Codex / Grok / Claw (OpenClaw·ClawX) / Hermes
 # 用法:
 #   bash scripts/install-harness.sh          # dry-run: 打印将安装到哪些位置
@@ -33,8 +34,13 @@ echo "=== harness skill → 5 端分发 ($([ $APPLY -eq 1 ] && echo APPLY || ech
 for skill in "${SKILLS[@]}"; do
   src="$REPO/.claude/skills/$skill"
   [ -d "$src" ] || src="$REPO/scaffold/$skill"
-  [ -d "$src" ] || src="$REPO/practice/02-workflow-loop-routing"
-  [ -d "$src" ] || { echo "✗ 源 skill 不存在: $skill"; continue; }
+  if [ "$skill" = "workflow-loop" ]; then
+    # 源是 practice 实验目录：只复制 SKILL.md（README/AGENTS 是仓库文档，不进 skill 目录）
+    src="$REPO/practice/02-workflow-loop-routing/SKILL.md"
+  else
+    [ -d "$src" ] || { echo "✗ 源 skill 不存在: $skill"; continue; }
+  fi
+  [ -e "$src" ] || { echo "✗ 源 skill 不存在: $skill"; continue; }
   echo "--- $skill (源: $src) ---"
   for entry in "${TARGETS[@]}"; do
     name="${entry%%|*}"; rest="${entry#*|}"
@@ -48,7 +54,11 @@ for skill in "${SKILLS[@]}"; do
       continue
     fi
     if [ $APPLY -eq 1 ]; then
-      cp -r "$src" "$dir/$skill" && echo "  [$name] ✓ 已安装: $dir/$skill" || echo "  [$name] ✗ 复制失败"
+      if [ -f "$src" ]; then
+        mkdir -p "$dir/$skill" && cp "$src" "$dir/$skill/SKILL.md"           && echo "  [$name] ✓ 已安装: $dir/$skill/SKILL.md" || echo "  [$name] ✗ 复制失败"
+      else
+        cp -r "$src" "$dir/$skill" && echo "  [$name] ✓ 已安装: $dir/$skill" || echo "  [$name] ✗ 复制失败"
+      fi
     else
       echo "  [$name] → 将安装: $dir/$skill  ($note)"
     fi
