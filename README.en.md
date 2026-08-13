@@ -8,6 +8,10 @@
 
 > A deep-dive learning archive on Harness Engineering — from concept to practice
 
+[![Harness Engineering — humans steer, agents execute (intro deck cover, 2026-08 snapshot)](works/harness-engineering-intro-deck/cover.jpg)](works/harness-engineering-intro-deck/)
+
+<p align="center"><sub>Cover from the repo's own <a href="works/harness-engineering-intro-deck/">intro deck + poster</a> — generated with the open-kimi-ppt skill; editable PPTD sources live in this repo</sub></p>
+
 ## Introduction
 
 This is an evolving learning project. **Harness Engineering** is an engineering paradigm proposed by OpenAI in February 2026: engineers stop writing code and instead design environments, clarify intent, and build feedback loops so AI agents can work reliably.

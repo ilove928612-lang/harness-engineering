@@ -1,0 +1,200 @@
+pageType: content
+background:
+  type: solid
+  color: "$paper"
+notes: 学习方法：五个 Phase 串成反馈回路，回流箭头折返；下方给 Ralph Demo 实证。
+elements:
+  - elementId: kicker
+    elementType: text
+    bounds: [66, 52, 400, 16]
+    content:
+      style: "$kicker"
+      wrap: false
+      text: "04 · 方法"
+
+  - elementId: title
+    elementType: text
+    bounds: [66, 76, 828, 40]
+    content:
+      style: "$title"
+      wrap: false
+      text: 学习本身，也走一条反馈回路
+
+  - elementId: title-rule
+    elementType: shape
+    bounds: [66, 128, 828, 1]
+    shapeName: rect
+    fill: {type: solid, color: "$hairline"}
+
+  # ── Phase 链 ──
+  - elementId: p1-tag
+    elementType: text
+    bounds: [66, 162, 132, 15]
+    content: {fontSize: 11, bold: true, color: "$accent", fontFamily: "Liter", letterSpacing: 1, wrap: false, text: "PHASE 1"}
+  - elementId: p1-name
+    elementType: text
+    bounds: [66, 180, 132, 26]
+    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: "得意黑", wrap: false, text: 概念}
+  - elementId: p1-count
+    elementType: text
+    bounds: [66, 210, 132, 15]
+    content: {fontSize: 11, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: "concepts/ · 8 篇"}
+
+  - elementId: a1
+    elementType: line
+    bounds: [200, 188, 30, 12]
+    viewBox: [30, 12]
+    points: "0,6 30,6"
+    arrow: [null, stealth]
+    border: {style: solid, width: 1.5, color: "$ink"}
+
+  - elementId: p2-tag
+    elementType: text
+    bounds: [238, 162, 132, 15]
+    content: {fontSize: 11, bold: true, color: "$accent", fontFamily: "Liter", letterSpacing: 1, wrap: false, text: "PHASE 2"}
+  - elementId: p2-name
+    elementType: text
+    bounds: [238, 180, 132, 26]
+    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: "得意黑", wrap: false, text: 思考}
+  - elementId: p2-count
+    elementType: text
+    bounds: [238, 210, 132, 15]
+    content: {fontSize: 11, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: "thinking/ · 11 篇"}
+
+  - elementId: a2
+    elementType: line
+    bounds: [372, 188, 30, 12]
+    viewBox: [30, 12]
+    points: "0,6 30,6"
+    arrow: [null, stealth]
+    border: {style: solid, width: 1.5, color: "$ink"}
+
+  - elementId: p3-tag
+    elementType: text
+    bounds: [410, 162, 132, 15]
+    content: {fontSize: 11, bold: true, color: "$accent", fontFamily: "Liter", letterSpacing: 1, wrap: false, text: "PHASE 3"}
+  - elementId: p3-name
+    elementType: text
+    bounds: [410, 180, 132, 26]
+    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: "得意黑", wrap: false, text: 实践}
+  - elementId: p3-count
+    elementType: text
+    bounds: [410, 210, 132, 15]
+    content: {fontSize: 11, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: "practice/ · Ralph Demo"}
+
+  - elementId: a3
+    elementType: line
+    bounds: [544, 188, 30, 12]
+    viewBox: [30, 12]
+    points: "0,6 30,6"
+    arrow: [null, stealth]
+    border: {style: solid, width: 1.5, color: "$ink"}
+
+  - elementId: p4-tag
+    elementType: text
+    bounds: [582, 162, 132, 15]
+    content: {fontSize: 11, bold: true, color: "$accent", fontFamily: "Liter", letterSpacing: 1, wrap: false, text: "PHASE 4"}
+  - elementId: p4-name
+    elementType: text
+    bounds: [582, 180, 132, 26]
+    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: "得意黑", wrap: false, text: 反馈}
+  - elementId: p4-count
+    elementType: text
+    bounds: [582, 210, 132, 15]
+    content: {fontSize: 11, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: "feedback/ · 踩坑与修正"}
+
+  - elementId: a4
+    elementType: line
+    bounds: [716, 188, 30, 12]
+    viewBox: [30, 12]
+    points: "0,6 30,6"
+    arrow: [null, stealth]
+    border: {style: solid, width: 1.5, color: "$ink"}
+
+  - elementId: p5-tag
+    elementType: text
+    bounds: [754, 162, 140, 15]
+    content: {fontSize: 11, bold: true, color: "$accent", fontFamily: "Liter", letterSpacing: 1, wrap: false, text: "PHASE 5"}
+  - elementId: p5-name
+    elementType: text
+    bounds: [754, 180, 140, 26]
+    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: "得意黑", wrap: false, text: 作品}
+  - elementId: p5-count
+    elementType: text
+    bounds: [754, 210, 140, 15]
+    content: {fontSize: 11, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: "works/ · 34 译 + 1 原创"}
+
+  # 回流曲线
+  - elementId: return-loop
+    elementType: line
+    bounds: [130, 238, 700, 62]
+    viewBox: [700, 62]
+    points: "690,0 640,52 80,52 8,14"
+    curve: smooth
+    arrow: [null, stealth]
+    border: {style: solid, width: 1.5, color: "$accent"}
+
+  - elementId: return-label
+    elementType: text
+    bounds: [280, 302, 400, 15]
+    content:
+      fontSize: 11
+      color: "$accent"
+      fontFamily: {latin: "Liter", ea: "MiSans"}
+      align: [center, top]
+      wrap: false
+      text: 外部读者的评论、转发与质疑，回流 thinking/ 与 feedback/ 继续打磨
+
+  # ── Ralph Demo 实证 ──
+  - elementId: demo-rule
+    elementType: shape
+    bounds: [66, 344, 828, 1]
+    shapeName: rect
+    fill: {type: solid, color: "$hairline"}
+
+  - elementId: demo-head
+    elementType: text
+    bounds: [66, 362, 300, 20]
+    content:
+      fontSize: 14
+      bold: true
+      color: "$ink"
+      fontFamily: {latin: "Liter", ea: "MiSans"}
+      wrap: false
+      text: 实践一例 · Ralph 编排循环
+
+  - elementId: demo-body
+    elementType: text
+    bounds: [66, 388, 620, 60]
+    content:
+      style: "$body"
+      fontSize: 12.5
+      color: "$steel"
+      text: |
+        <p>用 ralph-orchestrator 跑通「帽子系统 + 背压门控 + 持久记忆」：4 轮迭代生成 CLI word counter，7 项测试全绿，产物归档于 practice/01-ralph-demo/ 可复验。</p>
+
+  - elementId: demo-n1
+    elementType: text
+    bounds: [710, 366, 90, 36]
+    content: {fontSize: 26, color: "$ink", fontFamily: "得意黑", wrap: false, text: "321s"}
+  - elementId: demo-n1-label
+    elementType: text
+    bounds: [710, 404, 90, 14]
+    content: {fontSize: 10.5, color: "$faint", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 全程耗时}
+
+  - elementId: demo-n2
+    elementType: text
+    bounds: [812, 366, 82, 36]
+    content: {fontSize: 26, color: "$accent", fontFamily: "得意黑", wrap: false, text: "$0.31"}
+  - elementId: demo-n2-label
+    elementType: text
+    bounds: [812, 404, 82, 14]
+    content: {fontSize: 10.5, color: "$faint", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 总花费}
+
+  - elementId: foot
+    elementType: text
+    bounds: [66, 476, 828, 16]
+    content:
+      style: "$caption"
+      wrap: false
+      text: 篇数为 2026-08 快照，最新进度以 README「学习路线」为准。

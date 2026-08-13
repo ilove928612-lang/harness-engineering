@@ -8,6 +8,10 @@
 
 > 一个从概念理解到独立实践的 Harness Engineering 深度学习档案
 
+[![驭缰工程 —— 人类掌舵，智能体执行（项目介绍 PPT 封面 · 2026-08 快照）](works/harness-engineering-intro-deck/cover.jpg)](works/harness-engineering-intro-deck/)
+
+<p align="center"><sub>封面取自仓库自产的<a href="works/harness-engineering-intro-deck/">项目介绍 PPT + 海报</a>——open-kimi-ppt skill 生成，PPTD 源同仓可编辑</sub></p>
+
 ## 前言
 
 这是一个不断生长的学习项目。**Harness Engineering**（驭缰工程）是 OpenAI 在 2026 年 2 月提出的工程范式：工程师不再写代码，而是设计环境、明确意图、构建反馈回路，让 AI 智能体可靠地完成工作。

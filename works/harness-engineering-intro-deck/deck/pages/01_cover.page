@@ -1,0 +1,135 @@
+pageType: cover
+background:
+  type: solid
+  color: "$paper"
+notes: 封面。缰绳曲线从左下（人类）指向右上（智能体），标题与曲线共同构图。
+elements:
+  # 缰绳曲线：从人类锚点到智能体方向
+  - elementId: rein-curve
+    elementType: line
+    bounds: [0, 0, 960, 540]
+    viewBox: [960, 540]
+    points: "120,468 450,432 680,170 928,100"
+    curve: smooth
+    arrow: [null, stealth]
+    border: {style: solid, width: 3, color: "$accent"}
+
+  # 缰绳上的三个约束节点（约束系统的具象化）
+  - elementId: node-1
+    elementType: shape
+    bounds: [389, 382, 9, 9]
+    shapeName: ellipse
+    fill: {type: solid, color: "$accent"}
+  - elementId: node-1-label
+    elementType: text
+    bounds: [404, 390, 140, 14]
+    content: {fontSize: 10.5, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: "AGENTS.md"}
+  - elementId: node-2
+    elementType: shape
+    bounds: [550, 292, 9, 9]
+    shapeName: ellipse
+    fill: {type: solid, color: "$accent"}
+  - elementId: node-2-label
+    elementType: text
+    bounds: [566, 300, 140, 14]
+    content: {fontSize: 10.5, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 自定义 linter}
+  - elementId: node-3
+    elementType: shape
+    bounds: [702, 199, 9, 9]
+    shapeName: ellipse
+    fill: {type: solid, color: "$accent"}
+  - elementId: node-3-label
+    elementType: text
+    bounds: [718, 207, 130, 14]
+    content: {fontSize: 10.5, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: CI 反馈}
+
+  # 人类锚点
+  - elementId: anchor-dot
+    elementType: shape
+    bounds: [112, 460, 16, 16]
+    shapeName: ellipse
+    fill: {type: solid, color: "$ink"}
+
+  - elementId: anchor-label
+    elementType: text
+    bounds: [138, 461, 220, 15]
+    content:
+      style: "$caption"
+      wrap: false
+      text: 人类 · 设计约束，握住缰绳
+
+  - elementId: agent-label
+    elementType: text
+    bounds: [640, 70, 254, 15]
+    content:
+      style: "$caption"
+      align: [right, top]
+      wrap: false
+      text: 智能体 · 沿着约束交付
+
+  # 顶部 kicker
+  - elementId: kicker
+    elementType: text
+    bounds: [64, 84, 620, 18]
+    content:
+      style: "$kicker"
+      wrap: false
+      text: "HARNESS ENGINEERING · 学习档案"
+
+  # 主标题
+  - elementId: title
+    elementType: text
+    bounds: [58, 118, 620, 122]
+    content:
+      fontSize: 96
+      color: "$ink"
+      fontFamily: "得意黑"
+      wrap: false
+      text: 驭缰工程
+
+  # 副标题
+  - elementId: subtitle
+    elementType: text
+    bounds: [66, 252, 620, 24]
+    content:
+      fontSize: 16
+      color: "$steel"
+      fontFamily: {latin: "Liter", ea: "MiSans"}
+      wrap: false
+      text: 一座从概念理解到独立实践的深度学习档案
+
+  # 主张
+  - elementId: motto
+    elementType: text
+    bounds: [66, 316, 560, 42]
+    content:
+      fontSize: 26
+      color: "$ink"
+      fontFamily: "得意黑"
+      wrap: false
+      text: |
+        <p>人类掌舵，<span style="color:$accent">智能体执行</span>。</p>
+
+  # 页脚
+  - elementId: footer-rule
+    elementType: shape
+    bounds: [66, 496, 828, 1]
+    shapeName: rect
+    fill: {type: solid, color: "$hairline"}
+
+  - elementId: footer-left
+    elementType: text
+    bounds: [66, 506, 460, 15]
+    content:
+      style: "$caption"
+      wrap: false
+      text: github.com/deusyu/harness-engineering
+
+  - elementId: footer-right
+    elementType: text
+    bounds: [634, 506, 260, 15]
+    content:
+      style: "$caption"
+      align: [right, top]
+      wrap: false
+      text: 档案快照 · 2026-08

@@ -1,0 +1,224 @@
+pageType: content
+background:
+  type: solid
+  color: "$paper"
+notes: 六大核心概念，围绕中央缰绳环左右各三条，编号 01-06。
+elements:
+  - elementId: kicker
+    elementType: text
+    bounds: [66, 52, 400, 16]
+    content:
+      style: "$kicker"
+      wrap: false
+      text: "02 · 概念"
+
+  - elementId: title
+    elementType: text
+    bounds: [66, 76, 828, 40]
+    content:
+      style: "$title"
+      wrap: false
+      text: 六个概念，围成一条闭合的缰绳
+
+  - elementId: title-rule
+    elementType: shape
+    bounds: [66, 128, 828, 1]
+    shapeName: rect
+    fill: {type: solid, color: "$hairline"}
+
+  # 中央缰绳环
+  - elementId: loop
+    elementType: shape
+    bounds: [408, 168, 144, 288]
+    shapeName: ellipse
+    border: {style: solid, width: 2, color: "$accent"}
+
+  - elementId: loop-arrow
+    elementType: line
+    bounds: [462, 156, 44, 22]
+    viewBox: [44, 22]
+    points: "0,16 22,8 44,12"
+    curve: smooth
+    arrow: [null, stealth]
+    border: {style: solid, width: 2, color: "$accent"}
+
+  - elementId: loop-cn
+    elementType: text
+    bounds: [408, 288, 144, 30]
+    content:
+      fontSize: 21
+      color: "$ink"
+      fontFamily: "得意黑"
+      align: [center, middle]
+      wrap: false
+      text: 驭缰
+
+  - elementId: loop-en
+    elementType: text
+    bounds: [408, 322, 144, 14]
+    content:
+      fontSize: 10
+      color: "$faint"
+      letterSpacing: 3
+      fontFamily: "Liter"
+      align: [center, top]
+      wrap: false
+      text: HARNESS
+
+  # 条目 → 环节点的引导线
+  - elementId: link-1
+    elementType: line
+    bounds: [384, 186, 53, 12]
+    viewBox: [53, 12]
+    points: "0,6 53,6"
+    border: {style: solid, width: 1, color: "$faint"}
+  - elementId: link-2
+    elementType: line
+    bounds: [384, 306, 17, 12]
+    viewBox: [17, 12]
+    points: "0,6 17,6"
+    border: {style: solid, width: 1, color: "$faint"}
+  - elementId: link-3
+    elementType: line
+    bounds: [384, 426, 53, 12]
+    viewBox: [53, 12]
+    points: "0,6 53,6"
+    border: {style: solid, width: 1, color: "$faint"}
+  - elementId: link-4
+    elementType: line
+    bounds: [521, 186, 55, 12]
+    viewBox: [55, 12]
+    points: "0,6 55,6"
+    border: {style: solid, width: 1, color: "$faint"}
+  - elementId: link-5
+    elementType: line
+    bounds: [554, 306, 22, 12]
+    viewBox: [22, 12]
+    points: "0,6 22,6"
+    border: {style: solid, width: 1, color: "$faint"}
+  - elementId: link-6
+    elementType: line
+    bounds: [521, 426, 55, 12]
+    viewBox: [55, 12]
+    points: "0,6 55,6"
+    border: {style: solid, width: 1, color: "$faint"}
+
+  # 环上六个节点
+  - elementId: dot-1
+    elementType: shape
+    bounds: [439, 187, 10, 10]
+    shapeName: ellipse
+    fill: {type: solid, color: "$ink"}
+  - elementId: dot-2
+    elementType: shape
+    bounds: [403, 307, 10, 10]
+    shapeName: ellipse
+    fill: {type: solid, color: "$ink"}
+  - elementId: dot-3
+    elementType: shape
+    bounds: [439, 427, 10, 10]
+    shapeName: ellipse
+    fill: {type: solid, color: "$ink"}
+  - elementId: dot-4
+    elementType: shape
+    bounds: [511, 187, 10, 10]
+    shapeName: ellipse
+    fill: {type: solid, color: "$ink"}
+  - elementId: dot-5
+    elementType: shape
+    bounds: [547, 307, 10, 10]
+    shapeName: ellipse
+    fill: {type: solid, color: "$ink"}
+  - elementId: dot-6
+    elementType: shape
+    bounds: [511, 427, 10, 10]
+    shapeName: ellipse
+    fill: {type: solid, color: "$ink"}
+
+  # ── 左列（右对齐指向环）──
+  - elementId: c1-num
+    elementType: text
+    bounds: [66, 152, 310, 16]
+    content: {fontSize: 12, bold: true, color: "$accent", fontFamily: "得意黑", align: [right, top], wrap: false, text: "01"}
+  - elementId: c1-name
+    elementType: text
+    bounds: [66, 170, 310, 26]
+    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: "得意黑", align: [right, top], wrap: false, text: 仓库即记录系统}
+  - elementId: c1-desc
+    elementType: text
+    bounds: [66, 198, 310, 18]
+    content: {fontSize: 12, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, align: [right, top], wrap: false, text: 不在仓库里的东西，对智能体不存在}
+
+  - elementId: c2-num
+    elementType: text
+    bounds: [66, 272, 310, 16]
+    content: {fontSize: 12, bold: true, color: "$accent", fontFamily: "得意黑", align: [right, top], wrap: false, text: "02"}
+  - elementId: c2-name
+    elementType: text
+    bounds: [66, 290, 310, 26]
+    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: "得意黑", align: [right, top], wrap: false, text: 地图而非手册}
+  - elementId: c2-desc
+    elementType: text
+    bounds: [66, 318, 310, 18]
+    content: {fontSize: 12, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, align: [right, top], wrap: false, text: AGENTS.md 是目录页，不是百科全书}
+
+  - elementId: c3-num
+    elementType: text
+    bounds: [66, 392, 310, 16]
+    content: {fontSize: 12, bold: true, color: "$accent", fontFamily: "得意黑", align: [right, top], wrap: false, text: "03"}
+  - elementId: c3-name
+    elementType: text
+    bounds: [66, 410, 310, 26]
+    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: "得意黑", align: [right, top], wrap: false, text: 机械化执行}
+  - elementId: c3-desc
+    elementType: text
+    bounds: [66, 438, 310, 18]
+    content: {fontSize: 12, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, align: [right, top], wrap: false, text: 文档会腐烂，lint 规则不会}
+
+  # ── 右列（左对齐）──
+  - elementId: c4-num
+    elementType: text
+    bounds: [584, 152, 310, 16]
+    content: {fontSize: 12, bold: true, color: "$accent", fontFamily: "得意黑", wrap: false, text: "04"}
+  - elementId: c4-name
+    elementType: text
+    bounds: [584, 170, 310, 26]
+    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: "得意黑", wrap: false, text: 智能体可读性}
+  - elementId: c4-desc
+    elementType: text
+    bounds: [584, 198, 310, 18]
+    content: {fontSize: 12, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 优先为智能体的推理能力优化}
+
+  - elementId: c5-num
+    elementType: text
+    bounds: [584, 272, 310, 16]
+    content: {fontSize: 12, bold: true, color: "$accent", fontFamily: "得意黑", wrap: false, text: "05"}
+  - elementId: c5-name
+    elementType: text
+    bounds: [584, 290, 310, 26]
+    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: "得意黑", wrap: false, text: 吞吐量改变合并理念}
+  - elementId: c5-desc
+    elementType: text
+    bounds: [584, 318, 310, 18]
+    content: {fontSize: 12, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 纠错成本低，等待成本高}
+
+  - elementId: c6-num
+    elementType: text
+    bounds: [584, 392, 310, 16]
+    content: {fontSize: 12, bold: true, color: "$accent", fontFamily: "得意黑", wrap: false, text: "06"}
+  - elementId: c6-name
+    elementType: text
+    bounds: [584, 410, 310, 26]
+    content: {fontSize: 18, bold: true, color: "$ink", fontFamily: "得意黑", wrap: false, text: 熵管理 = 垃圾回收}
+  - elementId: c6-desc
+    elementType: text
+    bounds: [584, 438, 310, 18]
+    content: {fontSize: 12, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 技术债是高息贷款}
+
+  - elementId: foot
+    elementType: text
+    bounds: [66, 486, 828, 16]
+    content:
+      style: "$caption"
+      wrap: false
+      text: 逐条拆解见 concepts/ 目录（8 篇笔记：六大概念 + Fowler 控制论扩展 + 约束即产品）

@@ -1,0 +1,186 @@
+pageType: content
+background:
+  type: solid
+  color: "$paper"
+notes: 自指页：curate-research 流水线，人类闸门用竖闸复用第 7 页的门语法；下方三原则对位。
+elements:
+  - elementId: kicker
+    elementType: text
+    bounds: [66, 52, 400, 16]
+    content:
+      style: "$kicker"
+      wrap: false
+      text: "07 · 自指"
+
+  - elementId: title
+    elementType: text
+    bounds: [66, 76, 828, 40]
+    content:
+      style: "$title"
+      wrap: false
+      text: 这个仓库，开始策展自己了
+
+  - elementId: title-rule
+    elementType: shape
+    bounds: [66, 128, 828, 1]
+    shapeName: rect
+    fill: {type: solid, color: "$hairline"}
+
+  # ── curate-research 流水线 ──
+  - elementId: f-0
+    elementType: text
+    bounds: [66, 176, 84, 20]
+    content: {fontSize: 14, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 调研候选}
+
+  - elementId: f-a0
+    elementType: line
+    bounds: [156, 180, 30, 12]
+    viewBox: [30, 12]
+    points: "0,6 30,6"
+    arrow: [null, stealth]
+    border: {style: solid, width: 1.5, color: "$ink"}
+
+  - elementId: f-1
+    elementType: text
+    bounds: [194, 176, 56, 20]
+    content: {fontSize: 14, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 抓取}
+
+  - elementId: f-a1
+    elementType: line
+    bounds: [254, 180, 30, 12]
+    viewBox: [30, 12]
+    points: "0,6 30,6"
+    arrow: [null, stealth]
+    border: {style: solid, width: 1.5, color: "$ink"}
+
+  - elementId: f-2
+    elementType: text
+    bounds: [292, 176, 56, 20]
+    content: {fontSize: 14, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 翻译}
+
+  - elementId: f-a2
+    elementType: line
+    bounds: [352, 180, 30, 12]
+    viewBox: [30, 12]
+    points: "0,6 30,6"
+    arrow: [null, stealth]
+    border: {style: solid, width: 1.5, color: "$ink"}
+
+  - elementId: f-3
+    elementType: text
+    bounds: [390, 176, 150, 20]
+    content: {fontSize: 14, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 评审（并行 agent）}
+
+  - elementId: f-a3
+    elementType: line
+    bounds: [546, 180, 30, 12]
+    viewBox: [30, 12]
+    points: "0,6 30,6"
+    arrow: [null, stealth]
+    border: {style: solid, width: 1.5, color: "$ink"}
+
+  - elementId: gate
+    elementType: shape
+    bounds: [590, 150, 5, 74]
+    shapeName: rect
+    fill: {type: solid, color: "$accent"}
+
+  - elementId: gate-label
+    elementType: text
+    bounds: [540, 230, 106, 16]
+    content: {fontSize: 12, bold: true, color: "$accent", fontFamily: {latin: "Liter", ea: "MiSans"}, align: [center, top], wrap: false, text: 人类闸门}
+
+  - elementId: f-a4
+    elementType: line
+    bounds: [608, 180, 30, 12]
+    viewBox: [30, 12]
+    points: "0,6 30,6"
+    arrow: [null, stealth]
+    border: {style: solid, width: 1.5, color: "$ink"}
+
+  - elementId: f-4
+    elementType: text
+    bounds: [646, 176, 56, 20]
+    content: {fontSize: 14, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 收录}
+
+  - elementId: f-a5
+    elementType: line
+    bounds: [706, 180, 30, 12]
+    viewBox: [30, 12]
+    points: "0,6 30,6"
+    arrow: [null, stealth]
+    border: {style: solid, width: 1.5, color: "$ink"}
+
+  - elementId: f-5
+    elementType: text
+    bounds: [744, 176, 56, 20]
+    content: {fontSize: 14, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 清理}
+
+  # 机械护栏横杆
+  - elementId: rail
+    elementType: shape
+    bounds: [66, 262, 734, 1]
+    shapeName: rect
+    fill: {type: solid, color: "$hairline"}
+  - elementId: rail-tick-l
+    elementType: shape
+    bounds: [66, 254, 1, 9]
+    shapeName: rect
+    fill: {type: solid, color: "$faint"}
+  - elementId: rail-tick-r
+    elementType: shape
+    bounds: [799, 254, 1, 9]
+    shapeName: rect
+    fill: {type: solid, color: "$faint"}
+  - elementId: rail-label
+    elementType: text
+    bounds: [66, 270, 734, 15]
+    content:
+      fontSize: 11
+      color: "$faint"
+      fontFamily: {latin: "Liter", ea: "MiSans"}
+      align: [center, top]
+      wrap: false
+      text: C1–C13 机械护栏全程在位：每一步落盘都要过同一套一致性检查
+
+  # ── 三原则对位 ──
+  - elementId: m1-term
+    elementType: text
+    bounds: [66, 322, 150, 24]
+    content: {fontSize: 17, bold: true, color: "$ink", fontFamily: "得意黑", wrap: false, text: 人类掌舵}
+  - elementId: m1-desc
+    elementType: text
+    bounds: [240, 326, 654, 20]
+    content: {fontSize: 13, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 收不收进来，始终是一道人类闸门——评审只给证据，不替人做决定}
+
+  - elementId: m2-term
+    elementType: text
+    bounds: [66, 366, 150, 24]
+    content: {fontSize: 17, bold: true, color: "$ink", fontFamily: "得意黑", wrap: false, text: 智能体执行}
+  - elementId: m2-desc
+    elementType: text
+    bounds: [240, 370, 654, 20]
+    content: {fontSize: 13, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: 抓取、翻译、评审由并行 agent 在流水线里完成，反馈回路自动闭合}
+
+  - elementId: m3-term
+    elementType: text
+    bounds: [66, 410, 150, 24]
+    content: {fontSize: 17, bold: true, color: "$ink", fontFamily: "得意黑", wrap: false, text: 机械护栏}
+  - elementId: m3-desc
+    elementType: text
+    bounds: [240, 414, 654, 20]
+    content: {fontSize: 13, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, wrap: false, text: check-consistency.sh 的 C1–C13 守住计数与保真，不靠自觉靠脚本}
+
+  - elementId: foot-rule
+    elementType: shape
+    bounds: [66, 462, 828, 1]
+    shapeName: rect
+    fill: {type: solid, color: "$hairline"}
+
+  - elementId: foot
+    elementType: text
+    bounds: [66, 474, 828, 16]
+    content:
+      style: "$caption"
+      wrap: false
+      text: 流水线已固化为 skill：.claude/skills/curate-research —— 约束本身成了产品，见 concepts/07-spec-as-product.md

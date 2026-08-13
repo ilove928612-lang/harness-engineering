@@ -1,0 +1,256 @@
+pageType: content
+background:
+  type: solid
+  color: "$paper"
+notes: 范式转变：传统工程（灰、细）与驭缰工程（墨、粗、带反馈回路）上下对照。
+elements:
+  - elementId: kicker
+    elementType: text
+    bounds: [66, 52, 400, 16]
+    content:
+      style: "$kicker"
+      wrap: false
+      text: "01 · 范式"
+
+  - elementId: title
+    elementType: text
+    bounds: [66, 76, 828, 40]
+    content:
+      style: "$title"
+      wrap: false
+      text: 工程师的产出：从代码，变成约束系统
+
+  - elementId: title-rule
+    elementType: shape
+    bounds: [66, 128, 828, 1]
+    shapeName: rect
+    fill: {type: solid, color: "$hairline"}
+
+  # ── 传统工程（灰行）──
+  - elementId: trad-label
+    elementType: text
+    bounds: [66, 172, 110, 20]
+    content:
+      fontSize: 14
+      bold: true
+      color: "$faint"
+      fontFamily: {latin: "Liter", ea: "MiSans"}
+      wrap: false
+      text: 传统工程
+
+  - elementId: trad-n1
+    elementType: shape
+    bounds: [230, 160, 96, 40]
+    shapeName: rect
+    border: {style: solid, width: 1, color: "$faint"}
+
+  - elementId: trad-n1-t
+    elementType: text
+    bounds: [230, 160, 96, 40]
+    content: {fontSize: 14, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, align: [center, middle], wrap: false, text: 人类}
+
+  - elementId: trad-a1
+    elementType: line
+    bounds: [334, 174, 96, 12]
+    viewBox: [96, 12]
+    points: "0,6 96,6"
+    arrow: [null, stealth]
+    border: {style: solid, width: 1, color: "$faint"}
+
+  - elementId: trad-a1-t
+    elementType: text
+    bounds: [334, 148, 96, 14]
+    content: {fontSize: 11, color: "$faint", fontFamily: {latin: "Liter", ea: "MiSans"}, align: [center, top], wrap: false, text: 写代码}
+
+  - elementId: trad-n2
+    elementType: shape
+    bounds: [438, 160, 96, 40]
+    shapeName: rect
+    border: {style: solid, width: 1, color: "$faint"}
+
+  - elementId: trad-n2-t
+    elementType: text
+    bounds: [438, 160, 96, 40]
+    content: {fontSize: 14, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, align: [center, middle], wrap: false, text: 代码}
+
+  - elementId: trad-a2
+    elementType: line
+    bounds: [542, 174, 96, 12]
+    viewBox: [96, 12]
+    points: "0,6 96,6"
+    arrow: [null, stealth]
+    border: {style: solid, width: 1, color: "$faint"}
+
+  - elementId: trad-a2-t
+    elementType: text
+    bounds: [542, 148, 96, 14]
+    content: {fontSize: 11, color: "$faint", fontFamily: {latin: "Liter", ea: "MiSans"}, align: [center, top], wrap: false, text: 执行}
+
+  - elementId: trad-n3
+    elementType: shape
+    bounds: [646, 160, 96, 40]
+    shapeName: rect
+    border: {style: solid, width: 1, color: "$faint"}
+
+  - elementId: trad-n3-t
+    elementType: text
+    bounds: [646, 160, 96, 40]
+    content: {fontSize: 14, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, align: [center, middle], wrap: false, text: 机器}
+
+  # ── 驭缰工程（墨行）──
+  - elementId: he-label
+    elementType: text
+    bounds: [66, 282, 110, 20]
+    content:
+      fontSize: 14
+      bold: true
+      color: "$accent"
+      fontFamily: {latin: "Liter", ea: "MiSans"}
+      wrap: false
+      text: 驭缰工程
+
+  - elementId: he-n1
+    elementType: shape
+    bounds: [186, 268, 84, 48]
+    shapeName: rect
+    border: {style: solid, width: 1.5, color: "$ink"}
+
+  - elementId: he-n1-t
+    elementType: text
+    bounds: [186, 268, 84, 48]
+    content: {fontSize: 15, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "MiSans"}, align: [center, middle], wrap: false, text: 人类}
+
+  - elementId: he-a1
+    elementType: line
+    bounds: [276, 286, 56, 12]
+    viewBox: [56, 12]
+    points: "0,6 56,6"
+    arrow: [null, stealth]
+    border: {style: solid, width: 1.5, color: "$ink"}
+
+  - elementId: he-a1-t
+    elementType: text
+    bounds: [252, 246, 104, 14]
+    content: {fontSize: 11, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, align: [center, top], wrap: false, text: 设计约束}
+
+  - elementId: he-n2
+    elementType: shape
+    bounds: [338, 258, 168, 68]
+    shapeName: rect
+    border: {style: solid, width: 2.5, color: "$accent"}
+
+  - elementId: he-n2-t
+    elementType: text
+    bounds: [338, 264, 168, 30]
+    content: {fontSize: 17, bold: true, color: "$accent", fontFamily: "得意黑", align: [center, middle], wrap: false, text: 约束系统}
+
+  - elementId: he-n2-sub
+    elementType: text
+    bounds: [338, 296, 168, 26]
+    content: {fontSize: 10, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, align: [center, top], lineHeight: 1.3, text: "AGENTS.md · 架构规则<br/>自定义 linter · 反馈回路"}
+
+  - elementId: he-a2
+    elementType: line
+    bounds: [512, 286, 56, 12]
+    viewBox: [56, 12]
+    points: "0,6 56,6"
+    arrow: [null, stealth]
+    border: {style: solid, width: 1.5, color: "$ink"}
+
+  - elementId: he-a2-t
+    elementType: text
+    bounds: [488, 246, 104, 14]
+    content: {fontSize: 11, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, align: [center, top], wrap: false, text: 指导}
+
+  - elementId: he-n3
+    elementType: shape
+    bounds: [574, 268, 92, 48]
+    shapeName: rect
+    border: {style: solid, width: 1.5, color: "$ink"}
+
+  - elementId: he-n3-t
+    elementType: text
+    bounds: [574, 268, 92, 48]
+    content: {fontSize: 15, bold: true, color: "$ink", fontFamily: {latin: "Liter", ea: "MiSans"}, align: [center, middle], wrap: false, text: 智能体}
+
+  - elementId: he-a3
+    elementType: line
+    bounds: [672, 286, 48, 12]
+    viewBox: [48, 12]
+    points: "0,6 48,6"
+    arrow: [null, stealth]
+    border: {style: solid, width: 1.5, color: "$ink"}
+
+  - elementId: he-a3-t
+    elementType: text
+    bounds: [648, 246, 96, 14]
+    content: {fontSize: 11, color: "$steel", fontFamily: {latin: "Liter", ea: "MiSans"}, align: [center, top], wrap: false, text: 写代码}
+
+  - elementId: he-n4
+    elementType: shape
+    bounds: [726, 268, 72, 48]
+    shapeName: rect
+    border: {style: solid, width: 1.5, color: "$ink"}
+
+  - elementId: he-n4-t
+    elementType: text
+    bounds: [726, 268, 72, 48]
+    content: {fontSize: 15, color: "$ink", fontFamily: {latin: "Liter", ea: "MiSans"}, align: [center, middle], wrap: false, text: 代码}
+
+  - elementId: he-a4
+    elementType: line
+    bounds: [804, 286, 28, 12]
+    viewBox: [28, 12]
+    points: "0,6 28,6"
+    arrow: [null, stealth]
+    border: {style: solid, width: 1.5, color: "$ink"}
+
+  - elementId: he-n5-box
+    elementType: shape
+    bounds: [838, 268, 56, 48]
+    shapeName: rect
+    border: {style: solid, width: 1.5, color: "$ink"}
+
+  - elementId: he-n5
+    elementType: text
+    bounds: [838, 268, 56, 48]
+    content: {fontSize: 15, color: "$ink", fontFamily: {latin: "Liter", ea: "MiSans"}, align: [center, middle], wrap: false, text: 机器}
+
+  # 反馈回路：从代码/机器折返约束系统
+  - elementId: fb-loop
+    elementType: line
+    bounds: [430, 336, 400, 66]
+    viewBox: [400, 66]
+    points: "390,0 360,58 60,58 32,14"
+    curve: smooth
+    arrow: [null, stealth]
+    border: {style: solid, width: 1.5, color: "$accent"}
+
+  - elementId: fb-label
+    elementType: text
+    bounds: [470, 404, 320, 15]
+    content:
+      fontSize: 11
+      color: "$accent"
+      fontFamily: {latin: "Liter", ea: "MiSans"}
+      align: [center, top]
+      wrap: false
+      text: 反馈回路 · lint / 测试 / CI 信号回流约束
+
+  # 底部定义与来源
+  - elementId: def-rule
+    elementType: shape
+    bounds: [66, 442, 828, 1]
+    shapeName: rect
+    fill: {type: solid, color: "$hairline"}
+
+  - elementId: definition
+    elementType: text
+    bounds: [66, 454, 828, 36]
+    content:
+      style: "$body"
+      fontSize: 12.5
+      color: "$steel"
+      text: |
+        <p>Harness Engineering（驭缰工程）：OpenAI 于 2026 年 2 月提出的工程范式——工程师设计环境、明确意图、构建反馈回路，让智能体可靠地完成工作。</p>
+        <p>来源：<a href="https://openai.com/zh-Hans-CN/index/harness-engineering/">OpenAI — Harness Engineering: Harnessing Codex in an Agent-First World</a></p>

@@ -1,0 +1,32 @@
+version: v2
+title: 驭缰工程 · 学习档案海报
+size: [720, 960]
+theme:
+  colors:
+    paper: "#F5F1E8"
+    ink: "#1F1C17"
+    accent: "#C2481D"
+    steel: "#6E675B"
+    faint: "#98907F"
+    hairline: "#DCD5C6"
+    dark: "#26221C"
+    paperdim: "#B4AA97"
+  textStyles:
+    kicker:
+      fontSize: 12
+      color: "$accent"
+      bold: true
+      letterSpacing: 4
+      fontFamily: {latin: "Liter", ea: "MiSans"}
+    body:
+      fontSize: 12
+      color: "$ink"
+      lineHeight: 1.5
+      fontFamily: {latin: "Liter", ea: "MiSans"}
+    caption:
+      fontSize: 10.5
+      color: "$faint"
+      lineHeight: 1.4
+      fontFamily: {latin: "Liter", ea: "MiSans"}
+pages:
+  - pages/01_poster.page
