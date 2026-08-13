@@ -18,7 +18,7 @@ REPO="$(cd "$(dirname "$0")/.." && pwd)"
 APPLY=0
 [ "${1:-}" = "--apply" ] && APPLY=1
 
-SKILLS=("curate-research" "harness-workflow")
+SKILLS=("curate-research" "harness-workflow" "workflow-loop")
 
 # 端名 | 目标目录 | 说明
 TARGETS=(
@@ -33,6 +33,7 @@ echo "=== harness skill → 5 端分发 ($([ $APPLY -eq 1 ] && echo APPLY || ech
 for skill in "${SKILLS[@]}"; do
   src="$REPO/.claude/skills/$skill"
   [ -d "$src" ] || src="$REPO/scaffold/$skill"
+  [ -d "$src" ] || src="$REPO/practice/02-workflow-loop-routing"
   [ -d "$src" ] || { echo "✗ 源 skill 不存在: $skill"; continue; }
   echo "--- $skill (源: $src) ---"
   for entry in "${TARGETS[@]}"; do
