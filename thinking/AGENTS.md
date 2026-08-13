@@ -24,6 +24,7 @@
 | [why-this-project-exists.md](why-this-project-exists.md) | 为什么有这个项目 | 项目宗旨：把 Harness Engineering 从"概念集合"变成"可复刻的产品构建方法论"——借用《诡秘之主》"学徒途径"隐喻 |
 | [fix-the-process-not-the-code.md](fix-the-process-not-the-code.md) | 修流程，不修代码 | Bun 重写案例对照 #36/#49/#55：工程师的交付物是生成过程本身；测试套件与实现语言正交是 Harnessability 新维度；验证器完备度决定成本曲线 |
 | [se-to-agent-engineering-mapping.md](se-to-agent-engineering-mapping.md) | 传统 SE ↔ Agent 工程对照表 | 15 行同构映射的三处修正：右列主语混三层（①人对 agent ②agent 自身 ③人对系统）、补熵管理/并发合并/持久会话三行、版本钉选风险倒置与评估地位跃迁；每个模型代际重审一遍，纹丝不动的子集才是学科骨架 |
+| [infrastructure-noise-as-harness-spec.md](infrastructure-noise-as-harness-spec.md) | 基础设施噪声作为 Harness 规格 | #59 对架构的五点启示：INFRA.md 应成为一等公民、3x 折中点作为资源校准启发式、资源配额是价值观锁定、运行时污染资源侧补全、时间维度噪声；三开放问题 + 与六大概念/八关联文章的交叉索引 |
 
 ## 写作方向参考
 
